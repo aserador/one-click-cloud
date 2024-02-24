@@ -31,7 +31,7 @@ const BuildPage = () => {
         <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2 w-1/2 sm:w-2/3 md:w-1/2 lg:w-1/3">
           <DescriptionBar input={input} setInput={setInput} handleSend={handleSend} />
         </div>
-        <div className="mt-4">
+        <div className="mt-4 text-white">
             {output}
         </div>
       </div>
