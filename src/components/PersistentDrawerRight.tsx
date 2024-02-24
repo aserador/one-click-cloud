@@ -9,8 +9,13 @@ import IconButton from "@mui/material/IconButton";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { useSelector } from "react-redux";
-import { getIsOpen, setIsOpen } from "@/redux/persistentDrawerRightSlice";
+import {
+  getFocusedNode,
+  getIsOpen,
+  setIsOpen,
+} from "@/redux/persistentDrawerRightSlice";
 import { store } from "@/redux/store";
+import StratusCheckbox from "../components/StratusCheckbox";
 
 const DRAWER_WIDTH = "25%";
 const DRAWER_MIN_WIDTH = 240;
@@ -26,8 +31,15 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 
 const PersistentDrawerRight = () => {
   const theme = useTheme();
-
   const isOpen = useSelector(getIsOpen);
+  const focusedNode = useSelector(getFocusedNode);
+
+  const settings: any = [];
+  for (const [key, value] of Object.entries(focusedNode.settings)) {
+    if (value == "boolean") {
+      settings.push(<StratusCheckbox label={key} />);
+    }
+  }
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -57,38 +69,17 @@ const PersistentDrawerRight = () => {
             )}
           </IconButton>
         </DrawerHeader>
+        <div className="p-4">
+          <Typography variant="h4">{focusedNode?.name ?? "[None]"}</Typography>
+          <Divider />
+          <div className="pt-4">
+            <Typography variant="body1">
+              {focusedNode?.description ?? "[None]"}
+            </Typography>
+          </div>
+        </div>
         <Divider />
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
-          dolor purus non enim praesent elementum facilisis leo vel. Risus at
-          ultrices mi tempus imperdiet. Semper risus in hendrerit gravida rutrum
-          quisque non tellus. Convallis convallis tellus id interdum velit
-          laoreet id donec ultrices. Odio morbi quis commodo odio aenean sed
-          adipiscing. Amet nisl suscipit adipiscing bibendum est ultricies
-          integer quis. Cursus euismod quis viverra nibh cras. Metus vulputate
-          eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo
-          quis imperdiet massa tincidunt. Cras tincidunt lobortis feugiat
-          vivamus at augue. At augue eget arcu dictum varius duis at consectetur
-          lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa sapien
-          faucibus et molestie ac.
-        </Typography>
-        <Divider />
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
-          dolor purus non enim praesent elementum facilisis leo vel. Risus at
-          ultrices mi tempus imperdiet. Semper risus in hendrerit gravida rutrum
-          quisque non tellus. Convallis convallis tellus id interdum velit
-          laoreet id donec ultrices. Odio morbi quis commodo odio aenean sed
-          adipiscing. Amet nisl suscipit adipiscing bibendum est ultricies
-          integer quis. Cursus euismod quis viverra nibh cras. Metus vulputate
-          eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo
-          quis imperdiet massa tincidunt. Cras tincidunt lobortis feugiat
-          vivamus at augue. At augue eget arcu dictum varius duis at consectetur
-          lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa sapien
-          faucibus et molestie ac.
-        </Typography>
+        {settings}
       </Drawer>
     </Box>
   );
