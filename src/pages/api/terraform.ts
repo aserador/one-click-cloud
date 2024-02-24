@@ -176,7 +176,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       region: 'us-east-2'
     });
 
-    const data = req.body
+    const data = JSON.parse(req.body)
     console.log(data)
 
     var folder_name = 'tf_test_folder'
