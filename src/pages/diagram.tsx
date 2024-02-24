@@ -12,6 +12,7 @@ const DiagramPage = () => {
 
   useEffect(() => {
     const option = router.query.option;
+    console.log(option);
     if (option) {
       store.dispatch(setAwsServiceFilter({AWSServiceFilter: ARCHITECTURES[Number(option)].services}))
     }
