@@ -47,6 +47,7 @@ export const persistentDrawerRightSlice = createSlice({
       const index = state.AWSServices.findIndex(
         (service) => service.id === action.payload.focusedNode.id
       );
+      state.focusedNode = action.payload.focusedNode;
       state.AWSServices[index] = action.payload.focusedNode;
     },
   },
