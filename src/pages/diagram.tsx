@@ -13,7 +13,7 @@ const DiagramPage = () => {
 
   useEffect(() => {
     const option = router.query.option;
-
+    
     if (option !== undefined && option !== null) {
       setFilter(ARCHITECTURES[Number(option)].services);
     }
