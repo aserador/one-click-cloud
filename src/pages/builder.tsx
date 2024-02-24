@@ -17,7 +17,7 @@ const BuildPage = () => {
     const data = await response.json();
 
     setOutput(JSON.stringify({ 
-      serviceIndexChosen: data.serviceIndexChosen, 
+      archIndexes: data.archIndexes, 
       shortExplanationWhy: data.shortExplanationWhy 
     }));
   };
