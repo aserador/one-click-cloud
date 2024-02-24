@@ -10,9 +10,14 @@ const DiagramPage = () => {
       <Graph />
       <StratusButton
         onClick={() => {
-          store
-            .getState()
-            .persistentDrawerRight.AWSServices.filter((s) => !s?.disabled);
+          sessionStorage.setItem(
+            "graph",
+            JSON.stringify(
+              store
+                .getState()
+                .persistentDrawerRight.AWSServices.filter((s) => !s?.disabled)
+            )
+          );
         }}
       />
     </div>

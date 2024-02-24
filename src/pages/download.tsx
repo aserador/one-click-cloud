@@ -14,7 +14,21 @@ export default function TerraformConfigPage() {
   const [terraformURL, setTerraformURL] = useState('');
 
   useEffect(() => {
-    fetch('/api/terraform')
+    const data = sessionStorage.getItem('graph');
+
+    if (!data) {
+      alert('No data found');
+    }
+
+    const body = JSON.parse(data!);
+
+    fetch('/api/terraform', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: body,
+    })
       .then(response => response.json())
       .then(data => setTerraformURL(downloadTerraformFile(data.terraformConfig)));
   }, []);
