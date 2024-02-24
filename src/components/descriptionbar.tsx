@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 
 type DescriptionBarProps = {
-  input: any;
+  input: string;
   setInput: React.Dispatch<React.SetStateAction<string>>;
   handleSend: () => Promise<void>;
 };

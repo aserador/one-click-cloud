@@ -35,7 +35,7 @@ export default async function handler(
     return res.status(400).json({ error: "User input too long" });
   }
 
-  const servicesPath = path.join(
+  const archPath = path.join(
     __dirname,
     "../../../../templates/services.json"
   );
@@ -44,24 +44,24 @@ export default async function handler(
     "../../../../templates/architectures.json"
   );
 
-  const awsServices = JSON.parse(
-    fs.readFileSync(servicesPath, "utf8")
+  const cloudServices = JSON.parse(
+    fs.readFileSync(archPath, "utf8")
   ) as Service[];
-  const serviceOptions = Object.values(
+  const archOptions = Object.values(
     JSON.parse(fs.readFileSync(archOptionsPath, "utf8")) as {
       [key: string]: ArchitectureOption;
     }
   );
 
-  let archString = "Service Options:\n";
-  for (let i = 0; i < serviceOptions.length; i++) {
-    archString += `${i + 1}. ${serviceOptions[i].name}\n`;
+  let archString = "Architecture Options:\n";
+  for (let i = 0; i < archOptions.length; i++) {
+    archString += `${i + 1}. ${archOptions[i].name}\n`;
   }
 
-  let servicesString = "AWS Services:\n";
-  for (let i = 0; i < awsServices.length; i++) {
-    servicesString += `${i + 1}. ${awsServices[i].name}, Description: ${
-      awsServices[i].description
+  let servicesString = "Cloud Services:\n";
+  for (let i = 0; i < cloudServices.length; i++) {
+    servicesString += `${i + 1}. ${cloudServices[i].name}, Description: ${
+      cloudServices[i].description
     }\n`;
   }
 
@@ -80,7 +80,7 @@ export default async function handler(
       },
       {
         role: "user",
-        content: `\nThe project is about: ${userInput}\n Select the best Cloud service options from the ones listed above.`,
+        content: `\nThe project is about: ${userInput}\n Select the best Cloud service options (each separate from each other) from the ones listed above (Maximum 3)`,
       },
     ],
     model: "gpt-3.5-turbo",
