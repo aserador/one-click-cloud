@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import DescriptionBar from '../components/descriptionbar'; 
 
 const BuildPage = () => {
   const [input, setInput] = useState('');
   const [output, setOutput] = useState('');
+  const router = useRouter();
 
   const handleSend = async () => {
     const response = await fetch('/api/gpthandler', {
@@ -17,9 +19,15 @@ const BuildPage = () => {
     const data = await response.json();
 
     setOutput(JSON.stringify({ 
-      archIndexes: data.archIndexes, 
-      shortExplanationWhy: data.shortExplanationWhy 
+      archIndexes: data.archIndexes,
     }));
+
+    // Redirect to the options page with the architecture indices as query parameters
+    await router.push({
+      pathname: '/options',
+      query: { indices: data.archIndexes },
+    });
+    router.replace('/options');
   };
 
   return (
@@ -32,7 +40,7 @@ const BuildPage = () => {
           <DescriptionBar input={input} setInput={setInput} handleSend={handleSend} />
         </div>
         <div className="mt-4 text-white">
-            {output}
+          {output}
         </div>
       </div>
     </div>
