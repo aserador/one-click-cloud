@@ -7,7 +7,7 @@ import "../styles/globals.css";
 
 function StratusApp({ Component, pageProps }: AppProps) {
   return (
-    <div className="bg-black min-h-screen text-white">
+    <div className="bg-black min-h-screen">
       <Provider store={store}>
         <Head>
           <title>Stratus</title>
