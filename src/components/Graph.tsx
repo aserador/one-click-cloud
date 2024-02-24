@@ -18,10 +18,14 @@ import "reactflow/dist/style.css";
 
 // This is dangerous, but it's a quick fix for now
 const initialNodes = AWS_SERVICES.map((service, index) => {
-  const offset = 100 * index;
+
+  // Hack offset to make the graph look better
+  const offsetX = 300 * (index + 1);
+  const offsetY = 100 * (index + 1);
+
   return {
     id: index.toString(),
-    position: { x: offset, y: offset },
+    position: { x: offsetX, y: offsetY },
     data: { label: service.name, ...service },
   };
 });
@@ -50,7 +54,7 @@ const Graph = () => {
           store.dispatch(setFocusedNode({ focusedNode: node.data }));
         }}
       >
-        <Controls />
+        <Controls className="absolute top-0 left-8" />
         <Background variant={BackgroundVariant.Dots} gap={12} size={1} />
       </ReactFlow>
     </div>

@@ -35,9 +35,12 @@ const PersistentDrawerRight = () => {
   const focusedNode = useSelector(getFocusedNode);
 
   const settings: any = [];
-  for (const [key, value] of Object.entries(focusedNode.settings)) {
-    if (value == "boolean") {
-      settings.push(<StratusCheckbox label={key} />);
+
+  if (focusedNode?.settings) {
+    for (const [key, value] of Object.entries(focusedNode.settings)) {
+      if (value == "boolean") {
+        settings.push(<StratusCheckbox label={key} />);
+      }
     }
   }
 
