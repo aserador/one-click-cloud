@@ -15,3 +15,7 @@ export interface IPersistentDrawerSetAwsServices extends PayloadArgs {
 export interface IPersistentDrawerSetAwsServiceProperty extends PayloadArgs {
   focusedNode: any;
 }
+
+export interface IPersistentDrawerSetAwsServiceFilter extends PayloadArgs {
+  AWSServiceFilter: number[];
+}

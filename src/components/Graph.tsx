@@ -2,6 +2,7 @@ import {
   setIsOpen,
   setFocusedNode,
   getAwsServices,
+  getAwsServicesFilter
 } from "@/redux/persistentDrawerRightSlice";
 import { store } from "@/redux/store";
 import { useCallback, useEffect } from "react";
@@ -20,17 +21,17 @@ import "reactflow/dist/style.css";
 
 
 const Graph = () => {
-  const awServices = useSelector(getAwsServices);
 
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
 
   const awsServices = useSelector(getAwsServices);
+  const awsServicesFilter = useSelector(getAwsServicesFilter);
 
   useEffect(() => {
     setNodes(
-      awServices
-        .filter((service) => !service.disabled)
+      awsServices
+        .filter((service) => !service.disabled && service.id in awsServicesFilter)
         .map((s, index) => {
           // Hack offset to make the graph look better
           const offsetX = 300 * (index + 1);

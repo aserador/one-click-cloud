@@ -3,6 +3,7 @@ import { RootState } from "./store";
 import {
   IPersistentDrawerFocusedNode,
   IPersistentDrawerIsOpen,
+  IPersistentDrawerSetAwsServiceFilter,
   IPersistentDrawerSetAwsServiceProperty,
   IPersistentDrawerSetAwsServices,
 } from "./payload";
@@ -12,6 +13,7 @@ export type PersistentDrawerRightState = {
   isOpen: boolean;
   focusedNode: any;
   AWSServices: Array<any>;
+  AWSServiceFilter: number[];
 };
 
 export const persistentDrawerRightSlice = createSlice({
@@ -20,6 +22,7 @@ export const persistentDrawerRightSlice = createSlice({
     isOpen: false,
     focusedNode: null as any,
     AWSServices: [] as Array<any>,
+    AWSServiceFilter: [] as number[],
   },
   reducers: {
     setIsOpen: (
@@ -50,6 +53,12 @@ export const persistentDrawerRightSlice = createSlice({
       state.focusedNode = action.payload.focusedNode;
       state.AWSServices[index] = action.payload.focusedNode;
     },
+    setAwsServiceFilter: (
+      state: PersistentDrawerRightState,
+      action: PayloadAction<IPersistentDrawerSetAwsServiceFilter>
+    ) => {
+      state.AWSServiceFilter = action.payload.AWSServiceFilter;
+    },
   },
   extraReducers: () => {},
 });
@@ -59,6 +68,7 @@ export const {
   setFocusedNode,
   setAwsServices,
   setAwsServiceProperty,
+  setAwsServiceFilter,
 } = persistentDrawerRightSlice.actions;
 
 export const getIsOpen = (state: RootState) =>
@@ -69,5 +79,8 @@ export const getFocusedNode = (state: RootState) =>
 
 export const getAwsServices = (state: RootState) =>
   state.persistentDrawerRight.AWSServices;
+
+export const getAwsServicesFilter = (state: RootState) =>
+  state.persistentDrawerRight.AWSServiceFilter;
 
 export const persistentDrawerRightReducer = persistentDrawerRightSlice.reducer;

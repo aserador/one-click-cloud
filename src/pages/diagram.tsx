@@ -4,16 +4,16 @@ import StratusButton from "@/components/StratusButton";
 import { store } from "@/redux/store";
 import { useRouter } from "next/router";
 import { ARCHITECTURES } from "../../templates/architectures";
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { setAwsServiceFilter } from "@/redux/persistentDrawerRightSlice";
 
 const DiagramPage = () => {
   const router = useRouter();
-  const [architectureIndex, setArchitectureIndex] = useState(-1);
 
   useEffect(() => {
     const option = router.query.option;
     if (option) {
-      setArchitectureIndex(Number(option));
+      store.dispatch(setAwsServiceFilter({AWSServiceFilter: ARCHITECTURES[Number(option)].services}))
     }
   }, [router.query]);
 
