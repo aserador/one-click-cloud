@@ -20,14 +20,14 @@ export default function TerraformConfigPage() {
       alert('No data found');
     }
 
-    const body = JSON.parse(data!);
+    console.log(data)
 
     fetch('/api/terraform', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: body,
+      body: data,
     })
       .then(response => response.json())
       .then(data => setTerraformURL(downloadTerraformFile(data.terraformConfig)));
@@ -40,7 +40,7 @@ export default function TerraformConfigPage() {
           Welcome to <a className="text-blue-600" href="#">Stratus</a>
         </h1>
 
-        <a href={terraformURL} download="main.tf">Download Terraform file</a>
+        <a href={terraformURL} download="main.tf" className="text-white">Download Terraform file</a>
 
     </main>
 

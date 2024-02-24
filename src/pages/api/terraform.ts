@@ -170,13 +170,14 @@ function cloudFrontHosting(bucket_name: string, cloudfront_name: string) {
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
 
+  console.log(req.method)
   if (req.method == 'POST') {
     const tfg = new TerraformGenerator({});
     tfg.provider('aws', {
       region: 'us-east-2'
     });
 
-    const data = JSON.parse(req.body)
+    const data = req.body
     console.log(data)
 
     var folder_name = 'tf_test_folder'
@@ -189,12 +190,13 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
         folder_name = component.questions[1].value
         bucket_name = component.questions[0].value
 
+        console.log(component.questions)
         var s3_tfg = s3generator(folder_name, bucket_name)
         var s3hosting_tfg = s3hosting(bucket_name)
         tfg.merge(s3_tfg, s3hosting_tfg)
       }
       else if (component.name == "CloudFront") {
-        cloudfront_name = component.questions[0].value
+        // cloudfront_name = component.questions[0].value
         var cloudfront_tfg = cloudFrontHosting(bucket_name, cloudfront_name)
         tfg.merge(cloudfront_tfg)
       }
