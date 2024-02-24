@@ -1,4 +1,4 @@
-import { setIsOpen } from "@/redux/persistentDrawerRightSlice";
+import { setIsOpen, setFocusedNode } from "@/redux/persistentDrawerRightSlice";
 import { store } from "@/redux/store";
 import { useCallback } from "react";
 import ReactFlow, {
@@ -50,11 +50,12 @@ const Graph = () => {
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
         onNodeClick={(event: any, node: any) => {
+
           store.dispatch(setIsOpen({ isOpen: true }));
           store.dispatch(setFocusedNode({ focusedNode: node.data }));
         }}
       >
-        <Controls />
+        <Controls className="absolute top-0 left-8" />
         <Background variant={BackgroundVariant.Dots} gap={12} size={1} />
       </ReactFlow>
     </div>
