@@ -17,7 +17,7 @@ import {
 import "reactflow/dist/style.css";
 
 // This is dangerous, but it's a quick fix for now
-const initialNodes = AWS_SERVICES.map((service, index) => {
+const initialNodes = AWS_SERVICES.filter((service) => !service.disabled).map((s, index) => {
 
   // Hack offset to make the graph look better
   const offsetX = 300 * (index + 1);
@@ -26,7 +26,7 @@ const initialNodes = AWS_SERVICES.map((service, index) => {
   return {
     id: index.toString(),
     position: { x: offsetX, y: offsetY },
-    data: { label: service.name, ...service },
+    data: { label: s.name, ...s },
   };
 });
 
