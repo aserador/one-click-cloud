@@ -1,6 +1,10 @@
-import { setIsOpen, setFocusedNode } from "@/redux/persistentDrawerRightSlice";
+import {
+  setIsOpen,
+  setFocusedNode,
+  getAwsServices,
+} from "@/redux/persistentDrawerRightSlice";
 import { store } from "@/redux/store";
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import ReactFlow, {
   Background,
   BackgroundVariant,
@@ -9,35 +13,41 @@ import ReactFlow, {
   useEdgesState,
   useNodesState,
 } from "reactflow";
+import { useSelector } from "react-redux";
+import { AWS_SERVICES_CONNECTIONS } from "../../templates/aws_services.js";
 
-import {
-  AWS_SERVICES,
-  AWS_SERVICES_CONNECTIONS,
-} from "../../templates/aws_services.js";
 import "reactflow/dist/style.css";
 
-// This is dangerous, but it's a quick fix for now
-const initialNodes = AWS_SERVICES.map((service, index) => {
-
-  // Hack offset to make the graph look better
-  const offsetX = 300 * (index + 1);
-  const offsetY = 100 * (index + 1);
-
-  return {
-    id: index.toString(),
-    position: { x: offsetX, y: offsetY },
-    data: { label: service.name, ...service },
-  };
-});
 
 const Graph = () => {
-  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
-  const [edges, setEdges, onEdgesChange] = useEdgesState(
-    AWS_SERVICES_CONNECTIONS
-  );
+  const awServices = useSelector(getAwsServices);
+
+  const [nodes, setNodes, onNodesChange] = useNodesState([]);
+  const [edges, setEdges, onEdgesChange] = useEdgesState([]);
+
+  useEffect(() => {
+    setNodes(
+      awServices
+        .filter((service) => !service.disabled)
+        .map((s, index) => {
+          // Hack offset to make the graph look better
+          const offsetX = 300 * (index + 1);
+          const offsetY = 100 * (index + 1);
+
+          return {
+            id: index.toString(),
+            position: { x: offsetX, y: offsetY },
+            data: { label: s.name, ...s },
+          };
+        })
+    );
+
+    // TODO: read from redux store
+    setEdges(AWS_SERVICES_CONNECTIONS);
+  }, []);
 
   const onConnect = useCallback(
-    (params: any) => setEdges((eds) => addEdge(params, eds)),
+    (params: any) => setEdges((eds: any) => addEdge(params, eds)),
     [setEdges]
   );
 
@@ -49,7 +59,8 @@ const Graph = () => {
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
-        onNodeClick={(event, node) => {
+        onNodeClick={(event: any, node: any) => {
+
           store.dispatch(setIsOpen({ isOpen: true }));
           store.dispatch(setFocusedNode({ focusedNode: node.data }));
         }}

@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { OpenAI } from "openai";
-import fs from "fs";
-import path from "path";
+import { SERVICES } from "../../../templates/services";
+import { ARCHITECTURES } from "../../../templates/architectures";
 
 interface Service {
   name: string;
@@ -35,23 +35,8 @@ export default async function handler(
     return res.status(400).json({ error: "User input too long" });
   }
 
-  const archPath = path.join(
-    __dirname,
-    "../../../../templates/services.json"
-  );
-  const archOptionsPath = path.join(
-    __dirname,
-    "../../../../templates/architectures.json"
-  );
-
-  const cloudServices = JSON.parse(
-    fs.readFileSync(archPath, "utf8")
-  ) as Service[];
-  const archOptions = Object.values(
-    JSON.parse(fs.readFileSync(archOptionsPath, "utf8")) as {
-      [key: string]: ArchitectureOption;
-    }
-  );
+  const cloudServices = Object.values(SERVICES) as Service[];
+  const archOptions = ARCHITECTURES as ArchitectureOption[];
 
   let archString = "Architecture Options:\n";
   for (let i = 0; i < archOptions.length; i++) {
