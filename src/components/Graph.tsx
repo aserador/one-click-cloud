@@ -25,6 +25,8 @@ const Graph = () => {
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
 
+  const awsServices = useSelector(getAwsServices);
+
   useEffect(() => {
     setNodes(
       awServices
@@ -62,7 +64,10 @@ const Graph = () => {
         onNodeClick={(event: any, node: any) => {
 
           store.dispatch(setIsOpen({ isOpen: true }));
-          store.dispatch(setFocusedNode({ focusedNode: node.data }));
+
+          // TODO: Fix unsafe search
+          const target = awsServices.find((s) => s.id === parseInt(node.id));
+          store.dispatch(setFocusedNode({ focusedNode: target }));
         }}
       >
         <Controls className="absolute top-0 left-8" />
