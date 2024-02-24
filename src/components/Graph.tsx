@@ -9,20 +9,35 @@ import ReactFlow, {
   useEdgesState,
   useNodesState,
 } from "reactflow";
+
+import {
+  SERVICES,
+  SERVICES_CONNECTIONS,
+} from "../../templates/services.js";
 import "reactflow/dist/style.css";
 
-const initialNodes = [
-  { id: "1", position: { x: 0, y: 0 }, data: { label: "1" } },
-  { id: "2", position: { x: 0, y: 100 }, data: { label: "2" } },
-];
-const initialEdges = [{ id: "e1-2", source: "1", target: "2" }];
+// This is dangerous, but it's a quick fix for now
+const initialNodes = SERVICES.map((service, index) => {
+
+  // Hack offset to make the graph look better
+  const offsetX = 300 * (index + 1);
+  const offsetY = 100 * (index + 1);
+
+  return {
+    id: index.toString(),
+    position: { x: offsetX, y: offsetY },
+    data: { label: service.name, ...service },
+  };
+});
 
 const Graph = () => {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
-  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+  const [edges, setEdges, onEdgesChange] = useEdgesState(
+    SERVICES_CONNECTIONS
+  );
 
   const onConnect = useCallback(
-    (params: any) => setEdges((eds) => addEdge(params, eds)),
+    (params: any) => setEdges((eds: any) => addEdge(params, eds)),
     [setEdges]
   );
 
@@ -34,7 +49,10 @@ const Graph = () => {
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
-        onNodeClick={(event, node) => store.dispatch(setIsOpen({isOpen: true}))}
+        onNodeClick={(event: any, node: any) => {
+          store.dispatch(setIsOpen({ isOpen: true }));
+          store.dispatch(setFocusedNode({ focusedNode: node.data }));
+        }}
       >
         <Controls />
         <Background variant={BackgroundVariant.Dots} gap={12} size={1} />
