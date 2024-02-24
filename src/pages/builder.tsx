@@ -14,37 +14,39 @@ interface Option {
 }
 
 interface ArchitectureOptionProps {
+  index: number;
   option: Option;
   isDisabled: boolean;
 }
 
 const ArchitectureOption: React.FC<ArchitectureOptionProps> = ({
+  index,
   option,
   isDisabled,
 }) => (
-  <div
-    className={`flex flex-col bg-white shadow-md rounded p-6 m-4 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 ${
-      isDisabled ? "opacity-50" : ""
-    }`}
+  <div 
+    className={`flex flex-col bg-white shadow-md rounded p-6 m-4 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 ${isDisabled ? "opacity-50" : ""}`}
   >
-    <h2 className="text-2xl font-bold mb-2">{option.name}</h2>
-    <p className="mb-4">{option.description}</p>
-    <h3 className="text-xl font-semibold mb-2">Pros</h3>
-    <ul className="mb-4">
-      {option.pros.map((pro: string, index: number) => (
-        <li key={index} className="list-disc list-inside">
-          {pro}
-        </li>
-      ))}
-    </ul>
-    <h3 className="text-xl font-semibold mb-2">Cons</h3>
-    <ul>
-      {option.cons.map((con: string, index: number) => (
-        <li key={index} className="list-disc list-inside">
-          {con}
-        </li>
-      ))}
-    </ul>
+    <Link href={`/diagram?option=${index}`}>
+        <h2 className="text-2xl font-bold mb-2">{option.name}</h2>
+        <p className="mb-4">{option.description}</p>
+        <h3 className="text-xl font-semibold mb-2">Pros</h3>
+        <ul className="mb-4">
+          {option.pros.map((pro: string, index: number) => (
+            <li key={index} className="list-disc list-inside">
+              {pro}
+            </li>
+          ))}
+        </ul>
+        <h3 className="text-xl font-semibold mb-2">Cons</h3>
+        <ul>
+          {option.cons.map((con: string, index: number) => (
+            <li key={index} className="list-disc list-inside">
+              {con}
+            </li>
+          ))}
+        </ul>
+    </Link>
   </div>
 );
 
@@ -76,7 +78,7 @@ const BuildPage = () => {
 
   useEffect(() => {
     const architectureData = ARCHITECTURES as Option[];
-  
+
     let newOptions: Option[] = [];
     if (indices) {
       newOptions = indices.reduce((acc: Option[], index: number) => {
@@ -86,7 +88,7 @@ const BuildPage = () => {
         return acc;
       }, []);
     }
-  
+
     setOptions(newOptions);
   }, [indices]);
 
@@ -112,6 +114,7 @@ const BuildPage = () => {
             return (
               <ArchitectureOption
                 key={index}
+                index={index}
                 option={option}
                 isDisabled={isDisabled}
               />
