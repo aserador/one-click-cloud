@@ -4,7 +4,7 @@ export default function TerraformConfigPage() {
   const [terraformConfig, setTerraformConfig] = useState('');
 
   useEffect(() => {
-    fetch('/api/terraform')
+    fetch('/api/test')
       .then(response => response.json())
       .then(data => setTerraformConfig(data.terraformConfig));
   }, []);
