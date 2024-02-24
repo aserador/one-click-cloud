@@ -9,15 +9,15 @@ export default function Home() {
       </Head>
 
       <main className="flex flex-col items-center justify-center flex-1 px-20 text-center">
-        <h1 className="text-6xl font-bold">
+        <h1 className="text-6xl font-bold text-white">
           Welcome to <a className="text-blue-600" href="#">Stratus</a>
         </h1>
 
-        <p className="mt-3 text-2xl">
+        <p className="mt-3 text-2xl text-white">
           Build your AWS infrastructure by simply dragging and dropping components.
         </p>
 
-        <p className="mt-3 text-lg">
+        <p className="mt-3 text-lg text-white">
           Our application uses the Terraform SDK to generate a Terraform file for your AWS setup. 
           We also utilize OpenAI to process your input and determine the best Terraform project layout for your needs.
         </p>
@@ -32,7 +32,7 @@ export default function Home() {
         </div>
       </main>
 
-      <footer className="flex items-center justify-center w-full h-24 border-t">
+      <footer className="flex items-center text-white justify-center w-full h-24 border-t">
         <a
           className="flex items-center justify-center"
           href="#"

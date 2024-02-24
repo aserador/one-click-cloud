@@ -37,5 +37,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-.env
 playground/.terraform/
+package-lock.json
+.env
