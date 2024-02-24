@@ -38,11 +38,13 @@ const PersistentDrawerRight = () => {
 
   if (focusedNode?.settings) {
     for (const [key, value] of Object.entries(focusedNode.settings)) {
-      if (value == "boolean") {
+      if (value?.type == "boolean") {
         settings.push(<StratusCheckbox label={key} />);
       }
     }
   }
+
+  console.log(settings);
 
   return (
     <Box sx={{ display: "flex" }}>
