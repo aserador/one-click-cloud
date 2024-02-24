@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-function downloadTerraformFile(terraformCode) {
+function downloadTerraformFile(terraformCode:string) {
     // Create a Blob object with Terraform code and the specific type
     const blob = new Blob([terraformCode], { type: 'text/plain' });
   
