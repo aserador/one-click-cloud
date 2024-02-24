@@ -1,4 +1,4 @@
-[
+export const SERVICES = [
     {
         "id": 0,
         "name": "S3",
@@ -70,3 +70,5 @@
         "disabled": true
     }
 ]
+
+export const SERVICES_CONNECTIONS =  [{ id: "e1-2", source: "0", target: "1" }];

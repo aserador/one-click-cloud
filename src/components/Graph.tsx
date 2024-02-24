@@ -11,13 +11,13 @@ import ReactFlow, {
 } from "reactflow";
 
 import {
-  AWS_SERVICES,
-  AWS_SERVICES_CONNECTIONS,
-} from "../../templates/aws_services.js";
+  SERVICES,
+  SERVICES_CONNECTIONS,
+} from "../../templates/services.js";
 import "reactflow/dist/style.css";
 
 // This is dangerous, but it's a quick fix for now
-const initialNodes = AWS_SERVICES.map((service, index) => {
+const initialNodes = SERVICES.map((service, index) => {
 
   // Hack offset to make the graph look better
   const offsetX = 300 * (index + 1);
@@ -33,11 +33,11 @@ const initialNodes = AWS_SERVICES.map((service, index) => {
 const Graph = () => {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(
-    AWS_SERVICES_CONNECTIONS
+    SERVICES_CONNECTIONS
   );
 
   const onConnect = useCallback(
-    (params: any) => setEdges((eds) => addEdge(params, eds)),
+    (params: any) => setEdges((eds: any) => addEdge(params, eds)),
     [setEdges]
   );
 
@@ -49,7 +49,8 @@ const Graph = () => {
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
-        onNodeClick={(event, node) => {
+        onNodeClick={(event: any, node: any) => {
+
           store.dispatch(setIsOpen({ isOpen: true }));
           store.dispatch(setFocusedNode({ focusedNode: node.data }));
         }}
