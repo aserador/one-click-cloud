@@ -1,9 +1,10 @@
+import { setIsOpen } from "@/redux/persistentDrawerRightSlice";
+import { store } from "@/redux/store";
 import { useCallback } from "react";
 import ReactFlow, {
   Background,
   BackgroundVariant,
   Controls,
-  MiniMap,
   addEdge,
   useEdgesState,
   useNodesState,
@@ -33,9 +34,9 @@ const Graph = () => {
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
+        onNodeClick={(event, node) => store.dispatch(setIsOpen({isOpen: true}))}
       >
         <Controls />
-        <MiniMap />
         <Background variant={BackgroundVariant.Dots} gap={12} size={1} />
       </ReactFlow>
     </div>
