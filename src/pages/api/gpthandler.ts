@@ -40,12 +40,12 @@ export default async function handler(
 
   let archString = "Architecture Options:\n";
   for (let i = 0; i < archOptions.length; i++) {
-    archString += `${i + 1}. ${archOptions[i].name}\n`;
+    archString += `${i}. ${archOptions[i].name}\n`;
   }
 
   let servicesString = "Cloud Services:\n";
   for (let i = 0; i < cloudServices.length; i++) {
-    servicesString += `${i + 1}. ${cloudServices[i].name}, Description: ${
+    servicesString += `${i}. ${cloudServices[i].name}, Description: ${
       cloudServices[i].description
     }\n`;
   }
@@ -57,7 +57,7 @@ export default async function handler(
     messages: [
       {
         role: "system",
-        content: `This is a system that recommends Cloud service options based on a project description. Here are the available architecture options and the Cloud services they use:\n${archString}\n${servicesString}`,
+        content: `This is a system that recommends Cloud service options based on a project description. You only want to reccomend archictectures that are compatible with the user's project. Here are the available architecture options and the Cloud services they use:\n${archString}`,
       },
       {
         role: "system",
