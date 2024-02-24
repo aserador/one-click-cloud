@@ -19,19 +19,23 @@ import { AWS_SERVICES_CONNECTIONS } from "../../templates/aws_services.js";
 
 import "reactflow/dist/style.css";
 
+interface GraphProps {
+  filter: number[];
+}
 
-const Graph = () => {
+const Graph = (props: GraphProps) => {
+
+  const { filter } = props;
 
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
 
   const awsServices = useSelector(getAwsServices);
-  const awsServicesFilter = useSelector(getAwsServicesFilter);
 
   useEffect(() => {
     setNodes(
       awsServices
-        .filter((service) => !service.disabled && service.id in awsServicesFilter)
+        .filter((service) => !service.disabled && service.id in filter)
         .map((s, index) => {
           // Hack offset to make the graph look better
           const offsetX = 300 * (index + 1);
@@ -47,7 +51,7 @@ const Graph = () => {
 
     // TODO: read from redux store
     setEdges(AWS_SERVICES_CONNECTIONS);
-  }, []);
+  }, [filter]);
 
   const onConnect = useCallback(
     (params: any) => setEdges((eds: any) => addEdge(params, eds)),
