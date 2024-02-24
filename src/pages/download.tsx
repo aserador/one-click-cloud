@@ -14,7 +14,7 @@ export default function TerraformConfigPage() {
   const [terraformURL, setTerraformURL] = useState('');
 
   useEffect(() => {
-    fetch('/api/test')
+    fetch('/api/terraform')
       .then(response => response.json())
       .then(data => setTerraformURL(downloadTerraformFile(data.terraformConfig)));
   }, []);

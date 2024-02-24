@@ -1,31 +1,32 @@
-import { TerraformGenerator, fn, Argument} from 'terraform-generator';
+import { TerraformGenerator, fn, Argument } from 'terraform-generator';
+import type { NextApiRequest, NextApiResponse } from 'next'
 
-function s3generator(folder_name:string, project_name:string, bucket_name:string) {
+function s3generator(folder_name: string, bucket_name: string) {
   const tfg = new TerraformGenerator({
   });
 
 
   tfg.resource('aws_s3_bucket', bucket_name, {
-    bucket_prefix: project_name + '-',
+    bucket_prefix: bucket_name + '-',
   });
 
   tfg.resource('aws_s3_object', bucket_name, {
-    for_each : fn('fileset', './' + folder_name, '**'),
+    for_each: fn('fileset', './' + folder_name, '**'),
     bucket: '${aws_s3_bucket.' + bucket_name + '.bucket}',
     key: "${each.value}",
-    source : './' + folder_name + '/${each.value}',
+    source: './' + folder_name + '/${each.value}',
     content_type: "${each.value}"
-    })
+  })
 
   return tfg
 }
 
-function s3hosting(bucket_name:string) {
+function s3hosting(bucket_name: string) {
 
   const tfg = new TerraformGenerator({});
-  
+
   tfg.resource('aws_s3_bucket_cors_configuration', bucket_name, {
-    bucket: '${aws_s3_bucket.'+ bucket_name + '.bucket}',
+    bucket: '${aws_s3_bucket.' + bucket_name + '.bucket}',
     cors_rule: [
       {
         allowed_headers: ["*"],
@@ -37,17 +38,17 @@ function s3hosting(bucket_name:string) {
     ]
   });
 
-  const acl_dependencies = [new Argument("aws_s3_bucket_ownership_controls." + bucket_name )];
+  const acl_dependencies = [new Argument("aws_s3_bucket_ownership_controls." + bucket_name)];
 
   tfg.resource('aws_s3_bucket_acl', bucket_name, {
-    bucket: '${aws_s3_bucket.'+ bucket_name + '.bucket}',
+    bucket: '${aws_s3_bucket.' + bucket_name + '.bucket}',
     acl: "public-read",
     depends_on: acl_dependencies
   });
 
-  
+
   tfg.resource("aws_s3_bucket_ownership_controls", bucket_name, {
-    bucket: '${aws_s3_bucket.'+ bucket_name + '.bucket}',
+    bucket: '${aws_s3_bucket.' + bucket_name + '.bucket}',
     rule: {
       object_ownership: "BucketOwnerPreferred"
     }
@@ -57,18 +58,18 @@ function s3hosting(bucket_name:string) {
     name: "prod-" + bucket_name + "-bucket"
   });
 
-  tfg.resource("aws_s3_bucket_public_access_block",  bucket_name, {
-    bucket: '${aws_s3_bucket.'+ bucket_name + '.bucket}',
+  tfg.resource("aws_s3_bucket_public_access_block", bucket_name, {
+    bucket: '${aws_s3_bucket.' + bucket_name + '.bucket}',
     block_public_acls: false,
     block_public_policy: false,
     ignore_public_acls: false,
     restrict_public_buckets: false
   });
 
-  const policy_dependencies = [new Argument("aws_s3_bucket_public_access_block." + bucket_name )];
+  const policy_dependencies = [new Argument("aws_s3_bucket_public_access_block." + bucket_name)];
 
   tfg.resource("aws_s3_bucket_policy", bucket_name, {
-    bucket: '${aws_s3_bucket.'+ bucket_name + '.bucket}',
+    bucket: '${aws_s3_bucket.' + bucket_name + '.bucket}',
     policy: JSON.stringify({
       Version: "2012-10-17",
       Statement: [
@@ -79,8 +80,8 @@ function s3hosting(bucket_name:string) {
           ],
           Effect: "Allow",
           Resource: [
-            "arn:aws:s3:::${aws_s3_bucket."+ bucket_name + ".bucket}",
-            "arn:aws:s3:::${aws_s3_bucket."+ bucket_name + ".bucket}/*"
+            "arn:aws:s3:::${aws_s3_bucket." + bucket_name + ".bucket}",
+            "arn:aws:s3:::${aws_s3_bucket." + bucket_name + ".bucket}/*"
           ]
         },
         {
@@ -103,7 +104,7 @@ function s3hosting(bucket_name:string) {
 
 
   tfg.resource('aws_s3_bucket_website_configuration', bucket_name, {
-    bucket: '${aws_s3_bucket.'+ bucket_name + '.bucket}',
+    bucket: '${aws_s3_bucket.' + bucket_name + '.bucket}',
     index_document: {
       suffix: 'index.html'
     }
@@ -119,7 +120,7 @@ function s3hosting(bucket_name:string) {
 }
 
 
-function cloudFrontHosting(bucket_name:string, cloudfront_name:string) {
+function cloudFrontHosting(bucket_name: string, cloudfront_name: string) {
 
   const tfg = new TerraformGenerator({});
 
@@ -161,30 +162,47 @@ function cloudFrontHosting(bucket_name:string, cloudfront_name:string) {
 
   tfg.output('cloudfront_domain_name', {
     description: 'The domain name of the CloudFront distribution.',
-    value: '${aws_cloudfront_distribution.'+cloudfront_name+'.domain_name}'
+    value: '${aws_cloudfront_distribution.' + cloudfront_name + '.domain_name}'
   });
 
   return tfg
 }
 
-export default function handler(req: any, res: any) {
-  const tfg = new TerraformGenerator({});
+export default function handler(req: NextApiRequest, res: NextApiResponse) {
 
-  const folder_name = 'tf_test_folder'
-  const project_name = 'stratus'
-  const bucket_name = "s3"
-  const cloudfront_name = "cloudfront"
+  if (req.method == 'POST') {
+    const tfg = new TerraformGenerator({});
+    tfg.provider('aws', {
+      region: 'us-east-2'
+    });
 
-  tfg.provider('aws', {
-    region: 'us-east-2'
-  });
+    const data = req.body
+    console.log(data)
 
-  var s3_tfg = s3generator(folder_name, project_name, bucket_name)
-  var s3hosting_tfg = s3hosting(bucket_name)
-  var cloudfront_tfg = cloudFrontHosting(bucket_name, cloudfront_name)
+    var folder_name = 'tf_test_folder'
+    var bucket_name = "s3"
+    var cloudfront_name = "cloudfront"
 
-  tfg.merge(s3_tfg, s3hosting_tfg, cloudfront_tfg)
+    for (var i = 0; i < data.length; i++) {
+      const component = data[i]
+      if (component.name == "S3") {
+        folder_name = component.questions[1].value
+        bucket_name = component.questions[0].value
 
-  const result = tfg.generate();
-  res.status(200).json({ terraformConfig: result.tf });
+        var s3_tfg = s3generator(folder_name, bucket_name)
+        var s3hosting_tfg = s3hosting(bucket_name)
+        tfg.merge(s3_tfg, s3hosting_tfg)
+      }
+      else if (component.name == "CloudFront") {
+        cloudfront_name = component.questions[0].value
+        var cloudfront_tfg = cloudFrontHosting(bucket_name, cloudfront_name)
+        tfg.merge(cloudfront_tfg)
+      }
+
+    }
+
+    const result = tfg.generate();
+    res.status(200).json({ terraformConfig: result.tf });
+
+  }
 }
