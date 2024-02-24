@@ -1,8 +1,13 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
-  content: [],
+  content: ["./src/**/*.{js,ts,jsx,tsx,mdx}",],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'uiucblue': '#13294B',
+      },
+    },
   },
   plugins: [],
 }
