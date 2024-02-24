@@ -2,11 +2,13 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 
-const DescriptionBar = () => {
-  const handleSend = () => {
-    // Handle sending the data here
-  };
+type DescriptionBarProps = {
+  input: string;
+  setInput: React.Dispatch<React.SetStateAction<string>>;
+  handleSend: () => Promise<void>;
+};
 
+const DescriptionBar: React.FC<DescriptionBarProps> = ({ input, setInput, handleSend }) => {
   return (
     <div className="flex items-center justify-center">
       <div className="flex items-center w-full max-w-md">
@@ -15,6 +17,8 @@ const DescriptionBar = () => {
             className="flex-grow pl-4 text-lg focus:outline-none"
             type="text"
             placeholder="Describe..."
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
           />
           <button
             onClick={handleSend}
