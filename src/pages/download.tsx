@@ -20,8 +20,15 @@ export default function TerraformConfigPage() {
   }, []);
 
   return (
-    <div>
+
+    <main className="flex flex-col items-center justify-center flex-1 px-20 text-center">
+        <h1 className="text-6xl font-bold">
+          Welcome to <a className="text-blue-600" href="#">Stratus</a>
+        </h1>
+
         <a href={terraformURL} download="main.tf">Download Terraform file</a>
-    </div>
+
+    </main>
+
   );
 }
