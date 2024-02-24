@@ -8,13 +8,25 @@
             "per-user": 0.004
         },
         "settings": {
-            "bucketHandling": "off"
+            "versioning": {
+                "type": "boolean",
+                "options": [],
+                "default": true,
+                "description": "Enable versioning for your S3 bucket"
+            } 
         },
         "questions": [
             {
                 "id": 0,
-                "question": "Do you want to enable bucket handling?",
-                "type": "boolean"
+                "question": "Nickname",
+                "note": "Name of your component",
+                "type": "input"
+            },
+            {
+                "id": 1,
+                "question": "Location of build files",
+                "note": "Example: /build",
+                "type": "input"
             }
         ],
         "disabled": false
@@ -30,13 +42,7 @@
         "settings": {
             "option1": "on"
         },
-        "questions": [
-            {
-                "id": 0,
-                "question": "Do you want to enable option 1?",
-                "type": "boolean"
-            }
-        ],
+        "questions": [],
         "disabled": false
     },
     {
