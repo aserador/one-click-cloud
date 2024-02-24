@@ -2,8 +2,21 @@ import Graph from "../components/Graph";
 import PersistentDrawerRight from "../components/PersistentDrawerRight";
 import StratusButton from "@/components/StratusButton";
 import { store } from "@/redux/store";
+import { useRouter } from "next/router";
+import { ARCHITECTURES } from "../../templates/architectures";
+import { useEffect, useState } from 'react';
 
 const DiagramPage = () => {
+  const router = useRouter();
+  const [architectureIndex, setArchitectureIndex] = useState(-1);
+
+  useEffect(() => {
+    const option = router.query.option;
+    if (option) {
+      setArchitectureIndex(Number(option));
+    }
+  }, [router.query]);
+
   return (
     <div>
       <PersistentDrawerRight />
