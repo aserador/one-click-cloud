@@ -12,7 +12,8 @@
             "Not suitable for transactional data",
             "Limited support for complex queries"
         ],
-        "services": [0]
+        "services": [0],
+        "edges": []
     }, 
     "1": {
         "name": "S3 + CloudFront",
@@ -28,7 +29,13 @@
             "Not suitable for transactional data",
             "Limited support for complex queries"
         ],
-        "services": [0, 1]
+        "services": [0, 1],
+        "edges": [
+            {
+                "from": 0,
+                "to": 1
+            }
+        ]
     },
     "2": {
         "name": "Google Cloud Storage",
@@ -43,7 +50,8 @@
             "Not suitable for transactional data",
             "Limited support for complex queries"
         ],
-        "services": [2]
+        "services": [2],
+        "edges": []
     }, 
     "3": {
         "name": "Azure Blob Storage",
@@ -58,6 +66,7 @@
             "Not suitable for transactional data",
             "Limited support for complex queries"
         ],
-        "services": [3]
+        "services": [3],
+        "edges": []
     }
 }
