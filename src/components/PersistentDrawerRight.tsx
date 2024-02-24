@@ -12,10 +12,13 @@ import { useSelector } from "react-redux";
 import {
   getFocusedNode,
   getIsOpen,
+  setAwsServiceProperty,
   setIsOpen,
 } from "@/redux/persistentDrawerRightSlice";
 import { store } from "@/redux/store";
 import StratusCheckbox from "../components/StratusCheckbox";
+import StratusTextField from "./StratusTextField";
+import _ from "lodash";
 
 const DRAWER_WIDTH = "25%";
 const DRAWER_MIN_WIDTH = 240;
@@ -34,17 +37,59 @@ const PersistentDrawerRight = () => {
   const isOpen = useSelector(getIsOpen);
   const focusedNode = useSelector(getFocusedNode);
 
-  const settings: any = [];
+  // This should be done in the reducer ("slice")
+  // Don't know if focusNode is already a copy or immutable
+  const focusedNodeCopy = _.cloneDeep(focusedNode);
 
+  const settings: JSX.Element[] = [];
   if (focusedNode?.settings) {
-    for (const [key, value] of Object.entries(focusedNode.settings)) {
-      if (value?.type == "boolean") {
-        settings.push(<StratusCheckbox label={key} />);
+    for (const [name, metadata] of Object.entries(focusedNode.settings)) {
+      if ((metadata as any)?.type == "boolean") {
+        // TODO: Add key
+        settings.push(
+          <StratusCheckbox
+            property={name}
+            value={(metadata as any)?.value}
+            onChange={(e) => {
+              focusedNodeCopy.settings[name].value =
+                !focusedNodeCopy.settings[name].value;
+              store.dispatch(
+                setAwsServiceProperty({
+                  focusedNode: focusedNodeCopy,
+                })
+              );
+            }}
+          />
+        );
       }
     }
   }
 
-  console.log(settings);
+  const questions: JSX.Element[] = [];
+  if (focusedNode?.questions) {
+    for (const q of focusedNode.questions) {
+      if ((q as any)?.type == "input") {
+        // TODO: Add key
+        questions.push(
+          <StratusTextField
+            id={`focused_node-${focusedNode?.id}-question-${q?.id}`}
+            label={q?.question}
+            defaultValue={q?.value}
+            helperText={q?.note}
+            variant={"filled"}
+            onChange={(e) => {
+              focusedNodeCopy.questions[q.id].value = e.target.value;
+              store.dispatch(
+                setAwsServiceProperty({
+                  focusedNode: focusedNodeCopy,
+                })
+              );
+            }}
+          />
+        );
+      }
+    }
+  }
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -83,6 +128,8 @@ const PersistentDrawerRight = () => {
             </Typography>
           </div>
         </div>
+        <Divider />
+        {questions}
         <Divider />
         {settings}
       </Drawer>

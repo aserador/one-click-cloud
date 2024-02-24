@@ -1,14 +1,20 @@
-import React from "react";
 import Graph from "../components/Graph";
 import PersistentDrawerRight from "../components/PersistentDrawerRight";
 import StratusButton from "@/components/StratusButton";
+import { store } from "@/redux/store";
 
 const DiagramPage = () => {
   return (
     <div>
       <PersistentDrawerRight />
       <Graph />
-      <StratusButton />
+      <StratusButton
+        onClick={() => {
+          store
+            .getState()
+            .persistentDrawerRight.AWSServices.filter((s) => !s?.disabled);
+        }}
+      />
     </div>
   );
 };

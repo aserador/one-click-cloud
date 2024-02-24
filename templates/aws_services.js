@@ -11,7 +11,7 @@ export const AWS_SERVICES = [
             "versioning": {
                 "type": "boolean",
                 "options": [],
-                "default": true,
+                "value": true,
                 "description": "Enable versioning for your S3 bucket"
             } 
         },
@@ -20,13 +20,15 @@ export const AWS_SERVICES = [
                 "id": 0,
                 "question": "Nickname",
                 "note": "Name of your component",
-                "type": "input"
+                "type": "input",
+                "value": ""
             },
             {
                 "id": 1,
                 "question": "Location of build files",
                 "note": "Example: /build",
-                "type": "input"
+                "type": "input",
+                "value": ""
             }
         ],
         "disabled": false
