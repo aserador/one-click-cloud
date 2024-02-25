@@ -194,6 +194,11 @@ const Graph = (props: IGraphProps) => {
           })
         );
       });
+  
+
+      // Reset focused node and close panel
+      store.dispatch(setFocusedNode({ focusedNode: null }));
+      store.dispatch(setIsOpen({ isOpen: false }));
   };
 
   return (
