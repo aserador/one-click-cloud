@@ -170,13 +170,16 @@ function cloudFrontHosting(bucket_name: string, cloudfront_name: string) {
 
 function route53hostedZone(domain_name: string) {
   
+  const new_domain_name = domain_name.replace(/\./g, "-")
+
   const tfg = new TerraformGenerator({});
-  tfg.resource('aws_route53_zone', domain_name, {
+
+  tfg.resource('aws_route53_zone', new_domain_name, {
     name: domain_name
   });
 
   tfg.resource('aws_route53_record', 'root_domain', {
-    zone_id: '${aws_route53_zone.' + domain_name + '.zone_id}',
+    zone_id: '${aws_route53_zone.' + new_domain_name + '.zone_id}',
     name: domain_name,
     type: "A",
     alias: {
@@ -205,8 +208,8 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     var bucket_name = "s3"
     var cloudfront_name = "cloudfront"
 
-    for (var i = 0; i < data.length; i++) {
-      const component = data[i]
+    for (var i = 0; i < data['graphServices'].length; i++) {
+      const component = data['graphServices'][i]
       if (component.name == "S3") {
         folder_name = component.questions[1].value
         bucket_name = component.questions[0].value
@@ -215,15 +218,31 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
         var s3_tfg = s3generator(folder_name, bucket_name)
         var s3hosting_tfg = s3hosting(bucket_name)
         tfg.merge(s3_tfg, s3hosting_tfg)
-      }
-      else if (component.name == "CloudFront") {
-        // cloudfront_name = component.questions[0].value
-        var cloudfront_tfg = cloudFrontHosting(bucket_name, cloudfront_name)
-        tfg.merge(cloudfront_tfg)
-      } else if (component.name == "Route53") {
-        var domain_name = component.questions[0].value
-        var route53_tfg = route53hostedZone(domain_name)
-        tfg.merge(route53_tfg)
+
+        // Check for cloudfront child
+        for (var j = 0; j < data['graphEdges'].length; j++) {
+          if (data['graphEdges'][j]['source'] == i.toString()) {
+            var child_cloudfront = data['graphServices'][parseInt(data['graphEdges'][j]['target'])]
+            cloudfront_name = child_cloudfront.questions[0].value
+            var cloudfront_tfg = cloudFrontHosting(bucket_name, cloudfront_name)
+            tfg.merge(cloudfront_tfg)
+
+            // Check for route53 child
+            for (var k = 0; k < data['graphEdges'].length; k++) {
+              if (data['graphEdges'][k]['source'] == data['graphEdges'][j]['target']) {
+                var child_route53 = data['graphServices'][parseInt(data['graphEdges'][k]['target'])]
+                var domain_name = child_route53.settings.domain.value
+                var route53_tfg = route53hostedZone(domain_name)
+                tfg.merge(route53_tfg)
+                break;
+              }
+            }
+
+
+            break;
+          }
+        }
+        
       }
 
     }
