@@ -1,3 +1,5 @@
+import { IGraphEdge } from "./models";
+
 export type PayloadArgs = {};
 
 export interface IPersistentDrawerIsOpen extends PayloadArgs {
@@ -16,10 +18,14 @@ export interface IPersistentDrawerSetAwsServiceProperty extends PayloadArgs {
   focusedNode: any;
 }
 
-export interface IPersistentDrawerSetAwsServiceFilter extends PayloadArgs {
-  AWSServiceFilter: number[];
-}
-
 export interface IPersistentDrawerSetDrawerMode extends PayloadArgs {
   drawerMode: "Service Details" | "Add Service";
+}
+
+export interface IPersistentDrawerSetGraphServices extends PayloadArgs {
+  graphServices: any[];
+}
+
+export interface IPersistentDrawerSetGraphEdges extends PayloadArgs {
+  graphEdges: IGraphEdge[];
 }

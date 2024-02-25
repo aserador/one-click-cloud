@@ -1,83 +1,212 @@
 import {
   setIsOpen,
   setFocusedNode,
+  getGraphServices,
+  getGraphEdges,
   getAwsServices,
-  getAwsServicesFilter
+  setGraphServices,
+  setGraphEdges,
 } from "@/redux/persistentDrawerRightSlice";
 import { store } from "@/redux/store";
-import { useCallback, useEffect } from "react";
+import { use, useCallback, useEffect, useRef, useState } from "react";
 import ReactFlow, {
   Background,
   BackgroundVariant,
   Controls,
+  ReactFlowProvider,
   addEdge,
+  getConnectedEdges,
+  getIncomers,
+  getOutgoers,
   useEdgesState,
   useNodesState,
 } from "reactflow";
 import { useSelector } from "react-redux";
-import { AWS_SERVICES_CONNECTIONS } from "../../templates/aws_services.js";
+import { Typography } from "@mui/material";
+import { v4 as uuidv4 } from "uuid";
+import _ from "lodash";
 
 import "reactflow/dist/style.css";
 
-interface GraphProps {
-  filter: number[];
-}
-
-const Graph = (props: GraphProps) => {
-
-  const { filter } = props;
-
-  const [nodes, setNodes, onNodesChange] = useNodesState([]);
-  const [edges, setEdges, onEdgesChange] = useEdgesState([]);
-
+const Sidebar = () => {
   const awsServices = useSelector(getAwsServices);
 
+  const onDragStart = (event: any, service: any) => {
+    event.dataTransfer.setData(
+      "application/reactflow",
+      JSON.stringify(service)
+    );
+    event.dataTransfer.effectAllowed = "move";
+  };
+
+  return (
+    <div className="relative text-white" style={{ width: "20%" }}>
+      {awsServices
+        .filter((s) => !s.disabled)
+        .map((service, i) => {
+          return (
+            <div>
+              <div
+                className="dndnode"
+                onDragStart={(event) => onDragStart(event, service)}
+                draggable
+              >
+                <Typography>{service.name}</Typography>
+              </div>
+            </div>
+          );
+        })}
+    </div>
+  );
+};
+
+interface IGraphProps {
+  initialServices: any;
+  initialEdges: any;
+}
+
+const Graph = (props: IGraphProps) => {
+  const reactFlowWrapper = useRef(null);
+  const [nodes, setNodes, onNodesChange] = useNodesState([]);
+  const [edges, setEdges, onEdgesChange] = useEdgesState([]);
+  const [reactFlowInstance, setReactFlowInstance] = useState<any>(null);
+
+  const graphServices = useSelector(getGraphServices);
+  const graphEdges = useSelector(getGraphEdges);
+
+  const { initialEdges, initialServices } = props;
+
   useEffect(() => {
-    setNodes(
-      awsServices
-        .filter((service) => !service.disabled && service.id in filter)
-        .map((s, index) => {
+    if (initialServices !== undefined && initialServices !== null) {
+      setNodes(
+        initialServices.map((s: any, index: any) => {
           // Hack offset to make the graph look better
-          const offsetX = 300 * (index + 1);
-          const offsetY = 100 * (index + 1);
+          const offsetX = 120 * (index + 1);
+          const offsetY = 80 * (index + 1);
 
           return {
-            id: index.toString(),
-            position: { x: offsetX, y: offsetY },
+            id: String(s.id),
+            position: s?.position ?? { x: offsetX, y: offsetY },
             data: { label: s.name, ...s },
           };
         })
+      );
+    }
+
+    if (initialEdges !== undefined && initialEdges !== null) {
+      setEdges(initialEdges);
+    }
+  }, [initialServices]);
+
+  useEffect(() => {
+    store.dispatch(setGraphEdges({ graphEdges: edges }));
+  }, [edges]);
+
+  const onConnect = (params: any) => {
+    setEdges((eds: any) => addEdge(params, eds));
+  };
+
+  const onDragOver = useCallback((event: any) => {
+    event.preventDefault();
+    event.dataTransfer.dropEffect = "move";
+  }, []);
+
+  const onDrop = (event: any) => {
+    event.preventDefault();
+
+    const data = event.dataTransfer.getData("application/reactflow");
+    const service = JSON.parse(data);
+
+    const position = reactFlowInstance?.screenToFlowPosition({
+      x: event.clientX,
+      y: event.clientY,
+    });
+
+    const randomId = uuidv4();
+    store.dispatch(
+      setGraphServices({
+        graphServices: graphServices.concat({ ...service, id: randomId }),
+      })
     );
+    setNodes(
+      nodes.concat({
+        id: randomId,
+        position,
+        data: { label: service.name, ...service },
+      })
+    );
+  };
 
-    // TODO: read from redux store
-    setEdges(AWS_SERVICES_CONNECTIONS);
-  }, [filter]);
+  const onNodesDelete = (deleted: any) => {
+    setEdges(
+      deleted.reduce((acc: any, node: any) => {
+        const incomers = getIncomers(node, nodes, edges);
+        const outgoers = getOutgoers(node, nodes, edges);
+        const connectedEdges = getConnectedEdges([node], edges);
 
-  const onConnect = useCallback(
-    (params: any) => setEdges((eds: any) => addEdge(params, eds)),
-    [setEdges]
-  );
+        const remainingEdges = acc.filter(
+          (edge: any) => !connectedEdges.includes(edge)
+        );
+
+        const createdEdges = incomers.flatMap(({ id: source }) =>
+          outgoers.map(({ id: target }) => ({
+            id: `${source}->${target}`,
+            source,
+            target,
+          }))
+        );
+
+        return [...remainingEdges, ...createdEdges];
+      }, edges)
+    );
+    deleted
+      .map((d: any) => String(d.id))
+      .forEach((did: any) => {
+        store.dispatch(
+          setGraphServices({
+            graphServices: graphServices.filter((s) => did !== String(s.id)),
+          })
+        );
+      });
+  };
 
   return (
-    <div style={{ width: "100vw", height: "100vh" }}>
-      <ReactFlow
-        nodes={nodes}
-        edges={edges}
-        onNodesChange={onNodesChange}
-        onEdgesChange={onEdgesChange}
-        onConnect={onConnect}
-        onNodeClick={(event: any, node: any) => {
-
-          store.dispatch(setIsOpen({ isOpen: true }));
-
-          // TODO: Fix unsafe search
-          const target = awsServices.find((s) => s.id === parseInt(node.id));
-          store.dispatch(setFocusedNode({ focusedNode: target }));
-        }}
-      >
-        <Controls className="absolute top-0 left-8" />
-        <Background variant={BackgroundVariant.Dots} gap={12} size={1} />
-      </ReactFlow>
+    <div className="dndflow flex flex-row">
+      <ReactFlowProvider>
+        <div
+          className="reactflow-wrapper"
+          ref={reactFlowWrapper}
+          style={{ width: "80%", height: "100vh" }}
+        >
+          <ReactFlow
+            nodes={nodes}
+            edges={edges}
+            onNodesChange={onNodesChange}
+            onEdgesChange={onEdgesChange}
+            onConnect={onConnect}
+            onInit={setReactFlowInstance}
+            onNodesDelete={onNodesDelete}
+            onDrop={onDrop}
+            onDragOver={onDragOver}
+            onNodeClick={(event: any, node: any) => {
+              store.dispatch(setIsOpen({ isOpen: true }));
+              const target = graphServices.find(
+                (s) => String(s.id) === String(node.id)
+              );
+              if (!target) {
+                alert("Error: Could not find service to focus");
+                return;
+              }
+              store.dispatch(setFocusedNode({ focusedNode: target }));
+            }}
+            fitView
+          >
+            <Controls className="absolute top-0 left-8" />
+            <Background variant={BackgroundVariant.Dots} gap={12} size={1} />
+          </ReactFlow>
+        </div>
+        <Sidebar />
+      </ReactFlowProvider>
     </div>
   );
 };

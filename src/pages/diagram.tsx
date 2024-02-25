@@ -12,33 +12,51 @@ import {
   getAwsServices,
   getDrawerMode,
   getFocusedNode,
+  getGraphEdges,
+  getGraphServices,
   setAwsServiceProperty,
+  setGraphEdges,
+  setGraphServices,
 } from "@/redux/persistentDrawerRightSlice";
 import StratusTextField from "@/components/StratusTextField";
 import _ from "lodash";
 
 const DiagramPage = () => {
-  const [filter, setFilter] = useState<number[]>([]);
-
-  const router = useRouter();
-  useEffect(() => {
-    const option = router.query.option;
-
-    if (option !== undefined && option !== null) {
-      setFilter(ARCHITECTURES[Number(option)].services);
-    }
-  }, [router.query.option]);
+  const [localGraphServices, setLocalGraphServices] = useState<any[]>([]);
+  const [localGraphEdges, setLocalGraphEdges] = useState<any[]>([]);
 
   const focusedNode = useSelector(getFocusedNode);
   const focusedNodeCopy = _.cloneDeep(focusedNode);
   const awsServices = useSelector(getAwsServices);
+  const graphServices = useSelector(getGraphServices);
+  const graphEdges = useSelector(getGraphEdges);
   const drawerMode = useSelector(getDrawerMode);
+
+  const router = useRouter();
+    useEffect(() => {
+    const option = router.query.option;
+
+    if (option !== undefined && option !== null) {
+      const initialServices = awsServices.filter(
+        (s) => !s?.disabled && s?.id in ARCHITECTURES[Number(option)].services
+      );
+      store.dispatch(
+        setGraphServices({
+          graphServices: initialServices,
+        })
+      );
+      setLocalGraphServices(initialServices);
+
+      const initialGraphEdges = ARCHITECTURES[Number(option)].edges;
+      store.dispatch(setGraphEdges({ graphEdges: initialGraphEdges }));
+      setLocalGraphEdges(initialGraphEdges);
+    }
+  }, [router.query.option]);
 
   const settings: JSX.Element[] = [];
   if (focusedNode?.settings) {
-    for (const [name, metadata] of Object.entries(focusedNode.settings)) {
+    for (const [name, metadata] of Object.entries(focusedNodeCopy.settings)) {
       if ((metadata as any)?.type == "boolean") {
-        // TODO: Add key
         settings.push(
           <StratusCheckbox
             key={`key-focused_node-${focusedNode?.id}-setting-${name}`}
@@ -63,7 +81,6 @@ const DiagramPage = () => {
   if (focusedNode?.questions) {
     for (const q of focusedNode.questions) {
       if ((q as any)?.type == "input") {
-        // TODO: Add key
         questions.push(
           <StratusTextField
             key={`key-focused_node-${focusedNode?.id}-question-${q?.id}`}
@@ -93,7 +110,7 @@ const DiagramPage = () => {
           drawerMode === "Add Service" ? (
             <>
               <Divider />
-              {awsServices.map((awsService, index) => {
+              {graphServices.map((awsService, index) => {
                 return (
                   <StratusButton
                     key={`key-aws-service-${awsService.id}`}
@@ -126,15 +143,17 @@ const DiagramPage = () => {
           )
         }
       />
-      <Graph filter={filter} />
+      <Graph initialServices={localGraphServices} initialEdges={localGraphEdges}/>
       <StratusButton
         classStyles="absolute bottom-8 left-8"
         onClick={() => {
           sessionStorage.setItem(
-            "graph",
-            JSON.stringify(
-              awsServices.filter((s) => !s?.disabled && s?.id in filter)
-            )
+            "graphServices",
+            JSON.stringify(graphServices.filter((s) => !s?.disabled))
+          );
+          sessionStorage.setItem(
+            "graphEdges",
+            JSON.stringify(graphEdges)
           );
           router.push("/download");
         }}

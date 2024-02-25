@@ -7,14 +7,15 @@ interface StratusButtonProps {
 }
 
 export default function StratusButton(props: StratusButtonProps) {
-
   const { classStyles, onClick: onClickCalllback } = props;
 
   return (
-    <div className="relative">
-      <Button className={classStyles} variant="contained" onClick={onClickCalllback}>
-        Submit
-      </Button>
-    </div>
+    <Button
+      className={classStyles}
+      variant="contained"
+      onClick={onClickCalllback}
+    >
+      Submit
+    </Button>
   );
 }
