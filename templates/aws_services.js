@@ -42,9 +42,16 @@ export const AWS_SERVICES = [
             "per-user": 0.017
         },
         "settings": {
-            "option1": "on"
         },
-        "questions": [],
+        "questions": [
+            {
+                "id": 0,
+                "question": "Nickname",
+                "type": "input",
+                "value": "cloudfront",
+                "note": "Name for your CloudFront distribution"
+            }
+        ],
         "disabled": false
     },
     {
