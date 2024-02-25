@@ -21,14 +21,14 @@ export const AWS_SERVICES = [
                 "question": "Nickname",
                 "note": "Name of your component",
                 "type": "input",
-                "value": ""
+                "value": "bucket1"
             },
             {
                 "id": 1,
                 "question": "Location of build files",
                 "note": "Example: /build",
                 "type": "input",
-                "value": ""
+                "value": "./build"
             }
         ],
         "disabled": false
