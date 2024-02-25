@@ -4,6 +4,8 @@ import { ARCHITECTURES } from "../../templates/architectures";
 import { SERVICES } from "../../templates/services";
 import Link from "next/link";
 import CircularProgress from '@mui/material/CircularProgress';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 interface Option {
   name: string;
@@ -54,49 +56,46 @@ const ArchitectureOption: React.FC<ArchitectureOptionProps> = ({
 const BuildPage = () => {
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
-  const [indices, setIndices] = useState<number[]>([]);
-  const [options, setOptions] = useState<Option[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [showRecommendations, setShowRecommendations] = useState(false);
+  const [options, setOptions] = useState<Option[]>([]);
+  const [indices, setIndices] = useState<number[]>([]);
 
   const handleSend = async () => {
     setIsLoading(true);
-    const response = await fetch("/api/gpthandler", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ userInput: input }),
-    });
-
-    const data = await response.json();
-
-    setOutput(
-      JSON.stringify({
-        archIndexes: data.archIndexes,
-      })
-    );
-
-    setIndices(data.archIndexes);
-    setIsLoading(false);
-    setShowRecommendations(true);
-  };
-
-  useEffect(() => {
-    const architectureData = ARCHITECTURES as Option[];
-
-    let newOptions: Option[] = [];
-    if (indices) {
-      newOptions = indices.reduce((acc: Option[], index: number) => {
-        if (index < architectureData.length) {
-          acc.push(architectureData[index]);
-        }
-        return acc;
-      }, []);
+    try {
+      const response = await fetch("/api/gpthandler", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ userInput: input }),
+      });
+  
+      const data = await response.json();
+      console.log(data);
+      if (data.using_react && !data.using_backend) {
+        setShowRecommendations(true);
+      } else {
+        toast.error("Your stack is currently unsupported. As of now, we only support static sites like React and plain HTML/CSS.");
+      }
+    } finally {
+      setIsLoading(false);
     }
+  };
+  useEffect(() => {
+    if (showRecommendations) {
+      const architectureData = ARCHITECTURES as Option[];
 
-    setOptions(newOptions);
-  }, [indices]);
+      let newOptions: Option[] = architectureData.map((option, index) => ({
+        ...option,
+        index
+      }));
+
+      setOptions(newOptions);
+      setIndices(architectureData.map((_, index) => index));
+    }
+  }, [showRecommendations]);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
@@ -137,10 +136,12 @@ const BuildPage = () => {
               />
             </div>
             <div className="mt-4 text-white">{output}</div>
+            <ToastContainer position="top-right" />
           </>
         )}
       </div>
     </div>
   );
 };
+
 export default BuildPage;
