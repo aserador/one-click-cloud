@@ -2,10 +2,10 @@ export const AWS_SERVICES = [
     {
         "id": 0,
         "name": "S3",
-        "description": "Amazon S3 provides a simple web services interface that can be used to store and retrieve any amount of data, at any time, from anywhere on the web.",
+        "description": "Amazon S3 (Simple Storage Service) provides scalable object storage (similar to Google Drive).",
         "cost": {
-            "flat": 0.03,
-            "per-user": 0.004
+            "flat": 0,
+            "per-user": 0.0046
         },
         "settings": {
             "versioning": {
@@ -25,7 +25,7 @@ export const AWS_SERVICES = [
             },
             {
                 "id": 1,
-                "question": "Location of build files",
+                "question": "Location of build files in your repository",
                 "note": "Example: /build",
                 "type": "input",
                 "value": "./build"
@@ -38,8 +38,8 @@ export const AWS_SERVICES = [
         "name": "CloudFront",
         "description": "Amazon CloudFront is a web service for content delivery. It integrates with other Amazon Web Services to give developers and businesses an easy way to distribute content to end users with low latency, high data transfer speeds, and no commitments.",
         "cost": {
-            "flat": 0.03,
-            "per-user": 0.004
+            "flat": 0,
+            "per-user": 0.017
         },
         "settings": {
             "option1": "on"
@@ -50,10 +50,10 @@ export const AWS_SERVICES = [
     {
         "id": 2,
         "name": "Google Cloud Storage",
-        "description": "Google Cloud Storage is a RESTful online file storage web service for storing and accessing data on Google Cloud Platform infrastructure. The service combines the performance and scalability of Google's cloud with advanced security and sharing capabilities.",
+        "description": "Google Cloud Storage is a RESTful online file storage web service for storing and accessing data on Google Cloud Platform infrastructure. ",
         "cost": {
-            "flat": 0.026,
-            "per-user": 0.005
+            "flat": 0,
+            "per-user": 0.004
         },
         "settings": {},
         "questions": [],
@@ -64,8 +64,8 @@ export const AWS_SERVICES = [
         "name": "Azure Blob Storage",
         "description": "Azure Blob storage is Microsoft's object storage solution for the cloud. Blob storage is optimized for storing massive amounts of unstructured data, such as text or binary data.",
         "cost": {
-            "flat": 0.02,
-            "per-user": 0.003
+            "flat": 0,
+            "per-user": 0.0046
         },
         "settings": {},
         "questions": [],

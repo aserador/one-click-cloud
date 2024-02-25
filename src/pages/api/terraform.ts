@@ -168,6 +168,27 @@ function cloudFrontHosting(bucket_name: string, cloudfront_name: string) {
   return tfg
 }
 
+function route53hostedZone(domain_name: string) {
+  
+  const tfg = new TerraformGenerator({});
+  tfg.resource('aws_route53_zone', domain_name, {
+    name: domain_name
+  });
+
+  tfg.resource('aws_route53_record', 'root_domain', {
+    zone_id: '${aws_route53_zone.' + domain_name + '.zone_id}',
+    name: domain_name,
+    type: "A",
+    alias: {
+      name: "${aws_cloudfront_distribution.cloudfront.domain_name}",
+      zone_id: "${aws_cloudfront_distribution.cloudfront.hosted_zone_id}",
+      evaluate_target_health: false
+    }
+  });
+
+  return tfg
+}
+
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
 
   console.log(req.method)
@@ -199,6 +220,10 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
         // cloudfront_name = component.questions[0].value
         var cloudfront_tfg = cloudFrontHosting(bucket_name, cloudfront_name)
         tfg.merge(cloudfront_tfg)
+      } else if (component.name == "Route53") {
+        var domain_name = component.questions[0].value
+        var route53_tfg = route53hostedZone(domain_name)
+        tfg.merge(route53_tfg)
       }
 
     }
