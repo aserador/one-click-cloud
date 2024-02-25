@@ -21,6 +21,7 @@ import StratusTextField from "@/components/StratusTextField";
 import _ from "lodash";
 import { IGraphEdge } from "@/redux/models";
 import { toast } from "react-toastify";
+import { v4 as uuidv4 } from "uuid";
 
 const getNode = (id: string, services: any[]) => {
   for (const service of services) {
@@ -195,7 +196,7 @@ const DiagramPage = () => {
       if ((metadata as any)?.type == "boolean") {
         settings.push(
           <StratusCheckbox
-            key={`key-setting-focused_node-${focusedNode?.id}`}
+            key={`key-setting-focused_node-${focusedNode?.id}-${uuidv4()}`}
             property={settingName}
             value={(metadata as any)?.value}
             onChange={(e) => {
@@ -212,8 +213,8 @@ const DiagramPage = () => {
       } else if ((metadata as any)?.type == "input") {
         settings.push(
           <StratusTextField
-            key={`key-setting-focused_node-${focusedNode?.id}`}
-            id={`id-setting-focused_node-${focusedNode?.id}`}
+            key={`key-setting-focused_node-${focusedNode?.id}-${uuidv4()}`}
+            id={`id-setting-focused_node-${focusedNode?.id}-${uuidv4()}`}
             label={settingName}
             defaultValue={(metadata as any)?.value}
             helperText={(metadata as any)?.note}
@@ -239,8 +240,8 @@ const DiagramPage = () => {
       if ((q as any)?.type == "input") {
         questions.push(
           <StratusTextField
-            key={`key-question-focused_node-${focusedNode?.id}`}
-            id={`id-question-focused_node-${focusedNode?.id}`}
+            key={`key-question-focused_node-${focusedNode?.id}-${uuidv4()}`}
+            id={`id-question-focused_node-${focusedNode?.id}-${uuidv4()}`}
             label={q?.question}
             defaultValue={q?.value}
             helperText={q?.note}
