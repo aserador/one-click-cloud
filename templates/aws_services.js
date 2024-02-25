@@ -49,28 +49,21 @@ export const AWS_SERVICES = [
     },
     {
         "id": 2,
-        "name": "Google Cloud Storage",
-        "description": "Google Cloud Storage is a RESTful online file storage web service for storing and accessing data on Google Cloud Platform infrastructure. ",
+        "name": "Route 53",
+        "description": "Amazon S3 (Simple Storage Service) provides scalable object storage (similar to Google Drive).",
         "cost": {
-            "flat": 0,
-            "per-user": 0.004
+            "flat": 0.50,
+            "per-user": 0.0000
         },
-        "settings": {},
-        "questions": [],
-        "disabled": true
-    },
-    {
-        "id": 3,
-        "name": "Azure Blob Storage",
-        "description": "Azure Blob storage is Microsoft's object storage solution for the cloud. Blob storage is optimized for storing massive amounts of unstructured data, such as text or binary data.",
-        "cost": {
-            "flat": 0,
-            "per-user": 0.0046
+        "settings": {
+            "domain": {
+                "type": "string",
+                "options": [],
+                "value": "stratus.com",
+                "description": "Domain name for your Route 53 hosted zone (No http:// or www)"
+            } 
         },
-        "settings": {},
         "questions": [],
-        "disabled": true
+        "disabled": false
     }
 ]
-
-export const AWS_SERVICES_CONNECTIONS =  [{ id: "e1-2", source: "0", target: "1",}];

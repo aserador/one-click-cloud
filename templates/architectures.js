@@ -34,33 +34,24 @@ export const ARCHITECTURES = [
         ]
     },
     {
-        "name": "Google Cloud Storage",
-        "description": "Store your static files on Cloud Storage and make them publicly accessible.",
+        "name": "AWS S3 + CloudFront + Route 53",
+        "description": "Store your static files on S3, use CloudFront as a CDN and Route 53 for DNS management.",
         "pros": [
-            "Simple",
             "Highly scalable",
-            "Cost-effective"
+            "Fast content delivery",
+            "Supports https/ssl",
+            "Custom domain name support"
         ],
         "cons": [
-            "No https/ssl support",
-            "Slow for users far from the storage region"
+            "Complex setup",
+            "Not cost-effective for small projects",
         ],
-        "services": [2],
-        "edges": []
-    }, 
-    {
-        "name": "Azure Blob Storage",
-        "description": "Store your static files on Blob Storage and make them publicly accessible.",
-        "pros": [
-            "Simple",
-            "Highly scalable",
-            "Cost-effective"
-        ],
-        "cons": [
-            "No https/ssl support",
-            "Slow for users far from the blob's region"
-        ],
-        "services": [3],
-        "edges": []
+        "services": [0, 1, 2],
+        "edges": [
+            {
+                id: "0-1", source: "0", target: "1",
+                id: "1-2", source: "1", target: "2"
+            },
+        ]
     }
 ];

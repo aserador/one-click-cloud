@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { OpenAI } from "openai";
-import { SERVICES } from "../../../templates/services";
+import { AWS_SERVICES } from "../../../templates/aws_services";
 import { ARCHITECTURES } from "../../../templates/architectures";
 
 interface Service {
@@ -35,7 +35,7 @@ export default async function handler(
     return res.status(400).json({ error: "User input too long" });
   }
 
-  const cloudServices = Object.values(SERVICES) as Service[];
+  const cloudServices = Object.values(AWS_SERVICES) as Service[];
   const archOptions = ARCHITECTURES as ArchitectureOption[];
 
   let archString = "Architecture Options:\n";
