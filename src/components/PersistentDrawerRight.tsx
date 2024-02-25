@@ -41,7 +41,6 @@ const PersistentDrawerRight = (props: IPersistentDrawerRightProps) => {
 
   return (
     <Box sx={{ display: "flex" }}>
-      <CssBaseline />
       <Drawer
         sx={{
           width: DRAWER_WIDTH,
