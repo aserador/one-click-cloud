@@ -33,35 +33,5 @@ export const ARCHITECTURES = [
                 "to": 1
             }
         ]
-    },
-    {
-        "name": "Google Cloud Storage",
-        "description": "Store your static files on Cloud Storage and make them publicly accessible.",
-        "pros": [
-            "Simple",
-            "Highly scalable",
-            "Cost-effective"
-        ],
-        "cons": [
-            "No https/ssl support",
-            "Slow for users far from the storage region"
-        ],
-        "services": [2],
-        "edges": []
-    }, 
-    {
-        "name": "Azure Blob Storage",
-        "description": "Store your static files on Blob Storage and make them publicly accessible.",
-        "pros": [
-            "Simple",
-            "Highly scalable",
-            "Cost-effective"
-        ],
-        "cons": [
-            "No https/ssl support",
-            "Slow for users far from the blob's region"
-        ],
-        "services": [3],
-        "edges": []
     }
 ];

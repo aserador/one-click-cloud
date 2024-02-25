@@ -1,17 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { OpenAI } from "openai";
-import { SERVICES } from "../../../templates/services";
-import { ARCHITECTURES } from "../../../templates/architectures";
 
-interface Service {
-  name: string;
-  description: string;
-}
-
-interface ArchitectureOption {
-  name: string;
-  description: string;
-}
 
 const openai = new OpenAI({
   apiKey: process.env["OPENAI_API_KEY"],
@@ -35,61 +24,67 @@ export default async function handler(
     return res.status(400).json({ error: "User input too long" });
   }
 
-  const cloudServices = Object.values(SERVICES) as Service[];
-  const archOptions = ARCHITECTURES as ArchitectureOption[];
-
-  let archString = "Architecture Options:\n";
-  for (let i = 0; i < archOptions.length; i++) {
-    archString += `${i}. ${archOptions[i].name}\n`;
-  }
-
-  let servicesString = "Cloud Services:\n";
-  for (let i = 0; i < cloudServices.length; i++) {
-    servicesString += `${i}. ${cloudServices[i].name}, Description: ${
-      cloudServices[i].description
-    }\n`;
-  }
-
-  console.log(archString);
-  console.log(servicesString);
-
-  const params: OpenAI.Chat.ChatCompletionCreateParams = {
+  const params_react: OpenAI.Chat.ChatCompletionCreateParams = {
     messages: [
       {
         role: "system",
-        content: `This is a system that recommends Cloud service options based on a project description. You only want to reccomend archictectures that are compatible with the user's project. Here are the available architecture options and the Cloud services they use:\n${archString}`,
+        content: `You are a bot that identifies whether a tech stack can produce a static file output (eg. React, Plain HTML/CSS) or not.`,
       },
       {
         role: "system",
-        content: `When you've made a choice, please format your response as follows: "Arch Indexes Chosen: <index1, index2, ...>, Short Explanation Why: <explanation>"`,
+        content: `When you've made a choice, please reply only using the words true or false. DO NOT include any other information in your response. DO NOT use more than one word. If you are unsure, reply with false.`,
       },
       {
         role: "user",
-        content: `\nThe project is about: ${userInput}\n Select the best Cloud service options (each separate from each other) from the ones listed above (Maximum 3)`,
+        content: `\nThe tech stack is : ${userInput}\n`,
       },
     ],
     model: "gpt-3.5-turbo",
-    max_tokens: 1000,
+    max_tokens: 100,
   };
 
-  const chatCompletion = await openai.chat.completions.create(params);
-  console.log(chatCompletion.choices[0].message.content);
+  const chatCompletionReact = await openai.chat.completions.create(params_react);
+  console.log(chatCompletionReact.choices[0].message.content);
 
-  const output = chatCompletion.choices[0].message.content;
-  const match = output?.match(
-    /Arch Indexes Chosen: ([\d, ]+), Short Explanation Why: (.*)/
-  );
-
-  if (match) {
-    const [_, archIndexes, shortExplanationWhy] = match;
-    const archIndexesArray = archIndexes.split(',').map(index => parseInt(index.trim()));
-    res
-      .status(200)
-      .json({
-        archIndexes: archIndexesArray,
-        shortExplanationWhy,
-      });
-  } else {
-    res.status(400).json({ error: "Output doesn't match the expected format" });
+  var using_react = false;
+  const output_react = chatCompletionReact.choices[0].message.content;
+  if (output_react === "true") {
+    using_react = true;
   }
+
+  
+  const params_backend: OpenAI.Chat.ChatCompletionCreateParams = {
+    messages: [
+      {
+        role: "system",
+        content: `You are a bot that identifies whether a tech stack has a backend. If it has a backend (like PHP, Node,js, Django etc.), reply with true. Otherwise, reply with false.`,
+      },
+      {
+        role: "system",
+        content: `When you've made a choice, please reply only using the words true or false. DO NOT include any other information in your response. DO NOT use more than one word. If you are unsure, reply with true.`,
+      },
+      {
+        role: "user",
+        content: `\nThe tech stack is : ${userInput}\n`,
+      },
+    ],
+    model: "gpt-3.5-turbo",
+    max_tokens: 100,
+  };
+
+  const chatCompletionBackend = await openai.chat.completions.create(params_backend);
+  console.log(chatCompletionBackend.choices[0].message.content);
+
+  var using_backend = true;
+  const output_backend = chatCompletionBackend.choices[0].message.content;
+  if (output_backend === "false") {
+    using_backend = false;
+  }
+
+  res
+    .status(200)
+    .json({
+      using_react: using_react,
+      using_backend: using_backend,
+    });
 }
