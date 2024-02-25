@@ -13,14 +13,16 @@ export default function StratusCheckbox(props: StratusCheckboxProps) {
   const { onChange: onChangeCallback, property, value } = props;
 
   return (
-    <FormControlLabel
-      control={
-        <Checkbox
-          defaultChecked={value}
-          onChange={(e) => onChangeCallback(e)}
-        />
-      }
-      label={property}
-    />
+    <div className="pl-4">
+      <FormControlLabel
+        control={
+          <Checkbox
+            defaultChecked={value}
+            onChange={(e) => onChangeCallback(e)}
+          />
+        }
+        label={property}
+      />
+    </div>
   );
 }

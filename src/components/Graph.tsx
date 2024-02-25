@@ -21,7 +21,7 @@ import ReactFlow, {
   useNodesState,
 } from "reactflow";
 import { useSelector } from "react-redux";
-import { Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { v4 as uuidv4 } from "uuid";
 import _ from "lodash";
 
@@ -45,7 +45,7 @@ const Sidebar = () => {
 
   return (
     // TODO: Style the sidebar
-    <div className="relative text-white" style={{ width: "20%" }}>
+    <div className="absolute text-white flex flex-col justify-end" style={{ width: "500px", height: "200px", left: "50%", top: "75%", transform: "translateX(-50%)" }}>
       {awsServices
         .filter((s) => !s.disabled)
         .map((service, i) => {
@@ -56,7 +56,13 @@ const Sidebar = () => {
               onDragStart={(event) => onDragStart(event, service)}
               draggable
             >
-              <Typography>{service.name}</Typography>
+              <Button
+                variant="contained"
+                className="w-full"
+                style={{ backgroundColor: "#3F3F3F", marginBottom: "10px", color: "white"}}
+              >
+                <Typography>{service.name}</Typography>
+              </Button>
             </div>
           );
         })}
@@ -209,7 +215,7 @@ const Graph = (props: IGraphProps) => {
         <div
           className="reactflow-wrapper"
           ref={reactFlowWrapper}
-          style={{ width: "80%", height: "100vh" }}
+          style={{ width: "100%", height: "100vh" }}
         >
           <ReactFlow
             nodes={nodes}
@@ -240,7 +246,7 @@ const Graph = (props: IGraphProps) => {
             fitView
           >
             {/* TODO: Style location of graph controls */}
-            <Controls className="absolute top-0 left-8" />
+            <Controls className="absolute bottom-10 left-8" />
 
             {/* TODO: Style background of graph (see reactflow) */}
             <Background variant={BackgroundVariant.Dots} gap={12} size={1} />

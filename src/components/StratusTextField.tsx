@@ -19,7 +19,8 @@ export default function StratusTextField(props: StratusTextFieldProps) {
     <Box
       component="form"
       sx={{
-        "& .MuiTextField-root": { m: 1, width: "25ch" },
+        "& .MuiTextField-root": { width: "100%" },
+        
       }}
       noValidate
       autoComplete="off"

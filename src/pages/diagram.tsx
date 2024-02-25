@@ -32,11 +32,15 @@ const getNode = (id: string, services: any[]) => {
 };
 
 const validateEdges = (nodes: any[], edges: IGraphEdge[]) => {
-  // Check for duplicate source 
+  // Check for duplicate source
   const sourceSet = new Set();
   for (const e1 of edges) {
     if (sourceSet.has(e1.source)) {
-      toast.error(`${getNode(e1.source, nodes)?.name} cannot target more than one service.`);
+      toast.error(
+        `${
+          getNode(e1.source, nodes)?.name
+        } cannot target more than one service.`
+      );
       return false;
     }
     sourceSet.add(e1.source);
@@ -46,7 +50,11 @@ const validateEdges = (nodes: any[], edges: IGraphEdge[]) => {
   const targetSet = new Set();
   for (const e2 of edges) {
     if (targetSet.has(e2.target)) {
-      toast.error(`${getNode(e2.target, nodes)?.name} cannot be targeted by more than one service.`);
+      toast.error(
+        `${
+          getNode(e2.target, nodes)?.name
+        } cannot be targeted by more than one service.`
+      );
       return false;
     }
     targetSet.add(e2.target);
@@ -78,7 +86,7 @@ const validateEdges = (nodes: any[], edges: IGraphEdge[]) => {
         toast.error(`CloudFront cannot directly target CloudFront.`);
         return false;
       }
-    } else if (source.name == "Route 53") { 
+    } else if (source.name == "Route 53") {
       if (target.name == "S3") {
         toast.error(`Route 53 cannot directly target S3.`);
         return false;
@@ -92,7 +100,7 @@ const validateEdges = (nodes: any[], edges: IGraphEdge[]) => {
     }
   }
   return true;
-}
+};
 
 const validateNodes = (services: any[]) => {
   // Check for duplicate names for S3, CloudFront, and Route 53
@@ -103,7 +111,9 @@ const validateNodes = (services: any[]) => {
     if (String(service.id) === String(0)) {
       // TODO: Fix order dependency or array of questions
       if (s3Set.has(service.questions[0].value)) {
-        toast.error("One or more S3 services have the same Nickname. Please rename the services to be unique.");
+        toast.error(
+          "One or more S3 services have the same Nickname. Please rename the services to be unique."
+        );
         return false;
       }
       s3Set.add(service.questions[0].value);
@@ -113,8 +123,7 @@ const validateNodes = (services: any[]) => {
         return false;
       }
       cloudFrontSet.add(service.questions[0].value);
-    } 
-    else if (String(service.id) === String(2)) {
+    } else if (String(service.id) === String(2)) {
       if (route53Set.has(service.settings.domain.value)) {
         toast.error("Route 53 cannot be added more than once.");
         return false;
@@ -123,7 +132,7 @@ const validateNodes = (services: any[]) => {
     }
   }
   return true;
-}
+};
 
 const DiagramPage = () => {
   // Local state for diagram (nodes are aws services, edges are dependencies)
@@ -254,23 +263,47 @@ const DiagramPage = () => {
     <div>
       <PersistentDrawerRight
         children={
-          <>
+          <div className="w-full">
             <div className="p-4">
               <Typography variant="h4">
                 {focusedNode?.name ?? "[None]"}
               </Typography>
-              <Divider />
-              <div className="pt-4">
+              <div className="pt-6">
+                <Typography variant="subtitle1">{"Description"}</Typography>
+              </div>
+              <div className="mt-1 mb-4">
+                <Divider />
+              </div>
+              <div className="">
                 <Typography variant="body1">
                   {focusedNode?.description ?? "[None]"}
                 </Typography>
               </div>
+              {questions.length > 0 && (
+                <>
+                  <div className="pt-8">
+                    <Typography variant="subtitle1">{"Settings"}</Typography>
+                  </div>
+                  <div className="pb-4">
+                    <Divider />
+                  </div>
+                  {questions}
+                </>
+              )}
+              {settings.length > 0 && (
+                <>
+                  <div className="pt-8">
+                    <Typography variant="subtitle1">{"Properties"}</Typography>
+                  </div>
+
+                  <div className="mt-1 mb-4">
+                    <Divider />
+                  </div>
+                  {settings}
+                </>
+              )}
             </div>
-            <Divider />
-            {questions}
-            <Divider />
-            {settings}
-          </>
+          </div>
         }
       />
       <Graph
@@ -282,7 +315,6 @@ const DiagramPage = () => {
       <StratusButton
         classStyles="absolute bottom-8 left-8"
         onClick={() => {
-
           // Check if at least one service is added to the diagram
           if (graphServices.length === 0) {
             toast.error("Please add at least one service to the diagram.");
@@ -290,7 +322,9 @@ const DiagramPage = () => {
           }
 
           if (graphServices.find((s) => s.name === "S3") === undefined) {
-            toast.error("S3 is required in the diagram. Please add S3 to the diagram.");
+            toast.error(
+              "S3 is required in the diagram. Please add S3 to the diagram."
+            );
             return;
           }
 

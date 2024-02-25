@@ -33,7 +33,6 @@ interface IPersistentDrawerRightProps {
 }
 
 const PersistentDrawerRight = (props: IPersistentDrawerRightProps) => {
-
   const { children } = props;
 
   const theme = useTheme();
@@ -47,10 +46,13 @@ const PersistentDrawerRight = (props: IPersistentDrawerRightProps) => {
         sx={{
           width: DRAWER_WIDTH,
           minWidth: DRAWER_MIN_WIDTH,
+          height: "100%",
           flexShrink: 0,
           "& .MuiDrawer-paper": {
+            textColor: "white !important",
             width: DRAWER_WIDTH,
             minWidth: DRAWER_MIN_WIDTH,
+            height: "100%",
           },
         }}
         variant="persistent"

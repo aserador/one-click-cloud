@@ -11,6 +11,7 @@ export default function StratusButton(props: StratusButtonProps) {
 
   return (
     <Button
+      color="primary"
       className={classStyles}
       variant="contained"
       onClick={onClickCalllback}
