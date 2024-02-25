@@ -1,0 +1,8 @@
+- Create AWS account
+- install AWS cli
+- run `aws configure sso` to login
+- install terraform cli
+- download terraform file
+- run `terraform init` (with tf file in root directory)
+- run `terraform apply` (with tf file in root directory)
+- * for Route53 - Link your domain to your hosted zone using the name server
