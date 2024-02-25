@@ -16,7 +16,7 @@
 </p>
 
 ## Inspiration
-On Rohan's first time using AWS, he accidentally racked up a bill in the hundreds of dollars by provisioning an overly large EC2 instance. After Audrik developed a brand new website, he spent more time trying to deploy it than he spent building it. Struggling with the cloud is every new developer's right of passage.
+On Rohan's first time using AWS, he accidentally racked up a bill in the hundreds of dollars by provisioning an overly large EC2 instance. After Audric developed a brand new website, he spent more time trying to deploy it than he spent building it. Struggling with the cloud is every new developer's right of passage.
 
 The cloud is hard, intimidating and (potentially) expensive to learn. We're here to change that by lowering the barrier to entry for cloud services.
 
