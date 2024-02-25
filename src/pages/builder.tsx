@@ -167,7 +167,6 @@ const BuildPage = () => {
               />
             </div>
             <div className="mt-4 text-white">{output}</div>
-            <ToastContainer position="top-right" />
           </>
         )}
       </div>

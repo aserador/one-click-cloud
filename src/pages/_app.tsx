@@ -54,6 +54,7 @@ function StratusApp({ Component, pageProps }: AppProps) {
 
         <Component {...pageProps} />
       </Provider>
+      <ToastContainer position="top-right" />
     </div>
   );
 }
