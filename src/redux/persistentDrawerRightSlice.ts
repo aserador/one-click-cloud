@@ -6,6 +6,7 @@ import {
   IPersistentDrawerSetAwsServiceFilter,
   IPersistentDrawerSetAwsServiceProperty,
   IPersistentDrawerSetAwsServices,
+  IPersistentDrawerSetDrawerMode,
 } from "./payload";
 import _ from "lodash";
 
@@ -14,6 +15,7 @@ export type PersistentDrawerRightState = {
   focusedNode: any;
   AWSServices: Array<any>;
   AWSServiceFilter: number[];
+  drawerMode: "Service Details" | "Add Service";
 };
 
 export const persistentDrawerRightSlice = createSlice({
@@ -23,6 +25,7 @@ export const persistentDrawerRightSlice = createSlice({
     focusedNode: null as any,
     AWSServices: [] as Array<any>,
     AWSServiceFilter: [] as number[],
+    drawerMode: "Service Details" as "Service Details" | "Add Service",
   },
   reducers: {
     setIsOpen: (
@@ -59,6 +62,12 @@ export const persistentDrawerRightSlice = createSlice({
     ) => {
       state.AWSServiceFilter = action.payload.AWSServiceFilter;
     },
+    setDrawerMode: (
+      state: PersistentDrawerRightState,
+      action: PayloadAction<IPersistentDrawerSetDrawerMode>
+    ) => {
+      state.drawerMode = action.payload.drawerMode;
+    },
   },
   extraReducers: () => {},
 });
@@ -69,6 +78,7 @@ export const {
   setAwsServices,
   setAwsServiceProperty,
   setAwsServiceFilter,
+  setDrawerMode,
 } = persistentDrawerRightSlice.actions;
 
 export const getIsOpen = (state: RootState) =>
@@ -82,5 +92,8 @@ export const getAwsServices = (state: RootState) =>
 
 export const getAwsServicesFilter = (state: RootState) =>
   state.persistentDrawerRight.AWSServiceFilter;
+
+export const getDrawerMode = (state: RootState) =>
+  state.persistentDrawerRight.drawerMode;
 
 export const persistentDrawerRightReducer = persistentDrawerRightSlice.reducer;
