@@ -6,20 +6,22 @@ import { useRouter } from "next/router";
 import { ARCHITECTURES } from "../../templates/architectures";
 import { useEffect, useState } from "react";
 import { Divider, Typography } from "@mui/material";
-import _ from "lodash";
 import { useSelector } from "react-redux";
 import StratusCheckbox from "@/components/StratusCheckbox";
 import {
+  getAwsServices,
+  getDrawerMode,
   getFocusedNode,
   setAwsServiceProperty,
 } from "@/redux/persistentDrawerRightSlice";
 import StratusTextField from "@/components/StratusTextField";
+import _ from "lodash";
 
 const DiagramPage = () => {
-  const router = useRouter();
 
   const [filter, setFilter] = useState<number[]>([]);
 
+  const router = useRouter();
   useEffect(() => {
     const option = router.query.option;
 
@@ -29,10 +31,9 @@ const DiagramPage = () => {
   }, [router.query.option]);
 
   const focusedNode = useSelector(getFocusedNode);
-
-  // This should be done in the reducer ("slice")
-  // Don't know if focusNode is already a copy or immutable
   const focusedNodeCopy = _.cloneDeep(focusedNode);
+  const awsServices = useSelector(getAwsServices);
+  const drawerMode = useSelector(getDrawerMode);
 
   const settings: JSX.Element[] = [];
   if (focusedNode?.settings) {
@@ -90,27 +91,45 @@ const DiagramPage = () => {
     <div>
       <PersistentDrawerRight
         children={
-          <>
-            <div className="p-4">
-              <Typography variant="h4">
-                {focusedNode?.name ?? "[None]"}
-              </Typography>
+          drawerMode === "Add Service" ? (
+            <>
               <Divider />
-              <div className="pt-4">
-                <Typography variant="body1">
-                  {focusedNode?.description ?? "[None]"}
+              {awsServices.map((awsService, index) => {
+                return (
+                  <StratusButton
+                    key={`key-aws-service-${awsService.id}`}
+                    classStyles="m-2"
+                    onClick={() => {
+                      alert("Add " + awsService.name);
+                    }}
+                  />
+                );
+              })}
+            </>
+          ) : (
+            <>
+              <div className="p-4">
+                <Typography variant="h4">
+                  {focusedNode?.name ?? "[None]"}
                 </Typography>
+                <Divider />
+                <div className="pt-4">
+                  <Typography variant="body1">
+                    {focusedNode?.description ?? "[None]"}
+                  </Typography>
+                </div>
               </div>
-            </div>
-            <Divider />
-            {questions}
-            <Divider />
-            {settings}
-          </>
+              <Divider />
+              {questions}
+              <Divider />
+              {settings}
+            </>
+          )
         }
       />
       <Graph filter={filter} />
       <StratusButton
+        classStyles="absolute bottom-8 left-8"
         onClick={() => {
           sessionStorage.setItem(
             "graph",
