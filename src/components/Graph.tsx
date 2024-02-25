@@ -1,8 +1,7 @@
 import {
   setIsOpen,
   setFocusedNode,
-  getAwsServices,
-  getAwsServicesFilter
+  getGraphServices,
 } from "@/redux/persistentDrawerRightSlice";
 import { store } from "@/redux/store";
 import { useCallback, useEffect } from "react";
@@ -19,39 +18,30 @@ import { AWS_SERVICES_CONNECTIONS } from "../../templates/aws_services.js";
 
 import "reactflow/dist/style.css";
 
-interface GraphProps {
-  filter: number[];
-}
-
-const Graph = (props: GraphProps) => {
-
-  const { filter } = props;
-
+const Graph = () => {
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
 
-  const awsServices = useSelector(getAwsServices);
+  const graphServices = useSelector(getGraphServices);
 
   useEffect(() => {
     setNodes(
-      awsServices
-        .filter((service) => !service.disabled && service.id in filter)
-        .map((s, index) => {
-          // Hack offset to make the graph look better
-          const offsetX = 300 * (index + 1);
-          const offsetY = 100 * (index + 1);
+      graphServices.map((s, index) => {
+        // Hack offset to make the graph look better
+        const offsetX = 300 * (index + 1);
+        const offsetY = 100 * (index + 1);
 
-          return {
-            id: index.toString(),
-            position: { x: offsetX, y: offsetY },
-            data: { label: s.name, ...s },
-          };
-        })
+        return {
+          id: index.toString(),
+          position: { x: offsetX, y: offsetY },
+          data: { label: s.name, ...s },
+        };
+      })
     );
 
     // TODO: read from redux store
     setEdges(AWS_SERVICES_CONNECTIONS);
-  }, [filter]);
+  }, [graphServices]);
 
   const onConnect = useCallback(
     (params: any) => setEdges((eds: any) => addEdge(params, eds)),
@@ -67,11 +57,10 @@ const Graph = (props: GraphProps) => {
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
         onNodeClick={(event: any, node: any) => {
-
           store.dispatch(setIsOpen({ isOpen: true }));
 
           // TODO: Fix unsafe search
-          const target = awsServices.find((s) => s.id === parseInt(node.id));
+          const target = graphServices.find((s) => s.id === parseInt(node.id));
           store.dispatch(setFocusedNode({ focusedNode: target }));
         }}
       >

@@ -4,7 +4,7 @@ import StratusButton from "@/components/StratusButton";
 import { store } from "@/redux/store";
 import { useRouter } from "next/router";
 import { ARCHITECTURES } from "../../templates/architectures";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Divider, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 import StratusCheckbox from "@/components/StratusCheckbox";
@@ -12,27 +12,35 @@ import {
   getAwsServices,
   getDrawerMode,
   getFocusedNode,
+  getGraphServices,
   setAwsServiceProperty,
+  setGraphServices,
 } from "@/redux/persistentDrawerRightSlice";
 import StratusTextField from "@/components/StratusTextField";
 import _ from "lodash";
 
 const DiagramPage = () => {
-  const [filter, setFilter] = useState<number[]>([]);
-
   const router = useRouter();
+  const focusedNode = useSelector(getFocusedNode);
+  const focusedNodeCopy = _.cloneDeep(focusedNode);
+  const awsServices = useSelector(getAwsServices);
+  const graphServices = useSelector(getGraphServices);
+  const drawerMode = useSelector(getDrawerMode);
+
   useEffect(() => {
     const option = router.query.option;
 
     if (option !== undefined && option !== null) {
-      setFilter(ARCHITECTURES[Number(option)].services);
+      store.dispatch(
+        setGraphServices({
+          graphServices: awsServices.filter(
+            (s) =>
+              !s?.disabled && s?.id in ARCHITECTURES[Number(option)].services
+          ),
+        })
+      );
     }
   }, [router.query.option]);
-
-  const focusedNode = useSelector(getFocusedNode);
-  const focusedNodeCopy = _.cloneDeep(focusedNode);
-  const awsServices = useSelector(getAwsServices);
-  const drawerMode = useSelector(getDrawerMode);
 
   const settings: JSX.Element[] = [];
   if (focusedNode?.settings) {
@@ -93,7 +101,7 @@ const DiagramPage = () => {
           drawerMode === "Add Service" ? (
             <>
               <Divider />
-              {awsServices.map((awsService, index) => {
+              {graphServices.map((awsService, index) => {
                 return (
                   <StratusButton
                     key={`key-aws-service-${awsService.id}`}
@@ -126,15 +134,13 @@ const DiagramPage = () => {
           )
         }
       />
-      <Graph filter={filter} />
+      <Graph />
       <StratusButton
         classStyles="absolute bottom-8 left-8"
         onClick={() => {
           sessionStorage.setItem(
             "graph",
-            JSON.stringify(
-              awsServices.filter((s) => !s?.disabled && s?.id in filter)
-            )
+            JSON.stringify(graphServices.filter((s) => !s?.disabled))
           );
           router.push("/download");
         }}
