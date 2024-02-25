@@ -56,7 +56,7 @@ export default function TerraformConfigPage() {
         <div className="grid text-white grid-cols-2 p-4">
           <div>
             <h2 className="text-3xl font-bold mb-4">Step 1:</h2>
-            <a href={terraformURL} download>
+            <a href={terraformURL} download="main.tf">
               <Image
                 src="/images/downloadbtn.png"
                 alt="Download"
