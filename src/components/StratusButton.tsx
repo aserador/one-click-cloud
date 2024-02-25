@@ -12,7 +12,7 @@ export default function StratusButton(props: StratusButtonProps) {
 
   return (
     <div className="relative">
-      <Button href="/download" className={classStyles} variant="contained" onClick={onClickCalllback}>
+      <Button className={classStyles} variant="contained" onClick={onClickCalllback}>
         Submit
       </Button>
     </div>

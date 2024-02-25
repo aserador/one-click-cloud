@@ -18,7 +18,6 @@ import StratusTextField from "@/components/StratusTextField";
 import _ from "lodash";
 
 const DiagramPage = () => {
-
   const [filter, setFilter] = useState<number[]>([]);
 
   const router = useRouter();
@@ -134,11 +133,10 @@ const DiagramPage = () => {
           sessionStorage.setItem(
             "graph",
             JSON.stringify(
-              store
-                .getState()
-                .persistentDrawerRight.AWSServices.filter((s) => !s?.disabled)
+              awsServices.filter((s) => !s?.disabled && s?.id in filter)
             )
           );
+          router.push("/download");
         }}
       />
     </div>
