@@ -246,7 +246,7 @@ const Graph = (props: IGraphProps) => {
             fitView
           >
             {/* TODO: Style location of graph controls */}
-            <Controls className="absolute bottom-10 left-8" />
+            <Controls className="absolute left-8" style={{bottom: "50%"}}/>
 
             {/* TODO: Style background of graph (see reactflow) */}
             <Background variant={BackgroundVariant.Dots} gap={12} size={1} />

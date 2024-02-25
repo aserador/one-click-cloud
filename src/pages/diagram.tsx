@@ -314,7 +314,7 @@ const DiagramPage = () => {
 
       {/* Submit diagram button */}
       <StratusButton
-        classStyles="absolute bottom-8 left-8"
+        classStyles="absolute text-l pt-2 pb-2 pl-12 pr-12 bottom-8 left-8 bg-spurple hover:bg-purple-700"
         onClick={() => {
           // Check if at least one service is added to the diagram
           if (graphServices.length === 0) {
