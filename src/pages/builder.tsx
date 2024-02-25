@@ -27,30 +27,30 @@ const ArchitectureOption: React.FC<ArchitectureOptionProps> = ({
   option,
   isDisabled,
 }) => (
-  <div 
-    className={`flex flex-col bg-white shadow-md rounded p-6 m-4 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 ${isDisabled ? "opacity-50" : ""}`}
-  >
-    <Link href={`/diagram?option=${index}`}>
-        <h2 className="text-2xl font-bold mb-2">{option.name}</h2>
-        <p className="mb-4">{option.description}</p>
-        <h3 className="text-xl font-semibold mb-2">Pros</h3>
-        <ul className="mb-4">
-          {option.pros.map((pro: string, index: number) => (
-            <li key={index} className="list-disc list-inside">
-              {pro}
-            </li>
-          ))}
-        </ul>
-        <h3 className="text-xl font-semibold mb-2">Cons</h3>
-        <ul>
-          {option.cons.map((con: string, index: number) => (
-            <li key={index} className="list-disc list-inside">
-              {con}
-            </li>
-          ))}
-        </ul>
-    </Link>
-  </div>
+<div 
+  className={`flex flex-col text-white hover:border-purple-500 font-custom bg-blockgrey border border-bordergrey p-8 shadow-md rounded-3xl p-6 m-4 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 ${isDisabled ? "opacity-50" : ""} transition duration-500 ease-in-out transform hover:shadow-purple-glow`}
+>
+  <Link href={`/diagram?option=${index}`}>
+      <h2 className="text-2xl font-bold mb-2">{option.name}</h2>
+      <p className="mb-4">{option.description}</p>
+      <ul className="mb-4 pl-4">
+        {option.pros.map((pro: string, index: number) => (
+          <li key={index} className="list-none text-green-500">
+            <span className="mr-2">+</span>
+            {pro}
+          </li>
+        ))}
+      </ul>
+      <ul className="pl-4">
+        {option.cons.map((con: string, index: number) => (
+          <li key={index} className="list-none text-red-500">
+            <span className="mr-2">-</span>
+            {con}
+          </li>
+        ))}
+      </ul>
+  </Link>
+</div>
 );
 
 const BuildPage = () => {

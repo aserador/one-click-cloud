@@ -6,6 +6,9 @@ module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}",],
   theme: {
     extend: {
+      boxShadow: {
+        'purple-glow': '0 0 20px 0 rgba(186, 118, 255, 0.6)'
+      },
       fontFamily: {
         'custom': ['Montserrat Regular', ...defaultTheme.fontFamily.sans],
         'customlight': ['Montserrat Light', ...defaultTheme.fontFamily.sans],
