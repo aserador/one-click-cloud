@@ -29,21 +29,9 @@ export default function Home() {
               className="flex items-center justify-center w-36 px-8 py-3 text-xl bg-white text-black font-bold rounded-full hover:bg-gray hover:text-spurple transition duration-300 ease-in-out"
             >
               Deploy
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="ml-2 h-6 w-6"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 10l-2.293-2.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                />
-              </svg>
             </a>
             <a
-              href="/learn"
+              href="#"
               className="flex items-center text-white text-xl font-bold hover:text-spurple transition duration-300 ease-in-out"
             >
               Learn More
@@ -99,37 +87,15 @@ export default function Home() {
             />
           </div>
         </div>
-        <div className="bg-blockgrey rounded-lg flex flex-grow flex-shrink w-auto items-center justify-center border border-bordergrey p-4">
-          <div className="flex flex-col items-center justify-center space-y-2">
-            <p className="text-white text-sm">Text 3</p>
-            <Image
-              src="/images/splashcloud.svg"
-              alt="Splash"
-              width={70}
-              height={50}
-            />
-          </div>
-        </div>
-        <div className="bg-blockgrey rounded-lg flex flex-grow flex-shrink w-auto items-center justify-center border border-bordergrey p-4">
-          <div className="flex flex-col items-center justify-center space-y-2">
-            <p className="text-white text-sm">Text 4</p>
-            <Image
-              src="/images/splashcloud.svg"
-              alt="Splash"
-              width={70}
-              height={50}
-            />
-          </div>
-        </div>
       </section>
-      <footer className="flex items-center bg-spurple text-white justify-center w-full h-24 border-t">
+      <footer className="flex items-center bg-spurple text-white mt-64 justify-center w-full h-24 border-t">
         <a
-          className="flex items-center justify-center"
+          className="flex text-custom text-xl items-center justify-center"
           href="#"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by HackIllinois 2024
+          Created by Audric, Alex, and Rohan for HackIllinois 2024
         </a>
       </footer>
     </div>
