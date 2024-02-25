@@ -5,15 +5,19 @@ import {
   getGraphEdges,
   getAwsServices,
   setGraphServices,
+  setGraphEdges,
 } from "@/redux/persistentDrawerRightSlice";
 import { store } from "@/redux/store";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { use, useCallback, useEffect, useRef, useState } from "react";
 import ReactFlow, {
   Background,
   BackgroundVariant,
   Controls,
   ReactFlowProvider,
   addEdge,
+  getConnectedEdges,
+  getIncomers,
+  getOutgoers,
   useEdgesState,
   useNodesState,
 } from "reactflow";
@@ -37,19 +41,21 @@ const Sidebar = () => {
 
   return (
     <div className="relative text-white" style={{ width: "20%" }}>
-      {awsServices.filter(s => !s.disabled).map((service, i) => {
-        return (
-          <div>
-            <div
-              className="dndnode"
-              onDragStart={(event) => onDragStart(event, service)}
-              draggable
-            >
-              <Typography>{service.name}</Typography>
+      {awsServices
+        .filter((s) => !s.disabled)
+        .map((service, i) => {
+          return (
+            <div>
+              <div
+                className="dndnode"
+                onDragStart={(event) => onDragStart(event, service)}
+                draggable
+              >
+                <Typography>{service.name}</Typography>
+              </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
     </div>
   );
 };
@@ -92,10 +98,13 @@ const Graph = (props: IGraphProps) => {
     }
   }, [initialServices]);
 
-  const onConnect = useCallback(
-    (params: any) => setEdges((eds: any) => addEdge(params, eds)),
-    [setEdges]
-  );
+  useEffect(() => {
+    store.dispatch(setGraphEdges({ graphEdges: edges }));
+  }, [edges]);
+
+  const onConnect = (params: any) => {
+    setEdges((eds: any) => addEdge(params, eds));
+  };
 
   const onDragOver = useCallback((event: any) => {
     event.preventDefault();
@@ -128,6 +137,39 @@ const Graph = (props: IGraphProps) => {
     );
   };
 
+  const onNodesDelete = (deleted: any) => {
+    setEdges(
+      deleted.reduce((acc: any, node: any) => {
+        const incomers = getIncomers(node, nodes, edges);
+        const outgoers = getOutgoers(node, nodes, edges);
+        const connectedEdges = getConnectedEdges([node], edges);
+
+        const remainingEdges = acc.filter(
+          (edge: any) => !connectedEdges.includes(edge)
+        );
+
+        const createdEdges = incomers.flatMap(({ id: source }) =>
+          outgoers.map(({ id: target }) => ({
+            id: `${source}->${target}`,
+            source,
+            target,
+          }))
+        );
+
+        return [...remainingEdges, ...createdEdges];
+      }, edges)
+    );
+    deleted
+      .map((d: any) => String(d.id))
+      .forEach((did: any) => {
+        store.dispatch(
+          setGraphServices({
+            graphServices: graphServices.filter((s) => did !== String(s.id)),
+          })
+        );
+      });
+  };
+
   return (
     <div className="dndflow flex flex-row">
       <ReactFlowProvider>
@@ -143,6 +185,7 @@ const Graph = (props: IGraphProps) => {
             onEdgesChange={onEdgesChange}
             onConnect={onConnect}
             onInit={setReactFlowInstance}
+            onNodesDelete={onNodesDelete}
             onDrop={onDrop}
             onDragOver={onDragOver}
             onNodeClick={(event: any, node: any) => {

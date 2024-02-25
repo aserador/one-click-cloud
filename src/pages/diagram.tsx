@@ -12,6 +12,7 @@ import {
   getAwsServices,
   getDrawerMode,
   getFocusedNode,
+  getGraphEdges,
   getGraphServices,
   setAwsServiceProperty,
   setGraphEdges,
@@ -29,6 +30,7 @@ const DiagramPage = () => {
   const focusedNodeCopy = _.cloneDeep(focusedNode);
   const awsServices = useSelector(getAwsServices);
   const graphServices = useSelector(getGraphServices);
+  const graphEdges = useSelector(getGraphEdges);
   const drawerMode = useSelector(getDrawerMode);
 
   useEffect(() => {
@@ -146,11 +148,14 @@ const DiagramPage = () => {
         classStyles="absolute bottom-8 left-8"
         onClick={() => {
           sessionStorage.setItem(
-            "graph",
+            "graphServices",
             JSON.stringify(graphServices.filter((s) => !s?.disabled))
           );
-          // router.push("/download");
-          console.log(graphServices.filter((s) => !s?.disabled));
+          sessionStorage.setItem(
+            "graphEdges",
+            JSON.stringify(graphEdges)
+          );
+          router.push("/download");
         }}
       />
     </div>
