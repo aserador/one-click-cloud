@@ -5,6 +5,7 @@ import {
   getAwsServices,
   setGraphServices,
   setGraphEdges,
+  getIsOpen,
 } from "@/redux/persistentDrawerRightSlice";
 import { store } from "@/redux/store";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -30,6 +31,15 @@ import "reactflow/dist/style.css";
 // Draggable sidebar for adding aws services to the graph
 const Sidebar = () => {
   const awsServices = useSelector(getAwsServices);
+  const isOpen = useSelector(getIsOpen);
+  
+  useEffect(() => {
+    const element = document.getElementById('graphSideBar');
+    console.log(element);
+    if (element) {
+      element.style.left = isOpen ? '40%': '50%';
+    }
+  }, [isOpen]);
 
   // Dragging a service from the sidebar to the graph
   const onDragStart = (event: any, service: any) => {
@@ -45,7 +55,7 @@ const Sidebar = () => {
 
   return (
     // TODO: Style the sidebar
-    <div className="absolute text-white flex flex-col justify-end" style={{ width: "500px", height: "200px", left: "50%", top: "75%", transform: "translateX(-50%)" }}>
+    <div id="graphSideBar" className="absolute text-white flex flex-col justify-end" style={{ width: "500px", height: "200px", left: "50%", top: "75%", transform: "translateX(-50%)", transition: "left 0.2s ease-in-out"}}>
       {awsServices
         .filter((s) => !s.disabled)
         .map((service, i) => {
