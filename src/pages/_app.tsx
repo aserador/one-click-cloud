@@ -5,14 +5,17 @@ import Head from "next/head";
 import { Provider } from "react-redux";
 import { setAwsServices } from "@/redux/persistentDrawerRightSlice";
 import { AWS_SERVICES } from "../../templates/aws_services.js";
+import { ToastContainer } from "react-toastify";
 
 import "../styles/globals.css";
+import "react-toastify/dist/ReactToastify.css";
 
 // Context provider
 export const DiagramContext = createContext({
   value: {} as any,
   setValue: () => {},
 });
+
 
 function StratusApp({ Component, pageProps }: AppProps) {
   store.dispatch(setAwsServices({ AWSServices: AWS_SERVICES }));

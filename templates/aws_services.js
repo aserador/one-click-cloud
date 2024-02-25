@@ -12,7 +12,7 @@ export const AWS_SERVICES = [
                 "type": "boolean",
                 "options": [],
                 "value": true,
-                "description": "Enable versioning for your S3 bucket"
+                "note": "Enable versioning for your S3 bucket"
             } 
         },
         "questions": [
@@ -28,7 +28,7 @@ export const AWS_SERVICES = [
                 "question": "Location of build files in your repository",
                 "note": "Example: /build",
                 "type": "input",
-                "value": "./build"
+                "value": "build"
             }
         ],
         "disabled": false
@@ -42,35 +42,35 @@ export const AWS_SERVICES = [
             "per-user": 0.017
         },
         "settings": {
-            "option1": "on"
         },
-        "questions": [],
+        "questions": [
+            {
+                "id": 0,
+                "question": "Nickname",
+                "type": "input",
+                "value": "cloudfront",
+                "note": "Name for your CloudFront distribution"
+            }
+        ],
         "disabled": false
     },
     {
         "id": 2,
-        "name": "Google Cloud Storage",
-        "description": "Google Cloud Storage is a RESTful online file storage web service for storing and accessing data on Google Cloud Platform infrastructure. ",
+        "name": "Route 53",
+        "description": "Amazon Route 53 is a scalable and highly available Domain Name System (DNS).",
         "cost": {
-            "flat": 0,
-            "per-user": 0.004
+            "flat": 0.50,
+            "per-user": 0.0000
         },
-        "settings": {},
-        "questions": [],
-        "disabled": true
-    },
-    {
-        "id": 3,
-        "name": "Azure Blob Storage",
-        "description": "Azure Blob storage is Microsoft's object storage solution for the cloud. Blob storage is optimized for storing massive amounts of unstructured data, such as text or binary data.",
-        "cost": {
-            "flat": 0,
-            "per-user": 0.0046
+        "settings": {
+            "domain": {
+                "type": "input",
+                "options": [],
+                "value": "stratus.com",
+                "note": "Domain name for your Route 53 hosted zone (No http:// or www)"
+            } 
         },
-        "settings": {},
         "questions": [],
-        "disabled": true
+        "disabled": false
     }
 ]
-
-export const AWS_SERVICES_CONNECTIONS =  [{ id: "e1-2", source: "0", target: "1" }];

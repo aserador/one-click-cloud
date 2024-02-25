@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import DescriptionBar from "../components/descriptionbar";
 import { ARCHITECTURES } from "../../templates/architectures";
-import { SERVICES } from "../../templates/services";
+import { AWS_SERVICES } from "../../templates/aws_services";
 import Link from "next/link";
 import CircularProgress from "@mui/material/CircularProgress";
 import { toast, ToastContainer } from "react-toastify";
@@ -30,7 +30,7 @@ const ArchitectureOption: React.FC<ArchitectureOptionProps> = ({
   requestCount: requestCount,
 }) => {
   const totalCost = option.services.reduce((cost, serviceIndex) => {
-    const service = SERVICES[serviceIndex];
+    const service = AWS_SERVICES[serviceIndex];
     return cost + service.cost.flat + ((service.cost["per-user"] * requestCount) / 100);
   }, 0);
 
@@ -119,7 +119,7 @@ const BuildPage = () => {
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <div className="flex flex-col items-center justify-center min-w-full">
         {isLoading ? (
-          <CircularProgress />
+            <CircularProgress className="text-spurple" />
         ) : showRecommendations ? (
           <div className="fade-in">
             <h1 className="text-6xl font-custom m-5 text-center text-white">
@@ -128,7 +128,7 @@ const BuildPage = () => {
             <div className="flex flex-row justify-center flex-wrap">
               {options.map((option: Option, index: number) => {
                 const isDisabled = option.services.some(
-                  (serviceIndex) => SERVICES[serviceIndex].disabled
+                  (serviceIndex) => AWS_SERVICES[serviceIndex].disabled
                 );
                 return (
                   <ArchitectureOption

@@ -29,9 +29,31 @@ export const ARCHITECTURES = [
         "services": [0, 1],
         "edges": [
             {
-                "from": 0,
-                "to": 1
-            }
+                id: "0-1", source: "0", target: "1", markerEnd: { type: "arrow" }, style: { strokeWidth: 2 }
+            },
+        ]
+    },
+    {
+        "name": "AWS S3 + CloudFront + Route 53",
+        "description": "Store your static files on S3, use CloudFront as a CDN and Route 53 for DNS management.",
+        "pros": [
+            "Highly scalable",
+            "Fast content delivery",
+            "Supports https/ssl",
+            "Custom domain name support"
+        ],
+        "cons": [
+            "Complex setup",
+            "Not cost-effective for small projects",
+        ],
+        "services": [0, 1, 2],
+        "edges": [
+            {
+                id: "0-1", source: "0", target: "1", markerEnd: { type: "arrow" }, style: { strokeWidth: 2 }
+            },
+            {
+                id: "1-2", source: "1", target: "2", markerEnd: { type: "arrow" }, style: { strokeWidth: 2 }
+            },
         ]
     }
 ];

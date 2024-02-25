@@ -3,12 +3,14 @@ import { RootState } from "./store";
 import {
   IPersistentDrawerFocusedNode,
   IPersistentDrawerIsOpen,
-  IPersistentDrawerSetAwsServiceFilter,
   IPersistentDrawerSetAwsServiceProperty,
   IPersistentDrawerSetAwsServices,
   IPersistentDrawerSetDrawerMode,
+  IPersistentDrawerSetGraphEdges,
+  IPersistentDrawerSetGraphServices,
 } from "./payload";
 import _ from "lodash";
+import { IGraphEdge } from "./models";
 
 export type PersistentDrawerRightState = {
   isOpen: boolean;
@@ -16,6 +18,8 @@ export type PersistentDrawerRightState = {
   AWSServices: Array<any>;
   AWSServiceFilter: number[];
   drawerMode: "Service Details" | "Add Service";
+  graphServices: Array<any>;
+  graphEdges: IGraphEdge[];
 };
 
 export const persistentDrawerRightSlice = createSlice({
@@ -26,6 +30,8 @@ export const persistentDrawerRightSlice = createSlice({
     AWSServices: [] as Array<any>,
     AWSServiceFilter: [] as number[],
     drawerMode: "Service Details" as "Service Details" | "Add Service",
+    graphServices: [] as Array<any>,
+    graphEdges: [] as IGraphEdge[],
   },
   reducers: {
     setIsOpen: (
@@ -50,23 +56,29 @@ export const persistentDrawerRightSlice = createSlice({
       state: PersistentDrawerRightState,
       action: PayloadAction<IPersistentDrawerSetAwsServiceProperty>
     ) => {
-      const index = state.AWSServices.findIndex(
+      const index = state.graphServices.findIndex(
         (service) => service.id === action.payload.focusedNode.id
       );
       state.focusedNode = action.payload.focusedNode;
-      state.AWSServices[index] = action.payload.focusedNode;
-    },
-    setAwsServiceFilter: (
-      state: PersistentDrawerRightState,
-      action: PayloadAction<IPersistentDrawerSetAwsServiceFilter>
-    ) => {
-      state.AWSServiceFilter = action.payload.AWSServiceFilter;
+      state.graphServices[index] = action.payload.focusedNode;
     },
     setDrawerMode: (
       state: PersistentDrawerRightState,
       action: PayloadAction<IPersistentDrawerSetDrawerMode>
     ) => {
       state.drawerMode = action.payload.drawerMode;
+    },
+    setGraphServices: (
+      state: PersistentDrawerRightState,
+      action: PayloadAction<IPersistentDrawerSetGraphServices>
+    ) => {
+      state.graphServices = action.payload.graphServices;
+    },
+    setGraphEdges: (
+      state: PersistentDrawerRightState,
+      action: PayloadAction<IPersistentDrawerSetGraphEdges>
+    ) => {
+      state.graphEdges = action.payload.graphEdges;
     },
   },
   extraReducers: () => {},
@@ -77,8 +89,9 @@ export const {
   setFocusedNode,
   setAwsServices,
   setAwsServiceProperty,
-  setAwsServiceFilter,
   setDrawerMode,
+  setGraphServices,
+  setGraphEdges,
 } = persistentDrawerRightSlice.actions;
 
 export const getIsOpen = (state: RootState) =>
@@ -95,5 +108,11 @@ export const getAwsServicesFilter = (state: RootState) =>
 
 export const getDrawerMode = (state: RootState) =>
   state.persistentDrawerRight.drawerMode;
+
+export const getGraphServices = (state: RootState) =>
+  state.persistentDrawerRight.graphServices;
+
+export const getGraphEdges = (state: RootState) =>
+  state.persistentDrawerRight.graphEdges;
 
 export const persistentDrawerRightReducer = persistentDrawerRightSlice.reducer;
