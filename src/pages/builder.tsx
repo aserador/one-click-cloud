@@ -20,18 +20,18 @@ interface ArchitectureOptionProps {
   index: number;
   option: Option;
   isDisabled: boolean;
-  userCount: number;
+  requestCount: number;
 }
 
 const ArchitectureOption: React.FC<ArchitectureOptionProps> = ({
   index,
   option,
   isDisabled,
-  userCount,
+  requestCount: requestCount,
 }) => {
   const totalCost = option.services.reduce((cost, serviceIndex) => {
     const service = SERVICES[serviceIndex];
-    return cost + service.cost.flat + service.cost["per-user"] * userCount;
+    return cost + service.cost.flat + ((service.cost["per-user"] * requestCount) / 100);
   }, 0);
 
   return (
@@ -60,8 +60,8 @@ const ArchitectureOption: React.FC<ArchitectureOptionProps> = ({
         ))}
       </ul>
     </Link>
-    <div className="absolute bottom-0 right-0 mb-4 mr-4 bg-white rounded-full p-2">
-  <p className="text-black">${totalCost.toFixed(2)} /request</p>
+    <div className="absolute bottom-0 right-0 mb-4 mr-4 w-24 text-center bg-white rounded-full p-2">
+  <p className="text-black">${totalCost.toFixed(2)}</p>
 </div>
   </div>
   );
@@ -136,21 +136,21 @@ const BuildPage = () => {
                     index={indices[index]}
                     option={option}
                     isDisabled={isDisabled}
-                    userCount={userCount}
+                    requestCount={userCount}
                   />
                 );
               })}
             </div>
             <div className="fixed bottom-0 right-0 p-4">
               <p className="text-white font-custom text-xl mr-2">
-                Estimated Users:
+                Estimated Requests:
               </p>
               <input
                 type="text"
                 className="text-white text-xl bg-transparent border-b border-white focus:outline-none"
                 value={userCount}
                 onChange={(e) => setUserCount(Number(e.target.value))}
-                placeholder="Enter number of users"
+                placeholder="Enter number of requests"
               />
             </div>
           </div>
