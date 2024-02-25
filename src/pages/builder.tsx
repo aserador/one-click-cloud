@@ -3,9 +3,9 @@ import DescriptionBar from "../components/descriptionbar";
 import { ARCHITECTURES } from "../../templates/architectures";
 import { SERVICES } from "../../templates/services";
 import Link from "next/link";
-import CircularProgress from '@mui/material/CircularProgress';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import CircularProgress from "@mui/material/CircularProgress";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 interface Option {
   name: string;
@@ -20,17 +20,27 @@ interface ArchitectureOptionProps {
   index: number;
   option: Option;
   isDisabled: boolean;
+  userCount: number;
 }
 
 const ArchitectureOption: React.FC<ArchitectureOptionProps> = ({
   index,
   option,
   isDisabled,
-}) => (
-<div 
-  className={`flex flex-col text-white hover:border-purple-500 font-custom bg-blockgrey border border-bordergrey p-8 shadow-md rounded-3xl p-6 m-4 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 ${isDisabled ? "opacity-50" : ""} transition duration-500 ease-in-out transform hover:shadow-purple-glow`}
->
-  <Link href={`/diagram?option=${index}`}>
+  userCount,
+}) => {
+  const totalCost = option.services.reduce((cost, serviceIndex) => {
+    const service = SERVICES[serviceIndex];
+    return cost + service.cost.flat + service.cost["per-user"] * userCount;
+  }, 0);
+
+  return (
+    <div
+    className={`relative flex flex-col text-white hover:border-purple-500 font-custom bg-blockgrey border border-bordergrey p-8 shadow-md rounded-3xl p-6 m-4 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 ${
+      isDisabled ? "opacity-50" : ""
+    } transition duration-500 ease-in-out transform hover:shadow-purple-glow`}
+  >
+    <Link href={`/diagram?option=${index}`} className="mb-12">
       <h2 className="text-2xl font-bold mb-2">{option.name}</h2>
       <p className="mb-4">{option.description}</p>
       <ul className="mb-4 pl-4">
@@ -41,7 +51,7 @@ const ArchitectureOption: React.FC<ArchitectureOptionProps> = ({
           </li>
         ))}
       </ul>
-      <ul className="pl-4">
+      <ul className="mb-6 pl-4">
         {option.cons.map((con: string, index: number) => (
           <li key={index} className="list-none text-red-500">
             <span className="mr-2">-</span>
@@ -49,9 +59,13 @@ const ArchitectureOption: React.FC<ArchitectureOptionProps> = ({
           </li>
         ))}
       </ul>
-  </Link>
+    </Link>
+    <div className="absolute bottom-0 right-0 mb-4 mr-4 bg-white rounded-full p-2">
+  <p className="text-black">${totalCost.toFixed(2)} /request</p>
 </div>
-);
+  </div>
+  );
+};
 
 const BuildPage = () => {
   const [input, setInput] = useState("");
@@ -60,6 +74,7 @@ const BuildPage = () => {
   const [showRecommendations, setShowRecommendations] = useState(false);
   const [options, setOptions] = useState<Option[]>([]);
   const [indices, setIndices] = useState<number[]>([]);
+  const [userCount, setUserCount] = useState(0);
 
   const handleSend = async () => {
     setIsLoading(true);
@@ -71,25 +86,28 @@ const BuildPage = () => {
         },
         body: JSON.stringify({ userInput: input }),
       });
-  
+
       const data = await response.json();
       console.log(data);
       if (data.using_react && !data.using_backend) {
         setShowRecommendations(true);
       } else {
-        toast.error("Your stack is currently unsupported. As of now, we only support static sites like React and plain HTML/CSS.");
+        toast.error(
+          "Your stack is currently unsupported. As of now, we only support static sites like React and plain HTML/CSS."
+        );
       }
     } finally {
       setIsLoading(false);
     }
   };
+
   useEffect(() => {
     if (showRecommendations) {
       const architectureData = ARCHITECTURES as Option[];
 
       let newOptions: Option[] = architectureData.map((option, index) => ({
         ...option,
-        index
+        index,
       }));
 
       setOptions(newOptions);
@@ -104,7 +122,7 @@ const BuildPage = () => {
           <CircularProgress />
         ) : showRecommendations ? (
           <div className="fade-in">
-            <h1 className="text-6xl font-bold m-5 text-center text-white">
+            <h1 className="text-6xl font-custom m-5 text-center text-white">
               Our Recommendations
             </h1>
             <div className="flex flex-row justify-center flex-wrap">
@@ -118,14 +136,27 @@ const BuildPage = () => {
                     index={indices[index]}
                     option={option}
                     isDisabled={isDisabled}
+                    userCount={userCount}
                   />
                 );
               })}
             </div>
+            <div className="fixed bottom-0 right-0 p-4">
+              <p className="text-white font-custom text-xl mr-2">
+                Estimated Users:
+              </p>
+              <input
+                type="text"
+                className="text-white text-xl bg-transparent border-b border-white focus:outline-none"
+                value={userCount}
+                onChange={(e) => setUserCount(Number(e.target.value))}
+                placeholder="Enter number of users"
+              />
+            </div>
           </div>
         ) : (
           <>
-            <h1 className="text-6xl font-bold m-5 text-center text-white">
+            <h1 className="text-6xl font-custom m-5 text-center text-white">
               What's your tech stack?
             </h1>
             <div className="flex flex-col my-2 w-full sm:w-full md:w-full lg:w-full">
