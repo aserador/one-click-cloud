@@ -19,3 +19,7 @@ export interface IPersistentDrawerSetAwsServiceProperty extends PayloadArgs {
 export interface IPersistentDrawerSetAwsServiceFilter extends PayloadArgs {
   AWSServiceFilter: number[];
 }
+
+export interface IPersistentDrawerSetDrawerMode extends PayloadArgs {
+  drawerMode: "Service Details" | "Add Service";
+}
