@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import DescriptionBar from "../components/descriptionbar";
 import { ARCHITECTURES } from "../../templates/architectures";
-import { SERVICES } from "../../templates/services";
+import { AWS_SERVICES } from "../../templates/aws_services";
 import Link from "next/link";
 
 interface Option {
@@ -109,7 +109,7 @@ return (
       <div className="flex flex-row justify-center flex-wrap">
         {options.map((option: Option, index: number) => {
           const isDisabled = option.services.some(
-            (serviceIndex) => SERVICES[serviceIndex].disabled
+            (serviceIndex) => AWS_SERVICES[serviceIndex].disabled
           );
           return (
             <ArchitectureOption

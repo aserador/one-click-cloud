@@ -12,7 +12,7 @@ export const AWS_SERVICES = [
                 "type": "boolean",
                 "options": [],
                 "value": true,
-                "description": "Enable versioning for your S3 bucket"
+                "note": "Enable versioning for your S3 bucket"
             } 
         },
         "questions": [
@@ -50,17 +50,17 @@ export const AWS_SERVICES = [
     {
         "id": 2,
         "name": "Route 53",
-        "description": "Amazon S3 (Simple Storage Service) provides scalable object storage (similar to Google Drive).",
+        "description": "Amazon Route 53 is a scalable and highly available Domain Name System (DNS).",
         "cost": {
             "flat": 0.50,
             "per-user": 0.0000
         },
         "settings": {
             "domain": {
-                "type": "string",
+                "type": "input",
                 "options": [],
                 "value": "stratus.com",
-                "description": "Domain name for your Route 53 hosted zone (No http:// or www)"
+                "note": "Domain name for your Route 53 hosted zone (No http:// or www)"
             } 
         },
         "questions": [],

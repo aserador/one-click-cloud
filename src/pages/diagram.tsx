@@ -95,6 +95,25 @@ const DiagramPage = () => {
             }}
           />
         );
+      } else if ((metadata as any)?.type == "input") {
+        settings.push(
+          <StratusTextField
+            key={`key-setting-focused_node-${focusedNode?.id}`}
+            id={`id-setting-focused_node-${focusedNode?.id}`}
+            label={settingName}
+            defaultValue={(metadata as any)?.value}
+            helperText={(metadata as any)?.note}
+            variant={"filled"}
+            onChange={(e) => {
+              focusedNodeCopy.settings[settingName].value = e.target.value;
+              store.dispatch(
+                setAwsServiceProperty({
+                  focusedNode: focusedNodeCopy,
+                })
+              );
+            }}
+          />
+        );
       }
     }
   }
