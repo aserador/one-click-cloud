@@ -1,4 +1,27 @@
+@font-face {
+  font-family: "Montserrat Regular";
+  src: url("../../public/fonts/Montserrat-Regular.woff2") format("woff2"),
+    url("../../public/fonts/Montserrat-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat Light";
+  src: url("../../public/fonts/Montserrat-Light.woff2") format("woff2"),
+    url("../../public/fonts/Montserrat-Light.woff") format("woff");
+  font-weight: light;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "RedRose Bold";
+  src: url("../../public/fonts/RedRose-Bold.woff2") format("woff2"),
+    url("../../public/fonts/RedRose-Bold.woff") format("woff");
+  font-weight: bolder;
+  font-style: normal;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-

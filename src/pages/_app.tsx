@@ -19,7 +19,7 @@ function StratusApp({ Component, pageProps }: AppProps) {
   store.dispatch(setAwsServices({ AWSServices: AWS_SERVICES }));
 
   return (
-    <div className="bg-black min-h-screen">
+    <div className="bg-bgblack min-h-screen">
         <Provider store={store}>
           <Head>
             <title>Stratus</title>
