@@ -32,9 +32,8 @@ export const ARCHITECTURES = [
         "services": [0, 1],
         "edges": [
             {
-                "from": 0,
-                "to": 1
-            }
+                id: "0-1", source: "0", target: "1"
+            },
         ]
     },
     {

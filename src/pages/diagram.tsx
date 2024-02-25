@@ -14,6 +14,7 @@ import {
   getFocusedNode,
   getGraphServices,
   setAwsServiceProperty,
+  setGraphEdges,
   setGraphServices,
 } from "@/redux/persistentDrawerRightSlice";
 import StratusTextField from "@/components/StratusTextField";
@@ -38,6 +39,9 @@ const DiagramPage = () => {
               !s?.disabled && s?.id in ARCHITECTURES[Number(option)].services
           ),
         })
+      );
+      store.dispatch(
+        setGraphEdges({ graphEdges: ARCHITECTURES[Number(option)].edges })
       );
     }
   }, [router.query.option]);
@@ -142,7 +146,8 @@ const DiagramPage = () => {
             "graph",
             JSON.stringify(graphServices.filter((s) => !s?.disabled))
           );
-          router.push("/download");
+          // router.push("/download");
+          console.log(graphServices.filter((s) => !s?.disabled));
         }}
       />
     </div>

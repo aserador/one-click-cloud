@@ -1,5 +1,5 @@
 export interface IGraphEdge {
-  id: number;
+  id: string;
   source: string;
   target: string;
 }

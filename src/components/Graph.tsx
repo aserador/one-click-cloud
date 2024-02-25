@@ -2,6 +2,7 @@ import {
   setIsOpen,
   setFocusedNode,
   getGraphServices,
+  getGraphEdges,
 } from "@/redux/persistentDrawerRightSlice";
 import { store } from "@/redux/store";
 import { useCallback, useEffect } from "react";
@@ -23,6 +24,7 @@ const Graph = () => {
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
 
   const graphServices = useSelector(getGraphServices);
+  const graphEdges = useSelector(getGraphEdges);
 
   useEffect(() => {
     setNodes(
@@ -40,7 +42,7 @@ const Graph = () => {
     );
 
     // TODO: read from redux store
-    setEdges(AWS_SERVICES_CONNECTIONS);
+    setEdges(graphEdges);
   }, [graphServices]);
 
   const onConnect = useCallback(

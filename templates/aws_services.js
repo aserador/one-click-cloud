@@ -73,4 +73,4 @@ export const AWS_SERVICES = [
     }
 ]
 
-export const AWS_SERVICES_CONNECTIONS =  [{ id: "e1-2", source: "0", target: "1" }];
+export const AWS_SERVICES_CONNECTIONS =  [{ id: "e1-2", source: "0", target: "1",}];
