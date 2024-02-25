@@ -25,3 +25,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.blur-effect {
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.1);
+}
