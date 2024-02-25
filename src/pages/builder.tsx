@@ -3,6 +3,7 @@ import DescriptionBar from "../components/descriptionbar";
 import { ARCHITECTURES } from "../../templates/architectures";
 import { SERVICES } from "../../templates/services";
 import Link from "next/link";
+import CircularProgress from '@mui/material/CircularProgress';
 
 interface Option {
   name: string;
@@ -55,8 +56,11 @@ const BuildPage = () => {
   const [output, setOutput] = useState("");
   const [indices, setIndices] = useState<number[]>([]);
   const [options, setOptions] = useState<Option[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [showRecommendations, setShowRecommendations] = useState(false);
 
   const handleSend = async () => {
+    setIsLoading(true);
     const response = await fetch("/api/gpthandler", {
       method: "POST",
       headers: {
@@ -74,6 +78,8 @@ const BuildPage = () => {
     );
 
     setIndices(data.archIndexes);
+    setIsLoading(false);
+    setShowRecommendations(true);
   };
 
   useEffect(() => {
@@ -92,37 +98,49 @@ const BuildPage = () => {
     setOptions(newOptions);
   }, [indices]);
 
-return (
-  <div className="flex flex-col items-center justify-center min-h-screen py-2">
-    <div className="flex flex-col items-center justify-center min-w-full">
-      <h1 className="text-6xl font-bold m-5 text-center text-white">
-        What's your tech stack?
-      </h1>
-      <div className="flex flex-col my-2 w-full sm:w-full md:w-full lg:w-full">
-  <DescriptionBar
-    input={input}
-    setInput={setInput}
-    handleSend={handleSend}
-  />
-</div>
-      <div className="mt-4 text-white">{output}</div>
-      <div className="flex flex-row justify-center flex-wrap">
-        {options.map((option: Option, index: number) => {
-          const isDisabled = option.services.some(
-            (serviceIndex) => SERVICES[serviceIndex].disabled
-          );
-          return (
-            <ArchitectureOption
-              key={indices[index]}
-              index={indices[index]}
-              option={option}
-              isDisabled={isDisabled}
-            />
-          );
-        })}
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen py-2">
+      <div className="flex flex-col items-center justify-center min-w-full">
+        {isLoading ? (
+          <CircularProgress />
+        ) : showRecommendations ? (
+          <div className="fade-in">
+            <h1 className="text-6xl font-bold m-5 text-center text-white">
+              Our Recommendations
+            </h1>
+            <div className="flex flex-row justify-center flex-wrap">
+              {options.map((option: Option, index: number) => {
+                const isDisabled = option.services.some(
+                  (serviceIndex) => SERVICES[serviceIndex].disabled
+                );
+                return (
+                  <ArchitectureOption
+                    key={indices[index]}
+                    index={indices[index]}
+                    option={option}
+                    isDisabled={isDisabled}
+                  />
+                );
+              })}
+            </div>
+          </div>
+        ) : (
+          <>
+            <h1 className="text-6xl font-bold m-5 text-center text-white">
+              What's your tech stack?
+            </h1>
+            <div className="flex flex-col my-2 w-full sm:w-full md:w-full lg:w-full">
+              <DescriptionBar
+                input={input}
+                setInput={setInput}
+                handleSend={handleSend}
+              />
+            </div>
+            <div className="mt-4 text-white">{output}</div>
+          </>
+        )}
       </div>
     </div>
-  </div>
-);
-      };
+  );
+};
 export default BuildPage;

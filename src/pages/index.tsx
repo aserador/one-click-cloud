@@ -12,7 +12,7 @@ export default function Home() {
       <main className="flex ml-12 justify-between items-center flex-1 px-20 py-10 space-x-10">
         <div className="text-left flex-1">
           <h1 className="text-7xl font-bold text-white">
-            No Code{" "}
+            Low-Code{" "}
             <a className="text-spurple" href="#">
               Cloud
             </a>{" "}
@@ -21,7 +21,7 @@ export default function Home() {
 
           <p className="mt-12 text-xl font-customlight text-white">
             The easiest way to develop and deploy projects. Bringing the cloud
-            closer to the ground.
+            closer to you.
           </p>
           <div className="mt-12 flex space-x-4">
             <a
@@ -75,7 +75,9 @@ export default function Home() {
       <section className="grid grid-cols-2 gap-12 w-full mt-28 px-48 mx-auto">
         <div className="bg-blockgrey rounded-3xl flex flex-grow flex-shrink w-auto items-center justify-center border border-bordergrey p-8">
           <div className="flex flex-col justify-center space-y-2">
-            <p className="text-white font-customlight text-3xl">Multi-Cloud Support</p>
+            <p className="text-white font-customlight text-3xl">
+              Multi-Cloud Support
+            </p>
             <Image
               src="/images/splashlogos.png"
               alt="Splash"
