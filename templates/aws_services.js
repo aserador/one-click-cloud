@@ -28,7 +28,7 @@ export const AWS_SERVICES = [
                 "question": "Location of build files in your repository",
                 "note": "Example: /build",
                 "type": "input",
-                "value": "./build"
+                "value": "build"
             }
         ],
         "disabled": false
