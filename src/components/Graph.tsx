@@ -177,6 +177,8 @@ const Graph = (props: IGraphProps) => {
             id: `${source}->${target}`,
             source,
             target,
+            markerEnd: { type: "arrow" },
+            style: { strokeWidth: 2 },
           }))
         );
 
@@ -194,11 +196,10 @@ const Graph = (props: IGraphProps) => {
           })
         );
       });
-  
 
-      // Reset focused node and close panel
-      store.dispatch(setFocusedNode({ focusedNode: null }));
-      store.dispatch(setIsOpen({ isOpen: false }));
+    // Reset focused node and close panel
+    store.dispatch(setFocusedNode({ focusedNode: null }));
+    store.dispatch(setIsOpen({ isOpen: false }));
   };
 
   return (
@@ -221,7 +222,6 @@ const Graph = (props: IGraphProps) => {
             onDrop={onDrop}
             onDragOver={onDragOver}
             onNodeClick={(event: any, node: any) => {
-
               // Open panel
               store.dispatch(setIsOpen({ isOpen: true }));
 

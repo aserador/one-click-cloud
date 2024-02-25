@@ -29,7 +29,7 @@ export const ARCHITECTURES = [
         "services": [0, 1],
         "edges": [
             {
-                id: "0-1", source: "0", target: "1"
+                id: "0-1", source: "0", target: "1", markerEnd: { type: "arrow" }, style: { strokeWidth: 2 }
             },
         ]
     },
@@ -49,10 +49,10 @@ export const ARCHITECTURES = [
         "services": [0, 1, 2],
         "edges": [
             {
-                id: "0-1", source: "0", target: "1"
+                id: "0-1", source: "0", target: "1", markerEnd: { type: "arrow" }, style: { strokeWidth: 2 }
             },
             {
-                id: "1-2", source: "1", target: "2"
+                id: "1-2", source: "1", target: "2", markerEnd: { type: "arrow" }, style: { strokeWidth: 2 }
             },
         ]
     }
