@@ -22,10 +22,9 @@ import StratusTextField from "@/components/StratusTextField";
 import _ from "lodash";
 
 const DiagramPage = () => {
-  const [localGraphServices, setLocalGraphServices] = useState([] as any[]);
-  const [localGraphEdges, setLocalGraphEdges] = useState([] as any[]);
+  const [localGraphServices, setLocalGraphServices] = useState<any[]>([]);
+  const [localGraphEdges, setLocalGraphEdges] = useState<any[]>([]);
 
-  const router = useRouter();
   const focusedNode = useSelector(getFocusedNode);
   const focusedNodeCopy = _.cloneDeep(focusedNode);
   const awsServices = useSelector(getAwsServices);
@@ -33,7 +32,8 @@ const DiagramPage = () => {
   const graphEdges = useSelector(getGraphEdges);
   const drawerMode = useSelector(getDrawerMode);
 
-  useEffect(() => {
+  const router = useRouter();
+    useEffect(() => {
     const option = router.query.option;
 
     if (option !== undefined && option !== null) {
