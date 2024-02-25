@@ -4,7 +4,7 @@ import StratusButton from "@/components/StratusButton";
 import { store } from "@/redux/store";
 import { useRouter } from "next/router";
 import { ARCHITECTURES } from "../../templates/architectures";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Divider, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 import StratusCheckbox from "@/components/StratusCheckbox";
@@ -21,6 +21,9 @@ import StratusTextField from "@/components/StratusTextField";
 import _ from "lodash";
 
 const DiagramPage = () => {
+  const [localGraphServices, setLocalGraphServices] = useState([] as any[]);
+  const [localGraphEdges, setLocalGraphEdges] = useState([] as any[]);
+
   const router = useRouter();
   const focusedNode = useSelector(getFocusedNode);
   const focusedNodeCopy = _.cloneDeep(focusedNode);
@@ -32,25 +35,26 @@ const DiagramPage = () => {
     const option = router.query.option;
 
     if (option !== undefined && option !== null) {
+      const initialServices = awsServices.filter(
+        (s) => !s?.disabled && s?.id in ARCHITECTURES[Number(option)].services
+      );
       store.dispatch(
         setGraphServices({
-          graphServices: awsServices.filter(
-            (s) =>
-              !s?.disabled && s?.id in ARCHITECTURES[Number(option)].services
-          ),
+          graphServices: initialServices,
         })
       );
-      store.dispatch(
-        setGraphEdges({ graphEdges: ARCHITECTURES[Number(option)].edges })
-      );
+      setLocalGraphServices(initialServices);
+
+      const initialGraphEdges = ARCHITECTURES[Number(option)].edges;
+      store.dispatch(setGraphEdges({ graphEdges: initialGraphEdges }));
+      setLocalGraphEdges(initialGraphEdges);
     }
   }, [router.query.option]);
 
   const settings: JSX.Element[] = [];
   if (focusedNode?.settings) {
-    for (const [name, metadata] of Object.entries(focusedNode.settings)) {
+    for (const [name, metadata] of Object.entries(focusedNodeCopy.settings)) {
       if ((metadata as any)?.type == "boolean") {
-        // TODO: Add key
         settings.push(
           <StratusCheckbox
             key={`key-focused_node-${focusedNode?.id}-setting-${name}`}
@@ -75,7 +79,6 @@ const DiagramPage = () => {
   if (focusedNode?.questions) {
     for (const q of focusedNode.questions) {
       if ((q as any)?.type == "input") {
-        // TODO: Add key
         questions.push(
           <StratusTextField
             key={`key-focused_node-${focusedNode?.id}-question-${q?.id}`}
@@ -138,7 +141,7 @@ const DiagramPage = () => {
           )
         }
       />
-      <Graph />
+      <Graph initialServices={localGraphServices} initialEdges={localGraphEdges}/>
       <StratusButton
         classStyles="absolute bottom-8 left-8"
         onClick={() => {
