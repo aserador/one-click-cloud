@@ -1,4 +1,66 @@
+@font-face {
+  font-family: "Montserrat Regular";
+  src: url("../../public/fonts/Montserrat-Regular.woff2") format("woff2"),
+    url("../../public/fonts/Montserrat-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat Light";
+  src: url("../../public/fonts/Montserrat-Light.woff2") format("woff2"),
+    url("../../public/fonts/Montserrat-Light.woff") format("woff");
+  font-weight: light;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "RedRose Bold";
+  src: url("../../public/fonts/RedRose-Bold.woff2") format("woff2"),
+    url("../../public/fonts/RedRose-Bold.woff") format("woff");
+  font-weight: bolder;
+  font-style: normal;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
+.blur-effect {
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.fade-in {
+  animation: fadeIn ease 2s;
+  -webkit-animation: fadeIn ease 2s;
+  -moz-animation: fadeIn ease 2s;
+  -o-animation: fadeIn ease 2s;
+  -ms-animation: fadeIn ease 2s;
+}
+
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
