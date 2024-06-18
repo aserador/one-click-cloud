@@ -7,12 +7,15 @@ import ReactFlow, {
   addEdge,
   useEdgesState,
   useNodesState,
+  useReactFlow,
 } from 'reactflow';
 import { v4 as uuidv4 } from 'uuid';
 
 import { IconNode } from './Node';
 
 import 'reactflow/dist/style.css';
+import { store } from '@/redux/store';
+import { setZoomLevel } from '@/redux/viewportSlice';
 
 
 interface IGraphProps {
@@ -128,7 +131,6 @@ function Graph(props: IGraphProps) {
             panOnDrag={[1, 2]}
             selectionMode={SelectionMode.Partial}
           >
-            <Controls className='absolute left-8' style={{ bottom: '50%' }} />
           </ReactFlow>
         </div>
     </div>

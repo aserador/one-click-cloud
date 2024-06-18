@@ -1,15 +1,19 @@
-import React, { ReactNode, useCallback, useState } from 'react';
+import React, { ReactNode, use, useCallback, useRef, useState } from 'react';
 import {
   HomeIcon,
   ChevronDownIcon,
   TextBoxIcon,
-  HandToolIcon,
-  CommentIcon,
   ForwardSlash,
   DebugIcon,
   ClockIcon,
+  ZoomOut,
+  ZoomIn,
+  FitView,
 } from '../icons';
-import { useReactFlow } from 'reactflow';
+import { Viewport, useOnViewportChange, useReactFlow } from 'reactflow';
+import { store } from '@/redux/store';
+import { getZoomLevel, setZoomLevel } from '@/redux/viewportSlice';
+import { useSelector } from 'react-redux';
 
 function setButtonStyle(activeButtonId: string, isActive: boolean) {
   const button = document.getElementById(activeButtonId);
@@ -52,14 +56,16 @@ interface ToolbarProps {
 
 function Toolbar({ projectFolder = '[Project Folder]', projectName = '[Project Name]' }: ToolbarProps) {
   const [activeButtonId, setActiveButtonId] = useState<string>('');
-
   const updateActiveButton = useCallback((newActiveButtonId: string) => {
     setButtonStyle(activeButtonId, false);
     setButtonStyle(newActiveButtonId, true);
     setActiveButtonId(newActiveButtonId);
   }, [activeButtonId]);
-
-  const { setViewport, getViewport, fitView } = useReactFlow();
+  const zoomLevel = useSelector(getZoomLevel);
+  const { zoomIn, zoomOut, fitView } = useReactFlow();
+  useOnViewportChange({
+    onChange: (viewport: Viewport) => store.dispatch(setZoomLevel(viewport.zoom)),
+  });
 
   return (
     <div id="toolbar" className="w-full h-12 flex flex-row justify-center items-center bg-figmaGrey">
@@ -76,45 +82,41 @@ function Toolbar({ projectFolder = '[Project Folder]', projectName = '[Project N
           </div>
         </ToolbarButton>
         <ToolbarButton
-          buttonName="text_box"
-          onButtonClick={(newActiveButtonId: string) => updateActiveButton(newActiveButtonId)}
+          buttonName="fit_view"
+          onButtonClick={(newActiveButtonId: string) => {
+            updateActiveButton(newActiveButtonId);
+            fitView()
+          }}
         >
-          <TextBoxIcon />
+          <FitView />
         </ToolbarButton>
         <ToolbarButton
           buttonName="zoom_out"
           onButtonClick={(newActiveButtonId: string) => {
             updateActiveButton(newActiveButtonId);
-            const viewPort = getViewport();
-            setViewport({
-              ...viewPort,
-              zoom: Math.max(viewPort.zoom - 0.1, 0.25),
-            });
+            zoomOut()
           }}
         >
-          <HandToolIcon />
+          <ZoomOut />
         </ToolbarButton>
+        <div className="h-full w-16 flex flex-col justify-center items-center">
+          {Math.round(zoomLevel * 100)}%
+        </div>
         <ToolbarButton
           buttonName="zoom_in"
           onButtonClick={(newActiveButtonId: string) => {
             updateActiveButton(newActiveButtonId);
-            const viewPort = getViewport();
-            setViewport({
-              ...viewPort,
-              zoom: Math.min(viewPort.zoom + 0.1, 5),
-            });
+            zoomIn()
           }}
         >
-          <CommentIcon />
+          <ZoomIn />
         </ToolbarButton>
         <ToolbarButton
-          buttonName="fit_view"
-          onButtonClick={(newActiveButtonId: string) => {
-            updateActiveButton(newActiveButtonId);
-            fitView()
-            console.log(getViewport())
-          }}
-        ><CommentIcon /></ToolbarButton>
+          buttonName="text_box"
+          onButtonClick={(newActiveButtonId: string) => updateActiveButton(newActiveButtonId)}
+        >
+          <TextBoxIcon />
+        </ToolbarButton>
       </div>
       <div className="flex-1" />
       <div className="inline-block h-full flex flex-row justify-center items-center">

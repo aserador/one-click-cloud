@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { persistentDrawerRightReducer } from "./persistentDrawerRightSlice";
+import { viewportReducer } from "./viewportSlice";
 
 export const store = configureStore({
   reducer: {
     persistentDrawerRight: persistentDrawerRightReducer,
+    viewport: viewportReducer,
   },
   devTools: true,
 });
