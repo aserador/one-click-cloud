@@ -1,11 +1,9 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import ReactFlow, {
-  NodeProps,
   SelectionMode,
   addEdge,
   useEdgesState,
   useNodesState,
-  useReactFlow,
 } from 'reactflow';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -150,6 +148,7 @@ function Graph(props: IGraphProps) {
             selectionOnDrag
             panOnDrag={[1, 2]}
             selectionMode={SelectionMode.Partial}
+            style={{backgroundColor: '#1e1e1e'}}
           >
           </ReactFlow>
         </div>
