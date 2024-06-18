@@ -1,8 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import ReactFlow, {
-  Background,
-  BackgroundVariant,
-  Controls,
+  NodeProps,
   SelectionMode,
   addEdge,
   useEdgesState,
@@ -15,7 +13,9 @@ import { IconNode } from './Node';
 
 import 'reactflow/dist/style.css';
 import { store } from '@/redux/store';
-import { setZoomLevel } from '@/redux/viewportSlice';
+import { getSchema, setFocus } from '@/redux/focusSlice';
+import { ISchema } from '@/redux/models';
+import { useSelector } from 'react-redux';
 
 
 interface IGraphProps {
@@ -30,6 +30,8 @@ function Graph(props: IGraphProps) {
   // Hooks for draggables and droppables
   const reactFlowWrapper = useRef(null);
   const [reactFlowInstance, setReactFlowInstance] = useState<any>(null);
+
+  const focused = useSelector(getSchema);
 
   const { initialEdges, initialServices } = props;
 
@@ -71,10 +73,10 @@ function Graph(props: IGraphProps) {
 
     event.preventDefault();
 
-    let schema = undefined;
+    let data = undefined;
 
     try {
-      schema = JSON.parse(event.dataTransfer.getData('application/reactflow'));
+      data = JSON.parse(event.dataTransfer.getData('application/reactflow'));
     } catch (e) {
       // Unknown service, ignore
       return;
@@ -86,20 +88,38 @@ function Graph(props: IGraphProps) {
       y: event.clientY,
     });
 
-    console.log(schema);
-
     const newNode = {
       id: uuidv4(),
-      type: schema.metadata.type === 'icon' ? 'iconNode' : 'textNode',
+      type: data.metadata.type === 'icon' ? 'iconNode' : 'textNode',
       position,
-      data: { label: schema.id, ...schema },
+      data: { label: data.id, ...data },
+    }
+
+    if (!focused && data.metadata.type === 'icon') {
+      store.dispatch(
+        setFocus(
+          {
+            id: data.metadata.service,
+            continuous_deployment: data.continuous_deployment,
+            cost: data.cost,
+            enabled: data.enabled,
+            schema: data.schema,
+          } as ISchema
+        )
+      );
     }
 
     setNodes([...nodes, newNode]);
   };
 
-  const onNodesDelete = (deleted: any) => {
-    console.log('Deleted nodes', deleted);
+  const onNodesDelete = (deleted: Array<any>) => {
+    if (focused) {
+      deleted.find((node) => {
+        if (node.data.metadata.service === focused?.id) {
+          store.dispatch(setFocus(null));
+        }
+      });
+    }
   };
 
   const nodeTypes = useMemo(() => ({ iconNode: IconNode }), []);

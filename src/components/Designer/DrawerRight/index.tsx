@@ -50,8 +50,8 @@ function DrawerRight({ children = null }: DrawerRightProps) {
             {isOpen ? <ChevronDoubleRight /> : <ChevronDoubleLeft />}
           </button>
         </div>
-        <div className="w-full flex-1 overflow-y-auto">
-          {children}
+        <div className="w-full flex flex-col flex-auto">
+          {isOpen && children}
         </div>
       </div>
     </ResizableBox>

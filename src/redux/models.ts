@@ -3,3 +3,11 @@ export interface IGraphEdge {
   source: string;
   target: string;
 }
+
+export interface ISchema {
+  id: string;
+  continuous_deployment: {};
+  cost: {};
+  enabled: boolean;
+  schema: {};
+}

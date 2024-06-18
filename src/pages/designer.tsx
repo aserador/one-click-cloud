@@ -7,6 +7,7 @@ import DrawerRight from '@/components/Designer/DrawerRight';
 import Toolbar from '@/components/Designer/Toolbar';
 import Diagram from '@/components/Designer/Diagram';
 import Accordian from '@/components/Designer/Accordian';
+import Configuration from '@/components/Designer/Configuration';
 
 function Designer() {
   return (
@@ -14,7 +15,6 @@ function Designer() {
       <ReactFlowProvider>
         <Toolbar />
         <div className="w-full flex-1 flex flex-row">
-          
             <DrawerLeft title="Find cloud services">
               <div className="w-full flex flex-row justify-start mt-1">
                 <input 
@@ -26,7 +26,9 @@ function Designer() {
               <Accordian />
             </DrawerLeft>
             <Diagram />
-          <DrawerRight />
+          <DrawerRight>
+            <Configuration />
+          </DrawerRight>
         </div>
       </ReactFlowProvider>
     </div>
