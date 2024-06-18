@@ -48,9 +48,9 @@ function StratusApp({ Component, pageProps }: AppProps) {
           />
         </Head>
         
-        <header id="header" className="w-full p-4 fixed top-0 left-0">
+        {/* <header id="header" className="w-full p-4 fixed top-0 left-0">
           <a href="/" className="text-2xl font-logo text-spurple">stratus</a>
-        </header>
+        </header> */}
 
         <Component {...pageProps} />
       </Provider>

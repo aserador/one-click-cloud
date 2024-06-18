@@ -1,0 +1,1977 @@
+{
+  "Analytics": {
+    "Athena": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Clean-Rooms": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "CloudSearch": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Data-Exchange": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Data-Pipeline": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "DataZone": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "EMR": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "FinSpace": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Glue": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Glue-DataBrew": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Glue-Elastic-Views": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Kinesis": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Kinesis-Data-Analytics": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Kinesis-Data-Streams": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Kinesis-Firehose": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Kinesis-Video-Streams": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Lake-Formation": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Managed-Streaming-for-Apache-Kafka": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "OpenSearch-Service": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "QuickSight": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Redshift": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    }
+  },
+  "Application-Integration": {
+    "API-Gateway": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "AppFlow": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "AppSync": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Console-Mobile-Application": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "EventBridge": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Express-Workflows": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Managed-Workflows-for-Apache-Airflow": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "MQ": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Simple-Notification-Service": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Simple-Queue-Service": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Step-Functions": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    }
+  },
+  "Blockchain": {
+    "Managed-Blockchain": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Quantum-Ledger-Database": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    }
+  },
+  "Business-Applications": {
+    "Alexa-For-Business": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Chime": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Chime-SDK": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Chime-Voice-Connector": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Connect": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Honeycode": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Pinpoint": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Pinpoint-APIs": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Simple-Email-Service": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Supply-Chain": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Wickr": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "WorkDocs": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "WorkDocs-SDK": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "WorkMail": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    }
+  },
+  "Cloud-Financial-Management": {
+    "Application-Cost-Profiler": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Billing-Conductor": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Budgets": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Cost-and-Usage-Report": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Cost-Explorer": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Reserved-Instance-Reporting": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Savings-Plans": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    }
+  },
+  "Compute": {
+    "Application-Auto-Scaling": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "App-Runner": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Batch": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Bottlerocket": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Compute-Optimizer": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "EC2": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "EC2-Auto-Scaling": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "EC2-Image-Builder": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "EC2-Spot-Instance": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Elastic-Beanstalk": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Elastic-Fabric-Adapter": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Fargate": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Genomics-CLI": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Lambda": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Lightsail": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Local-Zones": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "NICE-DCV": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "NICE-EnginFrame": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Nitro-Enclaves": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Outposts-family": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Outposts-rack": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Outposts-servers": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "ParallelCluster": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Serverless-Application-Repository": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "SimSpace-Weaver": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Thinkbox-Deadline": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Thinkbox-Frost": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Thinkbox-Krakatoa": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Thinkbox-Sequoia": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Thinkbox-Stoke": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Thinkbox-XMesh": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "VMware-Cloud-on-AWS": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Wavelength": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    }
+  },
+  "Containers": {
+    "ECS-Anywhere": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "EKS-Anywhere": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "EKS-Cloud": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "EKS-Distro": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Elastic-Container-Registry": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Elastic-Container-Service": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Elastic-Kubernetes-Service": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Fargate": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Red-Hat-OpenShift-Service-on-AWS": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    }
+  },
+  "Customer-Enablement": {
+    "Activate": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "IQ": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Managed-Services": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Professional-Services": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "rePost": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Support": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Training-Certification": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    }
+  },
+  "Database": {
+    "Aurora": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Database-Migration-Service": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "DocumentDB": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "DynamoDB": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "ElastiCache": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Keyspaces": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "MemoryDB-for-Redis": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Neptune": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "RDS": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "RDS-on-VMware": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Timestream": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    }
+  },
+  "Developer-Tools": {
+    "Application-Composer": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Cloud9": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Cloud-Control-API": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Cloud-Development-Kit": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "CloudShell": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "CodeArtifact": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "CodeBuild": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "CodeCatalyst": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "CodeCommit": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "CodeDeploy": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "CodePipeline": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "CodeStar": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Command-Line-Interface": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Corretto": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Tools-and-SDKs": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "X-Ray": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    }
+  },
+  "End-User-Computing": {
+    "AppStream": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "WorkLink": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "WorkSpaces-Family": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    }
+  },
+  "Front-End-Web-Mobile": {
+    "Amplify": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Device-Farm": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Location-Service": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    }
+  },
+  "Games": {
+    "GameKit": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "GameLift": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "GameSparks": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Lumberyard": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Open-3D-Engine": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    }
+  },
+  "General-Icons": {
+    "Marketplace": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    }
+  },
+  "Internet-of-Things": {
+    "FreeRTOS": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "IoT-1-Click": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "IoT-Analytics": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "IoT-Button": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "IoT-Core": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "IoT-Device-Defender": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "IoT-Device-Management": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "IoT-EduKit": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "IoT-Events": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "IoT-ExpressLink": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "IoT-FleetWise": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "IoT-Greengrass": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "IoT-RoboRunner": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "IoT-SiteWise": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "IoT-Things-Graph": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "IoT-TwinMaker": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    }
+  },
+  "Machine-Learning": {
+    "Apache-MXNet-on-AWS": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Augmented-AI-A2I": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "CodeGuru": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "CodeWhisperer": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Comprehend": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Comprehend-Medical": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "DeepComposer": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Deep-Learning-AMIs": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Deep-Learning-Containers": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "DeepLens": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "DeepRacer": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "DevOps-Guru": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Elastic-Inference": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Forecast": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Fraud-Detector": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "HealthLake": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Kendra": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Lex": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Lookout-for-Equipment": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Lookout-for-Metrics": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Lookout-for-Vision": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Monitron": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Neuron": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Omics": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Panorama": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Personalize": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Polly": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Rekognition": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "SageMaker": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "SageMaker-Ground-Truth": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "SageMaker-Studio-Lab": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "TensorFlow-on-AWS": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Textract": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "TorchServe": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Transcribe": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Translate": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    }
+  },
+  "Management-Governance": {
+    "AppConfig": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Application-Auto-Scaling": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Auto-Scaling": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Backint-Agent": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Chatbot": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "CloudFormation": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "CloudTrail": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "CloudWatch": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Config": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Control-Tower": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Distro-for-OpenTelemetry": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Fault-Injection-Simulator": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Launch-Wizard": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "License-Manager": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Managed-Grafana": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Managed-Service-for-Prometheus": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Management-Console": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "OpsWorks": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Organizations": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Personal-Health-Dashboard": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Proton": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Resilience-Hub": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Resource-Explorer": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Service-Catalog": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Service-Management-Connector": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Systems-Manager": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Trusted-Advisor": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Well-Architected-Tool": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    }
+  },
+  "Media-Services": {
+    "Elastic-Transcoder": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Elemental-Appliances-&-Software": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Elemental-Conductor": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Elemental-Delta": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Elemental-Link": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Elemental-Live": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Elemental-MediaConnect": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Elemental-MediaConvert": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Elemental-MediaLive": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Elemental-MediaPackage": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Elemental-MediaStore": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Elemental-MediaTailor": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Elemental-Server": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Interactive-Video-Service": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Kinesis-Video-Streams": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Nimble-Studio": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    }
+  },
+  "Migration-Transfer": {
+    "Application-Discovery-Service": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Application-Migration-Service": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "DataSync": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Mainframe-Modernization": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Migration-Evaluator": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Migration-Hub": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Server-Migration-Service": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Transfer-Family": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    }
+  },
+  "Networking-Content-Delivery": {
+    "App-Mesh": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Client-VPN": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Cloud-Directory": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "CloudFront": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {
+        "name": {
+          "title": "Name",
+          "hint": "Name for your CloudFront distribution",
+          "type": "string",
+          "value": "cloudfront",
+          "required": true
+        }
+      }
+    },
+    "Cloud-Map": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Cloud-WAN": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Direct-Connect": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Elastic-Load-Balancing": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Global-Accelerator": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "private subnet": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Private-5G": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "PrivateLink": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "public subnet": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Route-53": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {
+        "domain": {
+          "title": "Domain Name",
+          "hint": "Domain name for your Route 53 hosted zone (excluding http:// or www)",
+          "type": "string",
+          "value": "stratus.com",
+          "required": true
+        }
+      }
+    },
+    "Route-53 Route-Table": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Site-to-Site-VPN": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Transit-Gateway": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Verified-Access": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Virtual-Private-Cloud": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "VPC-Lattice": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    }
+  },
+  "Quantum-Technologies": {
+    "Braket": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    }
+  },
+  "Robotics": {
+    "RoboMaker": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    }
+  },
+  "Satellite": {
+    "Ground-Station": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    }
+  },
+  "Security-Identity-Compliance": {
+    "Artifact": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Audit-Manager": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Certificate-Manager": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Cloud-Directory": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "CloudHSM": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Cognito": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Detective": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Directory-Service": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Firewall-Manager": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "GuardDuty": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "IAM-Identity-Center": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Identity-and-Access-Management": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Inspector": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Key-Management-Service": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Macie": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Network-Firewall": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Private-Certificate-Authority": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Resource-Access-Manager": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Secrets-Manager": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Security-Hub": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Security-Lake": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Shield": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Signer": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Verified-Permissions": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "WAF": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    }
+  },
+  "Storage": {
+    "Backup": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "EFS": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Elastic-Block-Store": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Elastic-Disaster-Recovery": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "File-Cache": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "FSx": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "FSx-for-Lustre": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "FSx-for-NetApp-ONTAP": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "FSx-for-OpenZFS": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "FSx-for-WFS": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "S3-on-Outposts": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Simple-Storage-Service": {
+      "continuous_deployment": {
+        "build_directory": {
+          "title": "Build Directory",
+          "hint": "Location of build files in your repository",
+          "type": "string",
+          "value": "/build",
+          "required": false
+        }
+      },
+      "cost": {},
+      "enabled": true,
+      "schema": {
+        "versioning": {
+          "title": "Versioning",
+          "hint": "Enable versioning for your S3 bucket",
+          "type": "boolean",
+          "value": false,
+          "required": false
+        },
+        "bucket_name": {
+          "title": "Bucket Name",
+          "hint": "Name of your component",
+          "type": "string",
+          "value": "bucket1",
+          "required": false
+        }
+      }
+    },
+    "Simple-Storage-Service-Glacier": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Snowball": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Snowball-Edge": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Snowcone": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Snowmobile": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    },
+    "Storage-Gateway": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    }
+  },
+  "VR-AR": {
+    "Sumerian": {
+      "continuous_deployment": {},
+      "cost": {},
+      "enabled": true,
+      "schema": {}
+    }
+  }
+}

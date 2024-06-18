@@ -19,9 +19,19 @@ module.exports = {
         'spurple': '#BA76FF',
         'blockgrey': '#2A2A2A',
         'bordergrey': '#434343',
+        'figmaGrey': '#2C2C2C',
+        'figmaBorder': '#444444',
+        'textWhite': 'rgba(255, 255, 255, 0.8)',
+        'textGrey': '#b2b2b2',
+        'stratusPurple': '#ba76ff',
+        'stratusPurpleActive': 'rgb(126, 34, 206)',
+        'scrollbarGrey': 'rgba(128, 128, 128, 0.1)',
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('daisyui'),
+    require('tailwind-scrollbar')
+  ],
 }
 

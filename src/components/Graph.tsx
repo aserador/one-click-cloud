@@ -32,12 +32,12 @@ import "reactflow/dist/style.css";
 const Sidebar = () => {
   const awsServices = useSelector(getAwsServices);
   const isOpen = useSelector(getIsOpen);
-  
+
   useEffect(() => {
-    const element = document.getElementById('graphSideBar');
+    const element = document.getElementById("graphSideBar");
     console.log(element);
     if (element) {
-      element.style.left = isOpen ? '40%': '50%';
+      element.style.left = isOpen ? "40%" : "50%";
     }
   }, [isOpen]);
 
@@ -55,7 +55,18 @@ const Sidebar = () => {
 
   return (
     // TODO: Style the sidebar
-    <div id="graphSideBar" className="absolute text-white flex flex-col justify-end" style={{ width: "500px", height: "200px", left: "50%", top: "75%", transform: "translateX(-50%)", transition: "left 0.2s ease-in-out"}}>
+    <div
+      id="graphSideBar"
+      className="absolute text-white flex flex-col justify-end"
+      style={{
+        width: "500px",
+        height: "200px",
+        left: "50%",
+        top: "75%",
+        transform: "translateX(-50%)",
+        transition: "left 0.2s ease-in-out",
+      }}
+    >
       {awsServices
         .filter((s) => !s.disabled)
         .map((service, i) => {
@@ -69,7 +80,11 @@ const Sidebar = () => {
               <Button
                 variant="contained"
                 className="w-full"
-                style={{ backgroundColor: "#3F3F3F", marginBottom: "10px", color: "white"}}
+                style={{
+                  backgroundColor: "#3F3F3F",
+                  marginBottom: "10px",
+                  color: "white",
+                }}
               >
                 <Typography>{service.name}</Typography>
               </Button>
@@ -220,7 +235,7 @@ const Graph = (props: IGraphProps) => {
 
   return (
     // TODO: Style the graph
-    <div className="dndflow flex flex-row">
+    <div className="dndflow h-full flex-1 flex flex-row">
       <ReactFlowProvider>
         <div
           className="reactflow-wrapper"
@@ -256,7 +271,7 @@ const Graph = (props: IGraphProps) => {
             fitView
           >
             {/* TODO: Style location of graph controls */}
-            <Controls className="absolute left-8" style={{bottom: "50%"}}/>
+            <Controls className="absolute left-8" style={{ bottom: "50%" }} />
 
             {/* TODO: Style background of graph (see reactflow) */}
             <Background variant={BackgroundVariant.Dots} gap={12} size={1} />

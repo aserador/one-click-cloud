@@ -69,3 +69,145 @@
   0% {opacity:0;}
   100% {opacity:1;}
 }
+
+
+/* TODO: Change to CSS Modules */
+
+:root {
+  --stratus-purple: #ba76ff;
+  --stratus-border-grey: #444444;
+  --stratus-background-grey: #2C2C2C;
+}
+
+/* Left Drawer */
+.drawer-left {
+  border-right: 1px solid var(--stratus-border-grey) !important;
+  height: calc(100vh - 48px) !important;
+}
+
+.react-resizable-handle {
+  background-image: none !important;
+}
+
+.react-resizable-handle-e {
+  right: 0 !important;
+  top: 0 !important;
+  height: 100% !important;
+  width: 5px !important;
+  transform: rotate(0deg) !important;
+  opacity: 0 !important;
+  padding: 0px !important;
+  margin: 0px !important;
+}
+
+.react-resizable-handle-e:hover {
+  opacity: 100 !important;
+  border-right: 1px solid var(--stratus-purple) !important;
+}
+
+.react-resizable-handle-e-dragging {
+  opacity: 100 !important;
+  border-right: 1px solid var(--stratus-purple) !important;
+}
+
+/* Right Drawer */
+.drawer-right {
+  border-left: 1px solid var(--stratus-border-grey) !important;
+}
+
+.react-resizable-handle {
+  background-image: none !important;
+}
+
+.react-resizable-handle-w {
+  left: 0 !important;
+  top: 0 !important;
+  height: 100% !important;
+  width: 5px !important;
+  transform: rotate(0deg) !important;
+  opacity: 0 !important;
+  padding: 0px !important;
+  margin: 0px !important;
+}
+
+.react-resizable-handle-w:hover {
+  opacity: 100 !important;
+  border-left: 1px solid var(--stratus-purple) !important;
+}
+
+.react-resizable-handle-w-dragging {
+  opacity: 100 !important;
+  border-left: 1px solid var(--stratus-purple) !important;
+}
+
+/* Toolbar */
+#toolbar {
+  background-color: var(--stratus-background-grey);
+  border-bottom: 1px solid var(--stratus-border-grey);
+}
+
+#chevron_down:hover {
+  transform: translateY(4px);
+  transition: transform 0.2s;
+}
+
+.toolbar-button-active {
+  background-color: var(--stratus-purple) !important;
+}
+
+/* Drawer Left */
+
+.collapse-title {
+  height: 32px;
+  min-height: 32px;
+  padding: 0px;
+}
+
+.collapse-title:hover {
+  border: 1px solid var(--stratus-purple);
+}
+
+.collapse-content {
+  padding-left: 0px;
+}
+
+.collapse-item {
+  height: 32px;
+  min-height: 32px;
+  padding: 0px;
+}
+
+.collapse-item:hover {
+  border: 1px solid var(--stratus-purple);
+}
+
+.collapse {
+  /* Daisy UI tailwind border's get clipped */
+  overflow: visible !important;
+}
+
+/* Scroll Bar (requires Tailwind Scrollbar plugin for styling to apply) */
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px !important;
+  height: 5px !important;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(187, 187, 187, .3);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(187, 187, 187, .4);
+  border-radius: 10px;
+}
+
