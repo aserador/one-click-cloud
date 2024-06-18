@@ -2,16 +2,16 @@ import React from 'react';
 
 interface IDraggableProps {
   children: React.ReactNode;
+  data: object;
 }
 
-function Draggable({ children }: IDraggableProps) {
+function Draggable({ children, data }: IDraggableProps) {
 
-  // Dragging a service from the sidebar to the graph
   const onDragStart = (event: any) => {
-    // Hack to attach service data to drag event
+    // Attach service data to drag event
     event.dataTransfer.setData(
       "application/reactflow",
-      JSON.stringify({})
+      JSON.stringify(data)
     );
 
     // Mystery requirement required for by reactflow for drag and drop to work

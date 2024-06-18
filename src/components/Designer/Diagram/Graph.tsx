@@ -1,15 +1,19 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import ReactFlow, {
   Background,
   BackgroundVariant,
   Controls,
-  ReactFlowProvider,
+  SelectionMode,
   addEdge,
   useEdgesState,
   useNodesState,
 } from 'reactflow';
+import { v4 as uuidv4 } from 'uuid';
+
+import { IconNode } from './Node';
 
 import 'reactflow/dist/style.css';
+
 
 interface IGraphProps {
   initialServices: any;
@@ -59,14 +63,15 @@ function Graph(props: IGraphProps) {
     event.dataTransfer.dropEffect = 'move';
   }, []);
 
-  // Triggered when a service is dropped from the sidebar to the graph
+  // Triggered when a ANYTHING is dropped into the graph
   const onDrop = (event: any) => {
+
     event.preventDefault();
 
+    let schema = undefined;
+
     try {
-      // Hack to retrieve service data from drag event
-      const data = event.dataTransfer.getData('application/reactflow');
-      const service = JSON.parse(data);
+      schema = JSON.parse(event.dataTransfer.getData('application/reactflow'));
     } catch (e) {
       // Unknown service, ignore
       return;
@@ -78,19 +83,24 @@ function Graph(props: IGraphProps) {
       y: event.clientY,
     });
 
-    setNodes(
-      nodes.concat({
-        id: '123',
-        position,
-        data: { label: service.name, ...service },
-      })
-    );
+    console.log(schema);
+
+    const newNode = {
+      id: uuidv4(),
+      type: schema.metadata.type === 'icon' ? 'iconNode' : 'textNode',
+      position,
+      data: { label: schema.id, ...schema },
+    }
+
+    setNodes([...nodes, newNode]);
   };
 
   const onNodesDelete = (deleted: any) => {
     console.log('Deleted nodes', deleted);
   };
 
+  const nodeTypes = useMemo(() => ({ iconNode: IconNode }), []);
+  
   return (
     // TODO: Style the graph
     <div className='dndflow flex flex-row h-full w-full'>
@@ -111,10 +121,14 @@ function Graph(props: IGraphProps) {
             onNodeClick={(event: any, node: any) => {
               console.log('Clicked node', node);
             }}
+            nodeTypes={nodeTypes}
             fitView
+            panOnScroll
+            selectionOnDrag
+            panOnDrag={[1, 2]}
+            selectionMode={SelectionMode.Partial}
           >
             <Controls className='absolute left-8' style={{ bottom: '50%' }} />
-            <Background variant={BackgroundVariant.Dots} gap={12} size={1} />
           </ReactFlow>
         </div>
     </div>

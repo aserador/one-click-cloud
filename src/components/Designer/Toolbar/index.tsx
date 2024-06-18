@@ -9,6 +9,7 @@ import {
   DebugIcon,
   ClockIcon,
 } from '../icons';
+import { useReactFlow } from 'reactflow';
 
 function setButtonStyle(activeButtonId: string, isActive: boolean) {
   const button = document.getElementById(activeButtonId);
@@ -58,6 +59,8 @@ function Toolbar({ projectFolder = '[Project Folder]', projectName = '[Project N
     setActiveButtonId(newActiveButtonId);
   }, [activeButtonId]);
 
+  const { setViewport, getViewport, fitView } = useReactFlow();
+
   return (
     <div id="toolbar" className="w-full h-12 flex flex-row justify-center items-center bg-figmaGrey">
       {/* <a href="/" className="text-2xl font-logo text-stratusPurple p-1.5">stratus</a> */}
@@ -79,17 +82,39 @@ function Toolbar({ projectFolder = '[Project Folder]', projectName = '[Project N
           <TextBoxIcon />
         </ToolbarButton>
         <ToolbarButton
-          buttonName="move_tools"
-          onButtonClick={(newActiveButtonId: string) => updateActiveButton(newActiveButtonId)}
+          buttonName="zoom_out"
+          onButtonClick={(newActiveButtonId: string) => {
+            updateActiveButton(newActiveButtonId);
+            const viewPort = getViewport();
+            setViewport({
+              ...viewPort,
+              zoom: Math.max(viewPort.zoom - 0.1, 0.25),
+            });
+          }}
         >
           <HandToolIcon />
         </ToolbarButton>
         <ToolbarButton
-          buttonName="comment"
-          onButtonClick={(newActiveButtonId: string) => updateActiveButton(newActiveButtonId)}
+          buttonName="zoom_in"
+          onButtonClick={(newActiveButtonId: string) => {
+            updateActiveButton(newActiveButtonId);
+            const viewPort = getViewport();
+            setViewport({
+              ...viewPort,
+              zoom: Math.min(viewPort.zoom + 0.1, 5),
+            });
+          }}
         >
           <CommentIcon />
         </ToolbarButton>
+        <ToolbarButton
+          buttonName="fit_view"
+          onButtonClick={(newActiveButtonId: string) => {
+            updateActiveButton(newActiveButtonId);
+            fitView()
+            console.log(getViewport())
+          }}
+        ><CommentIcon /></ToolbarButton>
       </div>
       <div className="flex-1" />
       <div className="inline-block h-full flex flex-row justify-center items-center">

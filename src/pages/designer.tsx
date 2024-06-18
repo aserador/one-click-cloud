@@ -11,23 +11,24 @@ import Accordian from '@/components/Designer/Accordian';
 function Designer() {
   return (
     <div className="w-screen h-screen flex flex-col">
-      <Toolbar />
-      <div className="w-full flex-1 flex flex-row">
-        <ReactFlowProvider>
-          <DrawerLeft title="Find cloud services">
-            <div className="w-full flex flex-row justify-start mt-1">
-              <input 
-                type="text"
-                className="input input-bordered input-xs w-11/12 w-xs bg-transparent rounded-sm ml-2 italic"
-                placeholder="Starting with..."
-              />
-            </div>
-            <Accordian />
-          </DrawerLeft>
-          <Diagram />
-        </ReactFlowProvider>
-        <DrawerRight />
-      </div>
+      <ReactFlowProvider>
+        <Toolbar />
+        <div className="w-full flex-1 flex flex-row">
+          
+            <DrawerLeft title="Find cloud services">
+              <div className="w-full flex flex-row justify-start mt-1">
+                <input 
+                  type="text"
+                  className="input input-bordered input-xs w-11/12 w-xs bg-transparent rounded-sm ml-2 italic"
+                  placeholder="Starting with..."
+                />
+              </div>
+              <Accordian />
+            </DrawerLeft>
+            <Diagram />
+          <DrawerRight />
+        </div>
+      </ReactFlowProvider>
     </div>
   );
 }

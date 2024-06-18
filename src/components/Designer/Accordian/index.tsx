@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Draggable from './Draggable';
+import _ from 'lodash';
 
 interface ICategoryProps {
   category: string;
@@ -31,6 +32,7 @@ function CollapseItem({ category, service }: ICollapseItemProps) {
     <div className="collapse-item w-full h-full flex flex-row justify-start items-center">
       <Image
         priority
+        loading="eager"
         className="ml-4"
         src={`svg/aws/${category}/${service}.svg`}
         alt={`${service} icon`}
@@ -58,7 +60,7 @@ function Accordian() {
 
   const collapse_components = Object.keys(schema).map((category: string) => {
     return (
-      <details className="collapse bg-transparent"> 
+      <details className="collapse collapse-arrow bg-transparent"> 
         <summary className="collapse-title">
           {(<CollapseTitle category={category} />)}
         </summary>
@@ -66,7 +68,7 @@ function Accordian() {
           {
             Object.keys(schema[category]).map((service: string) => {
               return (
-                <Draggable>
+                <Draggable data={_.cloneDeep({id: service, metadata: {type: 'icon', category, service}, ...schema[category][service]})}>
                   <CollapseItem category={category} service={service} />
                 </Draggable>
               )

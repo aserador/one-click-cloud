@@ -171,6 +171,10 @@
   padding-left: 0px;
 }
 
+.collapse[open] > :where(.collapse-content), .collapse-open > :where(.collapse-content), .collapse:focus:not(.collapse-close) > :where(.collapse-content), .collapse:not(.collapse-close) > :where(input[type="checkbox"]:checked ~ .collapse-content), .collapse:not(.collapse-close) > :where(input[type="radio"]:checked ~ .collapse-content) {
+  padding-bottom: 0px;
+}
+
 .collapse-item {
   height: 32px;
   min-height: 32px;
@@ -184,6 +188,18 @@
 .collapse {
   /* Daisy UI tailwind border's get clipped */
   overflow: visible !important;
+}
+
+.collapse-arrow > .collapse-title:after { 
+  height: 0.4rem;
+  width: 0.4rem;
+  --tw-translate-y: -330%;
+}
+
+.collapse[open].collapse-arrow > .collapse-title:after, .collapse-open.collapse-arrow > .collapse-title:after, .collapse-arrow:focus:not(.collapse-close) > .collapse-title:after, .collapse-arrow:not(.collapse-close) > input[type="checkbox"]:checked ~ .collapse-title:after, .collapse-arrow:not(.collapse-close) > input[type="radio"]:checked ~ .collapse-title:after {
+  --tw-translate-y: -270%;
+  --tw-rotate: 225deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 /* Scroll Bar (requires Tailwind Scrollbar plugin for styling to apply) */
