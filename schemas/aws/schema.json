@@ -877,14 +877,6 @@
       "schema": {}
     }
   },
-  "General-Icons": {
-    "Marketplace": {
-      "continuous_deployment": {},
-      "cost": {},
-      "enabled": true,
-      "schema": {}
-    }
-  },
   "Internet-of-Things": {
     "FreeRTOS": {
       "continuous_deployment": {},

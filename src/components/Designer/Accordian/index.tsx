@@ -50,7 +50,7 @@ function Accordian() {
   useEffect(() => {
     (async () => {
       const data = await import('../../../../schemas/aws/schema.json')
-      setSchema(data)
+      setSchema(data.default)
     })()
   }, [])
 
@@ -60,7 +60,7 @@ function Accordian() {
 
   const collapse_components = Object.keys(schema).map((category: string) => {
     return (
-      <details className="collapse collapse-arrow bg-transparent"> 
+      <details key={category} className="collapse collapse-arrow bg-transparent"> 
         <summary className="collapse-title">
           {(<CollapseTitle category={category} />)}
         </summary>
@@ -68,7 +68,7 @@ function Accordian() {
           {
             Object.keys(schema[category]).map((service: string) => {
               return (
-                <Draggable data={_.cloneDeep({id: service, metadata: {type: 'icon', category, service}, ...schema[category][service]})}>
+                <Draggable key={service} data={_.cloneDeep({id: service, metadata: {type: 'icon', category, service}, ...schema[category][service]})}>
                   <CollapseItem category={category} service={service} />
                 </Draggable>
               )
