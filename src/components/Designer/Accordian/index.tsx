@@ -9,7 +9,8 @@ interface ICategoryProps {
 
 function CollapseTitle({ category }: ICategoryProps) {
   return (
-    <div className="w-full h-full flex flex-row justify-start items-center ml-2">
+    <div className="w-full h-full flex flex-row justify-start items-center">
+      <div className="w-2"/>
       <Image
         priority
         src={`svg/aws/${category}.svg`}
@@ -30,10 +31,10 @@ interface ICollapseItemProps {
 function CollapseItem({ category, service }: ICollapseItemProps) {
   return (
     <div className="collapse-item w-full h-full flex flex-row justify-start items-center">
+      <div className="w-4"/>
       <Image
         priority
         loading="eager"
-        className="ml-4"
         src={`svg/aws/${category}/${service}.svg`}
         alt={`${service} icon`}
         width={24}
