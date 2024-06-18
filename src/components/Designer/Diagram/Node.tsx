@@ -1,8 +1,6 @@
 import React from 'react';
 import { Handle, NodeProps, Position } from 'reactflow';
 import Image from 'next/image';
- 
-const handleStyle = { left: 10 };
 
 export function IconNode({ id, data }: NodeProps) {
   return (
