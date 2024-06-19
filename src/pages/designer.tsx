@@ -13,14 +13,7 @@ function Designer() {
     <div className="w-screen h-screen flex flex-col">
       <ReactFlowProvider>
         <Toolbar 
-          onSubmit={() => {
-            // sessionStorage.setItem(
-            //   "graphServices",
-            //   JSON.stringify(graphServices.filter((s) => !s?.disabled))
-            // );
-            // sessionStorage.setItem("graphEdges", JSON.stringify(graphEdges));
-            router.push("/download");
-          }}
+          onSubmit={() => router.push("/download")}
         />
         <div className="w-full flex-1 flex flex-row">
           <DrawerLeft title="Find cloud services">

@@ -68,7 +68,6 @@ export const {
 
 export const getFocusedNodeId = (state: RootState) => state.graph.focusedNodeId;
 export const getFocusedSchema = (state: RootState) => state.graph.focusedNodeId && state.graph.graphNodes[state.graph.focusedNodeId];
-export const getGraphNodes = (state: RootState) => state.graph.graphNodes;
-export const getGraphEdges = (state: RootState) => state.graph.graphEdges;
+export const getGraph = (state: RootState) => state.graph;
 
 export const graphReducer = graphSlice.reducer;
