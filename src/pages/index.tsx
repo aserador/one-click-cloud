@@ -6,7 +6,7 @@ export default function Home() {
     <div className="flex flex-col items-center pt-28 justify-center min-h-screen py-2">
       <Head>
         <title>Stratus</title>
-        <link rel="icon" href="/favicon.ico" />
+        {/* <link rel="icon" href="/favicon.ico" /> */}
       </Head>
 
       <main className="flex ml-12 justify-between items-center flex-1 px-20 py-10 space-x-10">

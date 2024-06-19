@@ -10,10 +10,16 @@ export interface ICategory {
 
 export interface IService {
   id: string;
-  deploy: {};
-  cost: {};
+  deploy: {
+    [key: string]: any;
+  };
+  cost: {
+    [key: string]: any;
+  };
   enabled: boolean;
-  config: {};
+  config: {
+    [key: string]: any;
+  };
 }
 
 export enum NodeType {

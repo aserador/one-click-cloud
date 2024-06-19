@@ -17,7 +17,7 @@ function ConfigCard({ title, description, type, value, required, onChange}: ICar
         <input 
           type="text"
           className="input input-bordered input-xs flex-1 w-xs bg-transparent rounded-sm ml-2"
-          placeholder={value as string}
+          value={value as string}
           onChange={(e) => onChange(e.target.value)}
         />
       );
@@ -27,6 +27,7 @@ function ConfigCard({ title, description, type, value, required, onChange}: ICar
         <input 
           type="number"
           className="input input-bordered input-xs flex-1 w-xs bg-transparent rounded-sm ml-2"
+          value={value as number}
           onChange={(e) => onChange(e.target.value)}
         />
       );
@@ -38,7 +39,8 @@ function ConfigCard({ title, description, type, value, required, onChange}: ICar
           <input 
             type="checkbox" 
             className="toggle toggle-sm toggle-secondary" 
-            onChange={(e) => onChange(e.target.value)}
+            onChange={(e) => onChange(e.target.checked)}
+            checked={value as boolean}
           />
           <span className="label-text text-xs ml-2 text-textWhite">True</span> 
         </label>

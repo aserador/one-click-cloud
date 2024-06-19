@@ -1,8 +1,9 @@
 import React, { ReactNode, useState } from 'react';
 import 'react-resizable/css/styles.css';
 import ConfigCard from './Card';
-import { useAppSelector } from '@/redux/hooks';
-import { getFocused } from '@/redux/designer/slice/graphSlice';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { getFocusedNodeId, getFocusedSchema, updateGraphNode } from '@/redux/designer/slice/graphSlice';
+import _ from 'lodash';
 
 const CONFIG = 'Config';
 const DEPLOY = 'Deploy';
@@ -36,20 +37,20 @@ function TabContent({ isActive, children }: TabContentProps) {
 
 function Configuration() {
   const [activeTab, setActiveTab] = useState<string>(CONFIG);
-  const focused = useAppSelector(getFocused);
 
-  if (!focused) {
+  const dispatch = useAppDispatch();
+  const focusedNodeId = useAppSelector(getFocusedNodeId);
+  const focusedSchema = useAppSelector(getFocusedSchema);
+  if (!focusedNodeId || !focusedSchema) {
     return;
   }
-
-  const [[nodeId, schema]] = Object.entries(focused);
 
   return (
     <div className="w-full h-full flex flex-col justify-start">
       {/* Title */}
       <div className="w-full flex flex-row justify-start text-stratusPurple text-base border-b border-figmaBorder pb-1">
         <div className="w-2" />
-        {schema.id}
+        {focusedSchema.id}
       </div>
       {/* Tab Headers */}
       <div className="w-full flex flex-row justify-start border-b border-figmaBorder">
@@ -61,16 +62,25 @@ function Configuration() {
       {/* Tab Content */}
       <TabContent isActive={CONFIG === activeTab}>
         {
-          Object.keys(schema.config).sort().map((property: string) => {
+          Object.keys(focusedSchema.config).sort().map((property: string) => {
             return (
               <ConfigCard 
-                key={`${schema.id}-${property}`}
-                title={schema.config[property].title}
-                description={schema.config[property].hint}
-                type={schema.config[property].type}
-                value={schema.config[property].value}
-                required={schema.config[property].required}
-                onChange={(value: string | number | boolean) => console.log(value)}
+                key={`${focusedSchema.id}-${property}`}
+                title={focusedSchema.config[property].title}
+                description={focusedSchema.config[property].hint}
+                type={focusedSchema.config[property].type}
+                value={focusedSchema.config[property].value}
+                required={focusedSchema.config[property].required}
+                onChange={(value) => {
+                  const focusedSchemaCopy = _.cloneDeep(focusedSchema);
+                  focusedSchemaCopy.config[property].value = value;
+                  dispatch(
+                    updateGraphNode({
+                      nodeId: focusedNodeId,
+                      updatedSchema: focusedSchemaCopy,
+                    })
+                  )}
+                }
               />
             )
           })
@@ -78,16 +88,25 @@ function Configuration() {
       </TabContent>
       <TabContent isActive={DEPLOY === activeTab}>
         {
-          Object.keys(schema.deploy).sort().map((property: string) => {
+          Object.keys(focusedSchema.deploy).sort().map((property: string) => {
             return (
               <ConfigCard 
-                key={`${schema.id}-${property}`}
-                title={schema.deploy[property].title}
-                description={schema.deploy[property].hint}
-                type={schema.deploy[property].type}
-                value={schema.deploy[property].value}
-                required={schema.deploy[property].required}
-                onChange={(value: string | number | boolean) => console.log(value)}
+                key={`${focusedSchema.id}-${property}`}
+                title={focusedSchema.deploy[property].title}
+                description={focusedSchema.deploy[property].hint}
+                type={focusedSchema.deploy[property].type}
+                value={focusedSchema.deploy[property].value}
+                required={focusedSchema.deploy[property].required}
+                onChange={(value) => {
+                  const focusedSchemaCopy = _.cloneDeep(focusedSchema);
+                  focusedSchemaCopy.deploy[property].value = value;
+                  dispatch(
+                    updateGraphNode({
+                      nodeId: focusedNodeId,
+                      updatedSchema: focusedSchemaCopy,
+                    })
+                  )}
+                }
               />
             )
           })

@@ -8,7 +8,7 @@ import ReactFlow, {
 import { v4 as uuidv4 } from 'uuid';
 import { IGraphDragData, IGraphNode, IGraphNodeData, NodeType } from '@/redux/designer/models';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
-import { addGraphNode, getFocused, removeFocused, removeGraphNode, setFocused } from '@/redux/designer/slice/graphSlice';
+import { addGraphNode, getFocusedNodeId, removeFocusedNodeId, removeGraphNode, setFocusedNodeId } from '@/redux/designer/slice/graphSlice';
 import { IconNode } from './Node';
 
 import 'reactflow/dist/style.css';
@@ -29,7 +29,8 @@ function Graph(props: IGraphProps) {
 
   // Redux hooks
   const dispatch = useAppDispatch();
-  const focused = useAppSelector(getFocused);
+  
+  const focusedNodeId = useAppSelector(getFocusedNodeId);
 
   const { initialEdges, initialServices } = props;
 
@@ -109,24 +110,23 @@ function Graph(props: IGraphProps) {
       })
     );
 
-    if (!focused && newNode.type === NodeType.ICON) {
-      dispatch(setFocused({nodeId: newNode.id}));
+    if (!focusedNodeId && newNode.type === NodeType.ICON) {
+      dispatch(setFocusedNodeId(newNode.id));
     }
 
     setNodes([...nodes, newNode]);
   };
 
   const onNodesDelete = (deleted: Array<any>) => {
-    if (focused) {
-      const [[focusedNodeId, focusedSchema]] = Object.entries(focused);
+    if (focusedNodeId) {
       deleted.find((node) => {
         if (node.id === focusedNodeId) {
-          dispatch(removeFocused());
+          dispatch(removeFocusedNodeId());
         }
       });
     }
     for (const node of deleted) {
-      dispatch(removeGraphNode({nodeId: node.id}));
+      dispatch(removeGraphNode(node.id));
     }
   };
 
@@ -149,7 +149,6 @@ function Graph(props: IGraphProps) {
             onNodesDelete={onNodesDelete}
             onDrop={onDrop}
             onDragOver={onDragOver}
-            onNodeClick={(_, n) => dispatch(setFocused({nodeId: n.id}))}
             nodeTypes={nodeTypes}
             fitView
             panOnScroll

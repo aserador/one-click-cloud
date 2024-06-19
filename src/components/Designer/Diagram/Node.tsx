@@ -1,17 +1,14 @@
 import React from 'react';
 import Image from 'next/image';
 import { Handle, NodeProps, Position } from 'reactflow';
-import { useAppDispatch } from '@/redux/hooks';
-import { INodeId } from '@/redux/designer/payload';
-import { setFocused } from '@/redux/designer/slice/graphSlice';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { getFocusedNodeId, setFocusedNodeId } from '@/redux/designer/slice/graphSlice';
 import { IGraphNodeData } from '@/redux/designer/models';
 
 export function IconNode({ id, data }: NodeProps<IGraphNodeData>) {
   const dispatch = useAppDispatch();
-
-  const onClick = () => {
-    dispatch(setFocused({nodeId: id} as INodeId));
-  }
+  const focusedNodeId = useAppSelector(getFocusedNodeId);
+  const onClick = () => focusedNodeId !== id && dispatch(setFocusedNodeId(id));
 
   return (
     <div onClick={onClick}>
