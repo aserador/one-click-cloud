@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import DescriptionBar from "../components/descriptionbar";
+import DescriptionBar from "@/components/DescriptionBar";
 import { ARCHITECTURES } from "../../templates/architectures";
 import { AWS_SERVICES } from "../../templates/aws_services";
 import Link from "next/link";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 interface Option {
