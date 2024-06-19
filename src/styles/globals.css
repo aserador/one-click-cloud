@@ -269,7 +269,7 @@
   color: var(--stratus-text-white);
 }
 
-.continuous_deployment:hover {
+.deploy:hover {
   color: var(--stratus-text-white);
 }
 

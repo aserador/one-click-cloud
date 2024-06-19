@@ -30,8 +30,6 @@ export default function TerraformConfigPage() {
       })),
     };
 
-    console.log(payload);
-
     fetch("/api/terraform", {
       method: "POST",
       headers: {

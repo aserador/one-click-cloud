@@ -1,7 +1,6 @@
 import React from 'react';
-
+import router from 'next/router';
 import { ReactFlowProvider } from 'reactflow';
-
 import DrawerLeft from '@/components/Designer/DrawerLeft';
 import DrawerRight from '@/components/Designer/DrawerRight';
 import Toolbar from '@/components/Designer/Toolbar';
@@ -13,7 +12,16 @@ function Designer() {
   return (
     <div className="w-screen h-screen flex flex-col">
       <ReactFlowProvider>
-        <Toolbar />
+        <Toolbar 
+          onSubmit={() => {
+            // sessionStorage.setItem(
+            //   "graphServices",
+            //   JSON.stringify(graphServices.filter((s) => !s?.disabled))
+            // );
+            // sessionStorage.setItem("graphEdges", JSON.stringify(graphEdges));
+            router.push("/download");
+          }}
+        />
         <div className="w-full flex-1 flex flex-row">
           <DrawerLeft title="Find cloud services">
             <div className="w-full flex flex-row justify-start mt-1">

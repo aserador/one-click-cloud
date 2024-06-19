@@ -1,8 +1,9 @@
 import React from 'react';
+import { IGraphDragData } from '@/redux/designer/models';
 
 interface IDraggableProps {
   children: React.ReactNode;
-  data: object;
+  data: IGraphDragData;
 }
 
 function Draggable({ children, data }: IDraggableProps) {
@@ -13,7 +14,6 @@ function Draggable({ children, data }: IDraggableProps) {
       "application/reactflow",
       JSON.stringify(data)
     );
-
     // Mystery requirement required for by reactflow for drag and drop to work
     event.dataTransfer.effectAllowed = "move";
   };

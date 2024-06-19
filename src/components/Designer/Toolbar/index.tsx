@@ -3,7 +3,6 @@ import {
   HomeIcon,
   ChevronDownIcon,
   TextBoxIcon,
-  ForwardSlash,
   DebugIcon,
   ClockIcon,
   ZoomOut,
@@ -11,9 +10,8 @@ import {
   FitView,
 } from '../icons';
 import { Viewport, useOnViewportChange, useReactFlow } from 'reactflow';
-import { store } from '@/redux/store';
-import { getZoomLevel, setZoomLevel } from '@/redux/viewportSlice';
-import { useSelector } from 'react-redux';
+import { getZoomLevel, setZoomLevel } from '@/redux/designer/slice/viewportSlice';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 
 function setButtonStyle(activeButtonId: string, isActive: boolean) {
   const button = document.getElementById(activeButtonId);
@@ -52,21 +50,25 @@ function ToolbarButton({
 interface ToolbarProps {
   projectFolder?: string;
   projectName?: string;
+  onSubmit: () => void;
 }
 
-function Toolbar({ projectFolder = '[Project Folder]', projectName = '[Project Name]' }: ToolbarProps) {
+function Toolbar({ projectFolder = '[Project Folder]', projectName = '[Project Name]', onSubmit }: ToolbarProps) {
   const [activeButtonId, setActiveButtonId] = useState<string>('');
+  
+  const dispatch = useAppDispatch();
+  const zoomLevel = useAppSelector(getZoomLevel);
+  const { zoomIn, zoomOut, fitView } = useReactFlow();
+  useOnViewportChange({
+    onChange: (viewport: Viewport) => dispatch(setZoomLevel(viewport.zoom)),
+  });
+
   const updateActiveButton = useCallback((newActiveButtonId: string) => {
     setButtonStyle(activeButtonId, false);
     setButtonStyle(newActiveButtonId, true);
     setActiveButtonId(newActiveButtonId);
   }, [activeButtonId]);
-  const zoomLevel = useSelector(getZoomLevel);
-  const { zoomIn, zoomOut, fitView } = useReactFlow();
-  useOnViewportChange({
-    onChange: (viewport: Viewport) => store.dispatch(setZoomLevel(viewport.zoom)),
-  });
-
+  
   return (
     <div id="toolbar" className="w-full h-12 flex flex-row justify-center items-center bg-figmaGrey">
       {/* <a href="/" className="text-2xl font-logo text-stratusPurple p-1.5">stratus</a> */}
@@ -119,11 +121,11 @@ function Toolbar({ projectFolder = '[Project Folder]', projectName = '[Project N
         </ToolbarButton>
       </div>
       <div className="flex-1" />
-      <div className="inline-block h-full flex flex-row justify-center items-center">
+      {/* <div className="inline-block h-full flex flex-row justify-center items-center">
         <a href="/" className="text-sm my-1 text-textWhite">{projectFolder}</a>
         <ForwardSlash />
         <a href="/" className="text-sm my-1 text-textWhite">{projectName}</a>
-      </div>
+      </div> */}
       <div className="flex-1" />
       <div className="inline-block h-full flex flex-row justify-center items-center mr-2">
         <ToolbarButton
@@ -138,7 +140,11 @@ function Toolbar({ projectFolder = '[Project Folder]', projectName = '[Project N
         >
           <DebugIcon />
         </ToolbarButton>
-        <button type="button" className="btn btn-sm bg-stratusPurple text-textWhite hover:bg-stratusPurpleActive mx-4">
+        <button 
+          type="button" 
+          className="btn btn-sm bg-stratusPurple text-textWhite hover:bg-stratusPurpleActive mx-4"
+          onClick={onSubmit}
+        >
           Publish
         </button>
       </div>

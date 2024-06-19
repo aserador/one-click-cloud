@@ -1,9 +1,8 @@
-import { getSchema } from '@/redux/focusSlice';
-import { ISchema } from '@/redux/models';
 import React, { ReactNode, useState } from 'react';
-import { useSelector } from 'react-redux';
 import 'react-resizable/css/styles.css';
 import ConfigCard from './Card';
+import { useAppSelector } from '@/redux/hooks';
+import { getFocused } from '@/redux/designer/slice/graphSlice';
 
 const CONFIG = 'Config';
 const DEPLOY = 'Deploy';
@@ -37,18 +36,20 @@ function TabContent({ isActive, children }: TabContentProps) {
 
 function Configuration() {
   const [activeTab, setActiveTab] = useState<string>(CONFIG);
-  const focused: ISchema | null = useSelector(getSchema);
+  const focused = useAppSelector(getFocused);
 
   if (!focused) {
-    return null;
+    return;
   }
+
+  const [[nodeId, schema]] = Object.entries(focused);
 
   return (
     <div className="w-full h-full flex flex-col justify-start">
       {/* Title */}
       <div className="w-full flex flex-row justify-start text-stratusPurple text-base border-b border-figmaBorder pb-1">
         <div className="w-2" />
-        {focused?.id}
+        {schema.id}
       </div>
       {/* Tab Headers */}
       <div className="w-full flex flex-row justify-start border-b border-figmaBorder">
@@ -60,15 +61,15 @@ function Configuration() {
       {/* Tab Content */}
       <TabContent isActive={CONFIG === activeTab}>
         {
-          Object.keys(focused?.schema).sort().map((property: string) => {
+          Object.keys(schema.config).sort().map((property: string) => {
             return (
               <ConfigCard 
-                key={`${focused.id}-${property}`}
-                title={focused.schema[property].title}
-                description={focused.schema[property].hint}
-                type={focused.schema[property].type}
-                value={focused.schema[property].value}
-                required={focused.schema[property].required}
+                key={`${schema.id}-${property}`}
+                title={schema.config[property].title}
+                description={schema.config[property].hint}
+                type={schema.config[property].type}
+                value={schema.config[property].value}
+                required={schema.config[property].required}
                 onChange={(value: string | number | boolean) => console.log(value)}
               />
             )
@@ -77,16 +78,15 @@ function Configuration() {
       </TabContent>
       <TabContent isActive={DEPLOY === activeTab}>
         {
-          Object.keys(focused?.continuous_deployment).sort().map((property: string) => {
-            console.log(focused.continuous_deployment[property])
+          Object.keys(schema.deploy).sort().map((property: string) => {
             return (
               <ConfigCard 
-                key={`${focused.id}-${property}`}
-                title={focused.continuous_deployment[property].title}
-                description={focused.continuous_deployment[property].hint}
-                type={focused.continuous_deployment[property].type}
-                value={focused.continuous_deployment[property].value}
-                required={focused.continuous_deployment[property].required}
+                key={`${schema.id}-${property}`}
+                title={schema.deploy[property].title}
+                description={schema.deploy[property].hint}
+                type={schema.deploy[property].type}
+                value={schema.deploy[property].value}
+                required={schema.deploy[property].required}
                 onChange={(value: string | number | boolean) => console.log(value)}
               />
             )

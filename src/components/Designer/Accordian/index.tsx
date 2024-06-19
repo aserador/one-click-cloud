@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import Draggable from './Draggable';
+import { IGraphDragData, NodeType } from '@/redux/designer/models';
+import AWS_SCHEMA_TEMPLATES from '@/schema/aws/schema';
 import _ from 'lodash';
 
 interface ICategoryProps {
@@ -46,20 +48,7 @@ function CollapseItem({ category, service }: ICollapseItemProps) {
 }
 
 function Accordian() {
-  const [schema, setSchema] = useState<any>(null)
-
-  useEffect(() => {
-    (async () => {
-      const data = await import('../../../../schemas/aws/schema.json')
-      setSchema(data.default)
-    })()
-  }, [])
-
-  if (!schema) {
-    return <div>Loading...</div>
-  }
-
-  const collapse_components = Object.keys(schema).map((category: string) => {
+  const collapse_components = Object.keys(AWS_SCHEMA_TEMPLATES).map((category: string) => {
     return (
       <details key={category} className="collapse collapse-arrow bg-transparent"> 
         <summary className="collapse-title">
@@ -67,9 +56,10 @@ function Accordian() {
         </summary>
         <div className="collapse-content w-full flex flex-col justify-start pr-0"> 
           {
-            Object.keys(schema[category]).map((service: string) => {
+            Object.keys(AWS_SCHEMA_TEMPLATES[category]).map((service: string) => {
+              const dragData: IGraphDragData = { type: NodeType.ICON, category, service };
               return (
-                <Draggable key={service} data={_.cloneDeep({id: service, metadata: {type: 'icon', category, service}, ...schema[category][service]})}>
+                <Draggable key={service} data={dragData}>
                   <CollapseItem category={category} service={service} />
                 </Draggable>
               )

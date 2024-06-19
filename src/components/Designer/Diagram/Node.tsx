@@ -1,24 +1,18 @@
 import React from 'react';
-import { Handle, NodeProps, Position } from 'reactflow';
 import Image from 'next/image';
-import { store } from '@/redux/store';
-import { setFocus } from '@/redux/focusSlice';
-import { ISchema } from '@/redux/models';
+import { Handle, NodeProps, Position } from 'reactflow';
+import { useAppDispatch } from '@/redux/hooks';
+import { INodeId } from '@/redux/designer/payload';
+import { setFocused } from '@/redux/designer/slice/graphSlice';
+import { IGraphNodeData } from '@/redux/designer/models';
 
-export function IconNode({ data }: NodeProps) {
+export function IconNode({ id, data }: NodeProps<IGraphNodeData>) {
+  const dispatch = useAppDispatch();
+
   const onClick = () => {
-    store.dispatch(
-      setFocus(
-        {
-          id: data.metadata.service,
-          continuous_deployment: data.continuous_deployment,
-          cost: data.cost,
-          enabled: data.enabled,
-          schema: data.schema,
-        } as ISchema
-      )
-    );
+    dispatch(setFocused({nodeId: id} as INodeId));
   }
+
   return (
     <div onClick={onClick}>
       <Handle type="target" position={Position.Top} />
@@ -26,7 +20,7 @@ export function IconNode({ data }: NodeProps) {
         <Image
           priority
           loading="eager"
-          src={`svg/aws/${data.metadata.category}/${data.metadata.service}.svg`}
+          src={`svg/aws/${data.category}/${data.service}.svg`}
           alt={`${data.service} icon`}
           width={24}
           height={24}

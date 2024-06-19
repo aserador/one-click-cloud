@@ -6,14 +6,12 @@ import ReactFlow, {
   useNodesState,
 } from 'reactflow';
 import { v4 as uuidv4 } from 'uuid';
-
+import { IGraphDragData, IGraphNode, IGraphNodeData, NodeType } from '@/redux/designer/models';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { addGraphNode, getFocused, removeFocused, removeGraphNode, setFocused } from '@/redux/designer/slice/graphSlice';
 import { IconNode } from './Node';
 
 import 'reactflow/dist/style.css';
-import { store } from '@/redux/store';
-import { getSchema, setFocus } from '@/redux/focusSlice';
-import { ISchema } from '@/redux/models';
-import { useSelector } from 'react-redux';
 
 
 interface IGraphProps {
@@ -25,11 +23,13 @@ function Graph(props: IGraphProps) {
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
 
-  // Hooks for draggables and droppables
+  // Reactflow hooks
   const reactFlowWrapper = useRef(null);
   const [reactFlowInstance, setReactFlowInstance] = useState<any>(null);
 
-  const focused = useSelector(getSchema);
+  // Redux hooks
+  const dispatch = useAppDispatch();
+  const focused = useAppSelector(getFocused);
 
   const { initialEdges, initialServices } = props;
 
@@ -71,12 +71,16 @@ function Graph(props: IGraphProps) {
 
     event.preventDefault();
 
-    let data = undefined;
+    let dragData: IGraphDragData | undefined;
 
     try {
-      data = JSON.parse(event.dataTransfer.getData('application/reactflow'));
+      dragData = JSON.parse(event.dataTransfer.getData('application/reactflow'));
     } catch (e) {
       // Unknown service, ignore
+      return;
+    }
+
+    if (!dragData) {
       return;
     }
 
@@ -86,25 +90,27 @@ function Graph(props: IGraphProps) {
       y: event.clientY,
     });
 
-    const newNode = {
+    const newNode: IGraphNode = {
       id: uuidv4(),
-      type: data.metadata.type === 'icon' ? 'iconNode' : 'textNode',
+      type: dragData.type,
       position,
-      data: { label: data.id, ...data },
+      data: { 
+        label: dragData.service, 
+        category: dragData.category,
+        service: dragData.service,
+      } as IGraphNodeData,
     }
 
-    if (!focused && data.metadata.type === 'icon') {
-      store.dispatch(
-        setFocus(
-          {
-            id: data.metadata.service,
-            continuous_deployment: data.continuous_deployment,
-            cost: data.cost,
-            enabled: data.enabled,
-            schema: data.schema,
-          } as ISchema
-        )
-      );
+    dispatch(
+      addGraphNode({
+        nodeId: newNode.id,
+        category: newNode.data.category,
+        service: newNode.data.service,
+      })
+    );
+
+    if (!focused && newNode.type === NodeType.ICON) {
+      dispatch(setFocused({nodeId: newNode.id}));
     }
 
     setNodes([...nodes, newNode]);
@@ -112,11 +118,15 @@ function Graph(props: IGraphProps) {
 
   const onNodesDelete = (deleted: Array<any>) => {
     if (focused) {
+      const [[focusedNodeId, focusedSchema]] = Object.entries(focused);
       deleted.find((node) => {
-        if (node.data.metadata.service === focused?.id) {
-          store.dispatch(setFocus(null));
+        if (node.id === focusedNodeId) {
+          dispatch(removeFocused());
         }
       });
+    }
+    for (const node of deleted) {
+      dispatch(removeGraphNode({nodeId: node.id}));
     }
   };
 
@@ -139,9 +149,7 @@ function Graph(props: IGraphProps) {
             onNodesDelete={onNodesDelete}
             onDrop={onDrop}
             onDragOver={onDragOver}
-            onNodeClick={(event: any, node: any) => {
-              console.log('Clicked node', node);
-            }}
+            onNodeClick={(_, n) => dispatch(setFocused({nodeId: n.id}))}
             nodeTypes={nodeTypes}
             fitView
             panOnScroll

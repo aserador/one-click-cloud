@@ -1,24 +1,13 @@
-import { createContext, useState, useEffect } from "react";
-import { store } from "@/redux/store";
+import React, { useEffect } from "react";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import { Provider } from "react-redux";
-import { setAwsServices } from "@/redux/persistentDrawerRightSlice";
-import { AWS_SERVICES } from "../../templates/aws_services.js";
 import { ToastContainer } from "react-toastify";
+import StoreProvider from "@/redux/StoreProvider";
 
 import "../styles/globals.css";
 import "react-toastify/dist/ReactToastify.css";
 
-// Context provider
-export const DiagramContext = createContext({
-  value: {} as any,
-  setValue: () => {},
-});
-
-
 function StratusApp({ Component, pageProps }: AppProps) {
-  store.dispatch(setAwsServices({ AWSServices: AWS_SERVICES }));
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,7 +28,7 @@ function StratusApp({ Component, pageProps }: AppProps) {
 
   return (
     <div className="bg-bgblack min-h-screen">
-      <Provider store={store}>
+      <StoreProvider>
         <Head>
           <title>Stratus</title>
           <meta
@@ -53,7 +42,7 @@ function StratusApp({ Component, pageProps }: AppProps) {
         </header> */}
 
         <Component {...pageProps} />
-      </Provider>
+      </StoreProvider>
       <ToastContainer position="top-right" />
     </div>
   );

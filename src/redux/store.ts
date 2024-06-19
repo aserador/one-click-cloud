@@ -1,16 +1,19 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { persistentDrawerRightReducer } from "./persistentDrawerRightSlice";
-import { viewportReducer } from "./viewportSlice";
-import { focusReducer } from "./focusSlice";
+import { graphReducer } from "./designer/slice/graphSlice";
+import { viewportReducer } from "./designer/slice/viewportSlice";
 
-export const store = configureStore({
-  reducer: {
-    persistentDrawerRight: persistentDrawerRightReducer,
-    viewport: viewportReducer,
-    focus: focusReducer,
-  },
-  devTools: true,
-});
+export const makeStore = () => {
+  return configureStore({
+    reducer: {
+      graph: graphReducer,
+      viewport: viewportReducer,
+    },
+    devTools: true,
+  })
+}
 
-export type AppDispatch = typeof store.dispatch;
-export type RootState = ReturnType<typeof store.getState>;
+// Infer the type of makeStore
+export type AppStore = ReturnType<typeof makeStore>
+// Infer the `RootState` and `AppDispatch` types from the store itself
+export type RootState = ReturnType<AppStore['getState']>
+export type AppDispatch = AppStore['dispatch']
