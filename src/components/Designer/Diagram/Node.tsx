@@ -12,7 +12,10 @@ export function IconNode({ id, data }: NodeProps<IGraphNodeData>) {
 
   return (
     <div onClick={onClick}>
-      <Handle type="target" position={Position.Top} />
+      <Handle 
+        type="target" 
+        position={Position.Top}
+      />
       <div>
         <Image
           priority
@@ -23,7 +26,11 @@ export function IconNode({ id, data }: NodeProps<IGraphNodeData>) {
           height={24}
         />
       </div>
-      <Handle type="source" position={Position.Bottom} id="a" />
+      <Handle 
+        type="source" 
+        position={Position.Bottom} 
+        id="a" 
+      />
     </div>
   );
 }

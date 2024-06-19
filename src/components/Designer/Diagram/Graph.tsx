@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import ReactFlow, {
+  ConnectionMode,
   SelectionMode,
+  StepEdge,
   addEdge,
   useEdgesState,
   useNodesState,
@@ -150,6 +152,8 @@ function Graph(props: IGraphProps) {
             onDrop={onDrop}
             onDragOver={onDragOver}
             nodeTypes={nodeTypes}
+            defaultEdgeOptions={{type: 'step', animated: true}}
+            connectionMode={ConnectionMode.Loose}
             fitView
             panOnScroll
             selectionOnDrag
