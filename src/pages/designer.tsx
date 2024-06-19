@@ -15,17 +15,17 @@ function Designer() {
       <ReactFlowProvider>
         <Toolbar />
         <div className="w-full flex-1 flex flex-row">
-            <DrawerLeft title="Find cloud services">
-              <div className="w-full flex flex-row justify-start mt-1">
-                <input 
-                  type="text"
-                  className="input input-bordered input-xs w-11/12 w-xs bg-transparent rounded-sm ml-2 italic"
-                  placeholder="Starting with..."
-                />
-              </div>
-              <Accordian />
-            </DrawerLeft>
-            <Diagram />
+          <DrawerLeft title="Find cloud services">
+            <div className="w-full flex flex-row justify-start mt-1">
+              <input 
+                type="text"
+                className="input input-bordered input-xs w-11/12 w-xs bg-transparent rounded-sm ml-2 italic"
+                placeholder="Starting with..."
+              />
+            </div>
+            <Accordian />
+          </DrawerLeft>
+          <Diagram />
           <DrawerRight>
             <Configuration />
           </DrawerRight>

@@ -23,7 +23,7 @@ module.exports = {
         'figmaBorder': '#444444',
         'textWhite': 'rgba(255, 255, 255, 0.8)',
         'textGrey': '#b2b2b2',
-        'stratusPurple': '#ba76ff',
+        'stratusPurple': '#ff71cf',
         'stratusPurpleActive': 'rgb(126, 34, 206)',
         'scrollbarGrey': 'rgba(128, 128, 128, 0.1)',
       },

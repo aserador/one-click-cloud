@@ -10,7 +10,7 @@ interface DrawerRightProps {
 function DrawerRight({ children = null }: DrawerRightProps) {
   const [isOpen, setExpanded] = useState(true);
   const [isDragging, setIsDragging] = useState(false);
-  const justify = isOpen ? 'justify-start' : 'justify-around';
+  const justify = isOpen ? 'justify-end' : 'justify-around';
 
   useEffect(() => {
     const drawerRight = document.querySelector('.drawer-right');
@@ -49,8 +49,9 @@ function DrawerRight({ children = null }: DrawerRightProps) {
           >
             {isOpen ? <ChevronDoubleRight /> : <ChevronDoubleLeft />}
           </button>
+          <div className="flex-1" />
         </div>
-        <div className="w-full flex flex-col flex-auto">
+        <div className="w-full flex flex-col flex-auto overflow-y-auto">
           {isOpen && children}
         </div>
       </div>

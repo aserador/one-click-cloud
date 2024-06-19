@@ -91,7 +91,8 @@
 /* TODO: Change to CSS Modules */
 
 :root {
-  --stratus-purple: #ba76ff;
+  /* --stratus-purple: #ba76ff; */
+  --stratus-purple: oklch(74.8% 0.26 342.55);
   --stratus-border-grey: #444444;
   --stratus-background-grey: #2c2c2c;
   --stratus-text-white: #ffffff;
@@ -132,6 +133,7 @@
 /* Right Drawer */
 .drawer-right {
   border-left: 1px solid var(--stratus-border-grey) !important;
+  height: calc(100vh - 48px) !important;
 }
 
 .react-resizable-handle {
