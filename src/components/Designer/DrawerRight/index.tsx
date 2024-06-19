@@ -51,8 +51,8 @@ function DrawerRight({ children = null }: DrawerRightProps) {
           </button>
           <div className="flex-1" />
         </div>
-        <div className="w-full flex flex-col flex-auto overflow-y-auto">
-          {isOpen && children}
+        <div className={`w-full flex flex-col flex-auto overflow-y-auto ${isOpen ? '' : 'hidden'}`}>
+          {children}
         </div>
       </div>
     </ResizableBox>

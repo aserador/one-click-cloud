@@ -57,8 +57,8 @@ function DrawerLeft({ title, children = null }: DrawerLeftProps) {
             {isOpen ? <ChevronDoubleLeft /> : <ChevronDoubleRight />}
           </button>
         </div>
-        <div className="w-full flex flex-col flex-auto overflow-y-auto">
-          {isOpen && children}
+        <div className={`w-full flex flex-col flex-auto overflow-y-auto ${isOpen ? '' : 'hidden'}`}>
+          {children}
         </div>
       </div>
     </ResizableBox>
