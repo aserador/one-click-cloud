@@ -47,10 +47,10 @@ export const graphSlice = createSlice({
       delete state.graphNodes[action.payload];
     },
     addGraphEdge: (state: GraphState, action: PayloadAction<IGraphEdge>) => {
-      state.graphEdges[action.payload.id] = action.payload;
+      state.graphEdges[`${action.payload.source}-${action.payload.target}`] = action.payload;
     },
-    removeGraphEdge: (state: GraphState, action: PayloadAction<string>) => {
-      delete state.graphEdges[action.payload];
+    removeGraphEdge: (state: GraphState, action: PayloadAction<IGraphEdge>) => {
+      delete state.graphEdges[`${action.payload.source}-${action.payload.target}`];
     },
   },
   extraReducers: () => {},

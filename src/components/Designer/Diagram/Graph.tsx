@@ -1,8 +1,9 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import ReactFlow, {
+  Connection,
   ConnectionMode,
+  Edge,
   SelectionMode,
-  StepEdge,
   addEdge,
   useEdgesState,
   useNodesState,
@@ -10,7 +11,7 @@ import ReactFlow, {
 import { v4 as uuidv4 } from 'uuid';
 import { IGraphDragData, IGraphNode, IGraphNodeData, NodeType } from '@/redux/designer/models';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
-import { addGraphNode, getFocusedNodeId, removeFocusedNodeId, removeGraphNode, setFocusedNodeId } from '@/redux/designer/slice/graphSlice';
+import { addGraphEdge, addGraphNode, getFocusedNodeId, removeFocusedNodeId, removeGraphEdge, removeGraphNode, setFocusedNodeId } from '@/redux/designer/slice/graphSlice';
 import { IconNode } from './Node';
 
 import 'reactflow/dist/style.css';
@@ -31,7 +32,6 @@ function Graph(props: IGraphProps) {
 
   // Redux hooks
   const dispatch = useAppDispatch();
-  
   const focusedNodeId = useAppSelector(getFocusedNodeId);
 
   const { initialEdges, initialServices } = props;
@@ -58,18 +58,16 @@ function Graph(props: IGraphProps) {
     }
   }, [initialServices]);
 
-  // Required by reactflow to update edges, check documentation for more info
-  const onConnect = (params: any) => {
-    setEdges((eds: any) => addEdge(params, eds));
-  };
+  //
+  // DOM Event Handlers
+  //
 
-  // Triggered when a service is dragged from the sidebar to the graph
   const onDragOver = useCallback((event: any) => {
     event.preventDefault();
     event.dataTransfer.dropEffect = 'move';
   }, []);
 
-  // Triggered when a ANYTHING is dropped into the graph
+
   const onDrop = (event: any) => {
 
     event.preventDefault();
@@ -119,6 +117,10 @@ function Graph(props: IGraphProps) {
     setNodes([...nodes, newNode]);
   };
 
+  //
+  // Reactflow: Node Event Callbacks
+  //
+
   const onNodesDelete = (deleted: Array<any>) => {
     if (focusedNodeId) {
       deleted.find((node) => {
@@ -132,10 +134,34 @@ function Graph(props: IGraphProps) {
     }
   };
 
+  //
+  // Reactflow: Edge Event Callbacks
+  //
+
+  const onConnect = (connection: Connection) => {
+    setEdges((eds: any) => addEdge(connection, eds));
+    dispatch(
+      addGraphEdge({
+        source: connection.source as string,
+        target: connection.target as string,
+      })
+    );
+  };
+
+  const onEdgesDelete = (deleted: Edge[]) => {
+    for (const edge of deleted) {
+      dispatch(
+        removeGraphEdge({
+          source: edge.source as string,
+          target: edge.target as string,
+        })
+      );
+    }
+  }
+
   const nodeTypes = useMemo(() => ({ iconNode: IconNode }), []);
   
   return (
-    // TODO: Style the graph
     <div className='dndflow flex flex-row h-full w-full'>
         <div
           className='reactflow-wrapper h-full w-full'
@@ -149,8 +175,7 @@ function Graph(props: IGraphProps) {
             onConnect={onConnect}
             onInit={setReactFlowInstance}
             onNodesDelete={onNodesDelete}
-            onDrop={onDrop}
-            onDragOver={onDragOver}
+            onEdgesDelete={onEdgesDelete}
             nodeTypes={nodeTypes}
             defaultEdgeOptions={{type: 'step', animated: true}}
             connectionMode={ConnectionMode.Loose}
@@ -159,9 +184,10 @@ function Graph(props: IGraphProps) {
             selectionOnDrag
             panOnDrag={[1, 2]}
             selectionMode={SelectionMode.Partial}
+            onDrop={onDrop}
+            onDragOver={onDragOver}
             style={{backgroundColor: '#1e1e1e'}}
-          >
-          </ReactFlow>
+          />
         </div>
     </div>
   );
