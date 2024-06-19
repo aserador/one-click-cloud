@@ -3,7 +3,6 @@ import DescriptionBar from "../components/descriptionbar";
 import { ARCHITECTURES } from "../../templates/architectures";
 import { AWS_SERVICES } from "../../templates/aws_services";
 import Link from "next/link";
-import CircularProgress from "@mui/material/CircularProgress";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -119,7 +118,7 @@ const BuildPage = () => {
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <div className="flex flex-col items-center justify-center min-w-full">
         {isLoading ? (
-            <CircularProgress className="text-spurple" />
+            <div className="text-spurple"> loading </div>
         ) : showRecommendations ? (
           <div className="fade-in">
             <h1 className="text-6xl font-custom m-5 text-center text-white">

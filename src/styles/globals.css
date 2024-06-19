@@ -26,11 +26,9 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .react-flow__attribution {
   display: none;
 }
-
 
 .blur-effect {
   backdrop-filter: blur(8px);
@@ -46,26 +44,246 @@
 }
 
 @keyframes fadeIn {
-  0% {opacity:0;}
-  100% {opacity:1;}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @-moz-keyframes fadeIn {
-  0% {opacity:0;}
-  100% {opacity:1;}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @-webkit-keyframes fadeIn {
-  0% {opacity:0;}
-  100% {opacity:1;}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @-o-keyframes fadeIn {
-  0% {opacity:0;}
-  100% {opacity:1;}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @-ms-keyframes fadeIn {
-  0% {opacity:0;}
-  100% {opacity:1;}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* TODO: Change to CSS Modules */
+
+:root {
+  /* --stratus-purple: #ba76ff; */
+  --stratus-purple: oklch(74.8% 0.26 342.55);
+  --stratus-border-grey: #444444;
+  --stratus-background-grey: #2c2c2c;
+  --stratus-text-white: #ffffff;
+  --stratus-text-grey: #b2b2b2;
+}
+
+/* Left Drawer */
+.drawer-left {
+  border-right: 1px solid var(--stratus-border-grey) !important;
+  height: calc(100vh - 48px) !important;
+}
+
+.react-resizable-handle {
+  background-image: none !important;
+}
+
+.react-resizable-handle-e {
+  right: 0 !important;
+  top: 0 !important;
+  height: 100% !important;
+  width: 5px !important;
+  transform: rotate(0deg) !important;
+  opacity: 0 !important;
+  padding: 0px !important;
+  margin: 0px !important;
+}
+
+.react-resizable-handle-e:hover {
+  opacity: 100 !important;
+  border-right: 1px solid var(--stratus-purple) !important;
+}
+
+.react-resizable-handle-e-dragging {
+  opacity: 100 !important;
+  border-right: 1px solid var(--stratus-purple) !important;
+}
+
+/* Right Drawer */
+.drawer-right {
+  border-left: 1px solid var(--stratus-border-grey) !important;
+  height: calc(100vh - 48px) !important;
+}
+
+.react-resizable-handle {
+  background-image: none !important;
+}
+
+.react-resizable-handle-w {
+  left: 0 !important;
+  top: 0 !important;
+  height: 100% !important;
+  width: 5px !important;
+  transform: rotate(0deg) !important;
+  opacity: 0 !important;
+  padding: 0px !important;
+  margin: 0px !important;
+}
+
+.react-resizable-handle-w:hover {
+  opacity: 100 !important;
+  border-left: 1px solid var(--stratus-purple) !important;
+}
+
+.react-resizable-handle-w-dragging {
+  opacity: 100 !important;
+  border-left: 1px solid var(--stratus-purple) !important;
+}
+
+/* Toolbar */
+#toolbar {
+  background-color: var(--stratus-background-grey);
+  border-bottom: 1px solid var(--stratus-border-grey);
+}
+
+#chevron_down:hover {
+  transform: translateY(4px);
+  transition: transform 0.2s;
+}
+
+.toolbar-button-active {
+  background-color: var(--stratus-purple) !important;
+}
+
+/* Drawer Left */
+
+.collapse-title {
+  height: 32px;
+  min-height: 32px;
+  padding: 0px;
+}
+
+.collapse-title:hover {
+  border: 1px solid var(--stratus-purple);
+}
+
+.collapse-content {
+  padding-left: 0px;
+}
+
+.collapse[open] > :where(.collapse-content),
+.collapse-open > :where(.collapse-content),
+.collapse:focus:not(.collapse-close) > :where(.collapse-content),
+.collapse:not(.collapse-close)
+  > :where(input[type="checkbox"]:checked ~ .collapse-content),
+.collapse:not(.collapse-close)
+  > :where(input[type="radio"]:checked ~ .collapse-content) {
+  padding-bottom: 0px;
+}
+
+.collapse-item {
+  height: 32px;
+  min-height: 32px;
+  padding: 0px;
+}
+
+.collapse-item:hover {
+  border: 1px solid var(--stratus-purple);
+}
+
+.collapse {
+  /* Daisy UI tailwind border's get clipped */
+  overflow: visible !important;
+}
+
+.collapse-arrow > .collapse-title:after {
+  height: 0.4rem;
+  width: 0.4rem;
+  --tw-translate-y: -330%;
+}
+
+.collapse[open].collapse-arrow > .collapse-title:after,
+.collapse-open.collapse-arrow > .collapse-title:after,
+.collapse-arrow:focus:not(.collapse-close) > .collapse-title:after,
+.collapse-arrow:not(.collapse-close)
+  > input[type="checkbox"]:checked
+  ~ .collapse-title:after,
+.collapse-arrow:not(.collapse-close)
+  > input[type="radio"]:checked
+  ~ .collapse-title:after {
+  --tw-translate-y: -270%;
+  --tw-rotate: 225deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+/* Scroll Bar (requires Tailwind Scrollbar plugin for styling to apply) */
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px !important;
+  height: 5px !important;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(187, 187, 187, 0.3);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(187, 187, 187, 0.4);
+  border-radius: 10px;
+}
+
+/* Right Drawer */
+.configuration:hover {
+  color: var(--stratus-text-white);
+}
+
+.deploy:hover {
+  color: var(--stratus-text-white);
+}
+
+.tabs {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  align-items: flex-start;
+  height: 100%;
+}
+
+.tab-content {
+  border-width: 1px 0px 0px 0px;
+}
+
+.tab:is(input[type="radio"]) {
+  width: 56px;
 }

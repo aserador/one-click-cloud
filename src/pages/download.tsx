@@ -1,5 +1,7 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import { useAppSelector } from "@/redux/hooks";
+import { getGraph } from "@/redux/designer/slice/graphSlice";
 
 function downloadTerraformFile(terraformCode: string) {
   // Create a Blob object with Terraform code and the specific type
@@ -13,31 +15,18 @@ function downloadTerraformFile(terraformCode: string) {
 
 export default function TerraformConfigPage() {
   const [terraformURL, setTerraformURL] = useState("");
+  const graph = useAppSelector(getGraph);
 
   useEffect(() => {
-    const graphServices = sessionStorage.getItem("graphServices");
-    const graphEdges = sessionStorage.getItem("graphEdges");
-
-    if (!graphServices) {
-      alert("No graphServices found from sessionStorage");
-    }
-
-    const payload = {
-      graphServices: JSON.parse(graphServices!),
-      graphEdges: JSON.parse(graphEdges!).map((e: any) => ({
-        source: e.source,
-        target: e.target,
-      })),
-    };
-
-    console.log(payload);
-
     fetch("/api/terraform", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(payload),
+      body: JSON.stringify({
+        graphServices: graph.graphNodes,
+        graphEdges: graph.graphEdges
+      }),
     })
       .then((response) => response.json())
       .then((data) =>
