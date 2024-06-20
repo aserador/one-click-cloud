@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import DescriptionBar from '@/components/DescriptionBar';
-import { AWS_TEMPLATES, IGraphBuilder } from '@/templates/aws';
+import { AWS_TEMPLATES, IGraphBuilder, ITemplate } from '@/templates/aws';
 import { useRouter } from 'next/router';
 import { useAppDispatch } from '@/redux/hooks';
 import {
@@ -13,16 +13,8 @@ import {
 import { IAddGraphNode } from '@/redux/designer/payload';
 import AWS_SCHEMAS from '@/schema/aws/schema';
 
-interface Template {
-  name: string;
-  description: string;
-  pros: string[];
-  cons: string[];
-  graphBuilder: () => IGraphBuilder;
-}
-
 interface ArchitectureOptionProps {
-  template: Template;
+  template: ITemplate;
   requestCount: number;
 }
 
