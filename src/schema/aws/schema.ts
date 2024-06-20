@@ -1,10 +1,11 @@
 import { ISchemaTemplates } from '@/redux/designer/models';
 
-const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
+const AWS_SCHEMAS: ISchemaTemplates = {
   'Security-Identity-Compliance': {
     'Directory-Service': {
       id: 'Directory-Service',
       category: 'Security-Identity-Compliance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -13,6 +14,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Identity-and-Access-Management': {
       id: 'Identity-and-Access-Management',
       category: 'Security-Identity-Compliance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -21,6 +23,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     CloudHSM: {
       id: 'CloudHSM',
       category: 'Security-Identity-Compliance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -29,6 +32,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Verified-Permissions': {
       id: 'Verified-Permissions',
       category: 'Security-Identity-Compliance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -37,6 +41,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     GuardDuty: {
       id: 'GuardDuty',
       category: 'Security-Identity-Compliance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -45,6 +50,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Detective: {
       id: 'Detective',
       category: 'Security-Identity-Compliance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -53,6 +59,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Inspector: {
       id: 'Inspector',
       category: 'Security-Identity-Compliance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -61,6 +68,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Cloud-Directory': {
       id: 'Cloud-Directory',
       category: 'Security-Identity-Compliance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -69,6 +77,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Signer: {
       id: 'Signer',
       category: 'Security-Identity-Compliance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -77,6 +86,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Key-Management-Service': {
       id: 'Key-Management-Service',
       category: 'Security-Identity-Compliance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -85,6 +95,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Firewall-Manager': {
       id: 'Firewall-Manager',
       category: 'Security-Identity-Compliance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -93,6 +104,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Audit-Manager': {
       id: 'Audit-Manager',
       category: 'Security-Identity-Compliance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -101,6 +113,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Network-Firewall': {
       id: 'Network-Firewall',
       category: 'Security-Identity-Compliance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -109,6 +122,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Secrets-Manager': {
       id: 'Secrets-Manager',
       category: 'Security-Identity-Compliance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -117,6 +131,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Macie: {
       id: 'Macie',
       category: 'Security-Identity-Compliance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -125,6 +140,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Cognito: {
       id: 'Cognito',
       category: 'Security-Identity-Compliance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -133,6 +149,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Shield: {
       id: 'Shield',
       category: 'Security-Identity-Compliance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -141,6 +158,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Security-Hub': {
       id: 'Security-Hub',
       category: 'Security-Identity-Compliance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -149,6 +167,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     WAF: {
       id: 'WAF',
       category: 'Security-Identity-Compliance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -157,6 +176,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Private-Certificate-Authority': {
       id: 'Private-Certificate-Authority',
       category: 'Security-Identity-Compliance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -165,6 +185,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Security-Lake': {
       id: 'Security-Lake',
       category: 'Security-Identity-Compliance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -173,6 +194,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Artifact: {
       id: 'Artifact',
       category: 'Security-Identity-Compliance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -181,6 +203,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Resource-Access-Manager': {
       id: 'Resource-Access-Manager',
       category: 'Security-Identity-Compliance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -189,6 +212,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'IAM-Identity-Center': {
       id: 'IAM-Identity-Center',
       category: 'Security-Identity-Compliance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -197,6 +221,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Certificate-Manager': {
       id: 'Certificate-Manager',
       category: 'Security-Identity-Compliance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -207,6 +232,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Honeycode: {
       id: 'Honeycode',
       category: 'Business-Applications',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -215,6 +241,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Supply-Chain': {
       id: 'Supply-Chain',
       category: 'Business-Applications',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -223,6 +250,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Wickr: {
       id: 'Wickr',
       category: 'Business-Applications',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -231,6 +259,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     WorkDocs: {
       id: 'WorkDocs',
       category: 'Business-Applications',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -239,6 +268,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Chime-SDK': {
       id: 'Chime-SDK',
       category: 'Business-Applications',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -247,6 +277,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'WorkDocs-SDK': {
       id: 'WorkDocs-SDK',
       category: 'Business-Applications',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -255,6 +286,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Pinpoint: {
       id: 'Pinpoint',
       category: 'Business-Applications',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -263,6 +295,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Simple-Email-Service': {
       id: 'Simple-Email-Service',
       category: 'Business-Applications',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -271,6 +304,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Alexa-For-Business': {
       id: 'Alexa-For-Business',
       category: 'Business-Applications',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -279,6 +313,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Chime-Voice-Connector': {
       id: 'Chime-Voice-Connector',
       category: 'Business-Applications',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -287,6 +322,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Chime: {
       id: 'Chime',
       category: 'Business-Applications',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -295,6 +331,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     WorkMail: {
       id: 'WorkMail',
       category: 'Business-Applications',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -303,6 +340,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Pinpoint-APIs': {
       id: 'Pinpoint-APIs',
       category: 'Business-Applications',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -311,6 +349,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Connect: {
       id: 'Connect',
       category: 'Business-Applications',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -321,6 +360,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Open-3D-Engine': {
       id: 'Open-3D-Engine',
       category: 'Games',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -329,6 +369,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Lumberyard: {
       id: 'Lumberyard',
       category: 'Games',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -337,6 +378,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     GameSparks: {
       id: 'GameSparks',
       category: 'Games',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -345,6 +387,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     GameLift: {
       id: 'GameLift',
       category: 'Games',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -353,6 +396,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     GameKit: {
       id: 'GameKit',
       category: 'Games',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -363,6 +407,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Sumerian: {
       id: 'Sumerian',
       category: 'VR-AR',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -373,6 +418,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     WorkLink: {
       id: 'WorkLink',
       category: 'End-User-Computing',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -381,6 +427,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'WorkSpaces-Family': {
       id: 'WorkSpaces-Family',
       category: 'End-User-Computing',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -389,6 +436,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     AppStream: {
       id: 'AppStream',
       category: 'End-User-Computing',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -399,6 +447,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'FSx-for-WFS': {
       id: 'FSx-for-WFS',
       category: 'Storage',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -407,6 +456,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Snowball-Edge': {
       id: 'Snowball-Edge',
       category: 'Storage',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -415,6 +465,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'FSx-for-OpenZFS': {
       id: 'FSx-for-OpenZFS',
       category: 'Storage',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -423,8 +474,13 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Simple-Storage-Service': {
       id: 'Simple-Storage-Service',
       category: 'Storage',
+      description:
+        'Amazon S3 (Simple Storage Service) provides scalable object storage (similar to Google Drive).',
       enabled: true,
-      cost: {},
+      cost: {
+        flat: 0,
+        'per-user': 0.0046,
+      },
       config: {
         versioning: {
           title: 'Versioning',
@@ -454,6 +510,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'File-Cache': {
       id: 'File-Cache',
       category: 'Storage',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -462,6 +519,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Backup: {
       id: 'Backup',
       category: 'Storage',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -470,6 +528,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'FSx-for-NetApp-ONTAP': {
       id: 'FSx-for-NetApp-ONTAP',
       category: 'Storage',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -478,6 +537,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Snowmobile: {
       id: 'Snowmobile',
       category: 'Storage',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -486,6 +546,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Elastic-Disaster-Recovery': {
       id: 'Elastic-Disaster-Recovery',
       category: 'Storage',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -494,6 +555,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Snowcone: {
       id: 'Snowcone',
       category: 'Storage',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -502,6 +564,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     FSx: {
       id: 'FSx',
       category: 'Storage',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -510,6 +573,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Snowball: {
       id: 'Snowball',
       category: 'Storage',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -518,6 +582,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'FSx-for-Lustre': {
       id: 'FSx-for-Lustre',
       category: 'Storage',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -526,6 +591,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     EFS: {
       id: 'EFS',
       category: 'Storage',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -534,6 +600,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Storage-Gateway': {
       id: 'Storage-Gateway',
       category: 'Storage',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -542,6 +609,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Simple-Storage-Service-Glacier': {
       id: 'Simple-Storage-Service-Glacier',
       category: 'Storage',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -550,6 +618,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Elastic-Block-Store': {
       id: 'Elastic-Block-Store',
       category: 'Storage',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -558,6 +627,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'S3-on-Outposts': {
       id: 'S3-on-Outposts',
       category: 'Storage',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -568,6 +638,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Client-VPN': {
       id: 'Client-VPN',
       category: 'Networking-Content-Delivery',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -576,6 +647,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Private-5G': {
       id: 'Private-5G',
       category: 'Networking-Content-Delivery',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -584,6 +656,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Cloud-WAN': {
       id: 'Cloud-WAN',
       category: 'Networking-Content-Delivery',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -592,8 +665,13 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     CloudFront: {
       id: 'CloudFront',
       category: 'Networking-Content-Delivery',
+      description:
+        'Amazon CloudFront is a web service for content delivery. It integrates with other Amazon Web Services to give developers and businesses an easy way to distribute content to end users with low latency, high data transfer speeds, and no commitments.',
       enabled: true,
-      cost: {},
+      cost: {
+        flat: 0,
+        'per-user': 0.017,
+      },
       config: {
         name: {
           title: 'Name',
@@ -608,6 +686,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'private subnet': {
       id: 'private subnet',
       category: 'Networking-Content-Delivery',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -616,6 +695,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'public subnet': {
       id: 'public subnet',
       category: 'Networking-Content-Delivery',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -624,8 +704,13 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Route-53': {
       id: 'Route-53',
       category: 'Networking-Content-Delivery',
+      description:
+        'Amazon Route 53 is a scalable and highly available Domain Name System (DNS) web service.',
       enabled: true,
-      cost: {},
+      cost: {
+        flat: 0.5,
+        'per-user': 0.0,
+      },
       config: {
         domain: {
           title: 'Domain Name',
@@ -640,6 +725,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Route-53 Route-Table': {
       id: 'Route-53 Route-Table',
       category: 'Networking-Content-Delivery',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -648,6 +734,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Virtual-Private-Cloud': {
       id: 'Virtual-Private-Cloud',
       category: 'Networking-Content-Delivery',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -656,6 +743,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Cloud-Directory': {
       id: 'Cloud-Directory',
       category: 'Networking-Content-Delivery',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -664,6 +752,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'VPC-Lattice': {
       id: 'VPC-Lattice',
       category: 'Networking-Content-Delivery',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -672,6 +761,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Direct-Connect': {
       id: 'Direct-Connect',
       category: 'Networking-Content-Delivery',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -680,6 +770,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Verified-Access': {
       id: 'Verified-Access',
       category: 'Networking-Content-Delivery',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -688,6 +779,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'App-Mesh': {
       id: 'App-Mesh',
       category: 'Networking-Content-Delivery',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -696,6 +788,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Site-to-Site-VPN': {
       id: 'Site-to-Site-VPN',
       category: 'Networking-Content-Delivery',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -704,6 +797,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     PrivateLink: {
       id: 'PrivateLink',
       category: 'Networking-Content-Delivery',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -712,6 +806,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Cloud-Map': {
       id: 'Cloud-Map',
       category: 'Networking-Content-Delivery',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -720,6 +815,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Transit-Gateway': {
       id: 'Transit-Gateway',
       category: 'Networking-Content-Delivery',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -728,6 +824,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Elastic-Load-Balancing': {
       id: 'Elastic-Load-Balancing',
       category: 'Networking-Content-Delivery',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -736,6 +833,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Global-Accelerator': {
       id: 'Global-Accelerator',
       category: 'Networking-Content-Delivery',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -746,6 +844,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Kinesis-Data-Streams': {
       id: 'Kinesis-Data-Streams',
       category: 'Analytics',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -754,6 +853,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Data-Pipeline': {
       id: 'Data-Pipeline',
       category: 'Analytics',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -762,6 +862,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Data-Exchange': {
       id: 'Data-Exchange',
       category: 'Analytics',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -770,6 +871,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Redshift: {
       id: 'Redshift',
       category: 'Analytics',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -778,6 +880,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Kinesis: {
       id: 'Kinesis',
       category: 'Analytics',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -786,6 +889,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Kinesis-Video-Streams': {
       id: 'Kinesis-Video-Streams',
       category: 'Analytics',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -794,6 +898,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Managed-Streaming-for-Apache-Kafka': {
       id: 'Managed-Streaming-for-Apache-Kafka',
       category: 'Analytics',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -802,6 +907,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Athena: {
       id: 'Athena',
       category: 'Analytics',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -810,6 +916,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Glue-Elastic-Views': {
       id: 'Glue-Elastic-Views',
       category: 'Analytics',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -818,6 +925,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     CloudSearch: {
       id: 'CloudSearch',
       category: 'Analytics',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -826,6 +934,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Kinesis-Data-Analytics': {
       id: 'Kinesis-Data-Analytics',
       category: 'Analytics',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -834,6 +943,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Lake-Formation': {
       id: 'Lake-Formation',
       category: 'Analytics',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -842,6 +952,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     QuickSight: {
       id: 'QuickSight',
       category: 'Analytics',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -850,6 +961,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Kinesis-Firehose': {
       id: 'Kinesis-Firehose',
       category: 'Analytics',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -858,6 +970,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     DataZone: {
       id: 'DataZone',
       category: 'Analytics',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -866,6 +979,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Clean-Rooms': {
       id: 'Clean-Rooms',
       category: 'Analytics',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -874,6 +988,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Glue: {
       id: 'Glue',
       category: 'Analytics',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -882,6 +997,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'OpenSearch-Service': {
       id: 'OpenSearch-Service',
       category: 'Analytics',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -890,6 +1006,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     EMR: {
       id: 'EMR',
       category: 'Analytics',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -898,6 +1015,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Glue-DataBrew': {
       id: 'Glue-DataBrew',
       category: 'Analytics',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -906,6 +1024,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     FinSpace: {
       id: 'FinSpace',
       category: 'Analytics',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -916,6 +1035,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'RDS-on-VMware': {
       id: 'RDS-on-VMware',
       category: 'Database',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -924,6 +1044,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Keyspaces: {
       id: 'Keyspaces',
       category: 'Database',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -932,6 +1053,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'MemoryDB-for-Redis': {
       id: 'MemoryDB-for-Redis',
       category: 'Database',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -940,6 +1062,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Timestream: {
       id: 'Timestream',
       category: 'Database',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -948,6 +1071,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Neptune: {
       id: 'Neptune',
       category: 'Database',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -956,6 +1080,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     RDS: {
       id: 'RDS',
       category: 'Database',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -964,6 +1089,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     DynamoDB: {
       id: 'DynamoDB',
       category: 'Database',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -972,6 +1098,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     DocumentDB: {
       id: 'DocumentDB',
       category: 'Database',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -980,6 +1107,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Aurora: {
       id: 'Aurora',
       category: 'Database',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -988,6 +1116,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     ElastiCache: {
       id: 'ElastiCache',
       category: 'Database',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -996,6 +1125,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Database-Migration-Service': {
       id: 'Database-Migration-Service',
       category: 'Database',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1006,6 +1136,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     CodeCommit: {
       id: 'CodeCommit',
       category: 'Developer-Tools',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1014,6 +1145,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Cloud-Development-Kit': {
       id: 'Cloud-Development-Kit',
       category: 'Developer-Tools',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1022,6 +1154,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Application-Composer': {
       id: 'Application-Composer',
       category: 'Developer-Tools',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1030,6 +1163,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Corretto: {
       id: 'Corretto',
       category: 'Developer-Tools',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1038,6 +1172,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     CodeArtifact: {
       id: 'CodeArtifact',
       category: 'Developer-Tools',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1046,6 +1181,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Command-Line-Interface': {
       id: 'Command-Line-Interface',
       category: 'Developer-Tools',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1054,6 +1190,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Cloud-Control-API': {
       id: 'Cloud-Control-API',
       category: 'Developer-Tools',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1062,6 +1199,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     CodeDeploy: {
       id: 'CodeDeploy',
       category: 'Developer-Tools',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1070,6 +1208,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'X-Ray': {
       id: 'X-Ray',
       category: 'Developer-Tools',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1078,6 +1217,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     CodePipeline: {
       id: 'CodePipeline',
       category: 'Developer-Tools',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1086,6 +1226,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     CodeStar: {
       id: 'CodeStar',
       category: 'Developer-Tools',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1094,6 +1235,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     CodeCatalyst: {
       id: 'CodeCatalyst',
       category: 'Developer-Tools',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1102,6 +1244,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     CodeBuild: {
       id: 'CodeBuild',
       category: 'Developer-Tools',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1110,6 +1253,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Cloud9: {
       id: 'Cloud9',
       category: 'Developer-Tools',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1118,6 +1262,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Tools-and-SDKs': {
       id: 'Tools-and-SDKs',
       category: 'Developer-Tools',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1126,6 +1271,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     CloudShell: {
       id: 'CloudShell',
       category: 'Developer-Tools',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1136,6 +1282,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'IoT-ExpressLink': {
       id: 'IoT-ExpressLink',
       category: 'Internet-of-Things',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1144,6 +1291,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'IoT-TwinMaker': {
       id: 'IoT-TwinMaker',
       category: 'Internet-of-Things',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1152,6 +1300,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'IoT-Analytics': {
       id: 'IoT-Analytics',
       category: 'Internet-of-Things',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1160,6 +1309,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'IoT-Core': {
       id: 'IoT-Core',
       category: 'Internet-of-Things',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1168,6 +1318,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'IoT-Device-Management': {
       id: 'IoT-Device-Management',
       category: 'Internet-of-Things',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1176,6 +1327,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'IoT-FleetWise': {
       id: 'IoT-FleetWise',
       category: 'Internet-of-Things',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1184,6 +1336,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'IoT-Device-Defender': {
       id: 'IoT-Device-Defender',
       category: 'Internet-of-Things',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1192,6 +1345,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'IoT-Greengrass': {
       id: 'IoT-Greengrass',
       category: 'Internet-of-Things',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1200,6 +1354,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'IoT-EduKit': {
       id: 'IoT-EduKit',
       category: 'Internet-of-Things',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1208,6 +1363,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'IoT-RoboRunner': {
       id: 'IoT-RoboRunner',
       category: 'Internet-of-Things',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1216,6 +1372,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'IoT-Events': {
       id: 'IoT-Events',
       category: 'Internet-of-Things',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1224,6 +1381,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'IoT-1-Click': {
       id: 'IoT-1-Click',
       category: 'Internet-of-Things',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1232,6 +1390,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     FreeRTOS: {
       id: 'FreeRTOS',
       category: 'Internet-of-Things',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1240,6 +1399,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'IoT-Button': {
       id: 'IoT-Button',
       category: 'Internet-of-Things',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1248,6 +1408,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'IoT-Things-Graph': {
       id: 'IoT-Things-Graph',
       category: 'Internet-of-Things',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1256,6 +1417,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'IoT-SiteWise': {
       id: 'IoT-SiteWise',
       category: 'Internet-of-Things',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1266,6 +1428,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'ECS-Anywhere': {
       id: 'ECS-Anywhere',
       category: 'Containers',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1274,6 +1437,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Red-Hat-OpenShift-Service-on-AWS': {
       id: 'Red-Hat-OpenShift-Service-on-AWS',
       category: 'Containers',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1282,6 +1446,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Elastic-Container-Service': {
       id: 'Elastic-Container-Service',
       category: 'Containers',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1290,6 +1455,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'EKS-Cloud': {
       id: 'EKS-Cloud',
       category: 'Containers',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1298,6 +1464,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Elastic-Kubernetes-Service': {
       id: 'Elastic-Kubernetes-Service',
       category: 'Containers',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1306,6 +1473,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'EKS-Distro': {
       id: 'EKS-Distro',
       category: 'Containers',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1314,6 +1482,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Elastic-Container-Registry': {
       id: 'Elastic-Container-Registry',
       category: 'Containers',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1322,6 +1491,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Fargate: {
       id: 'Fargate',
       category: 'Containers',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1330,6 +1500,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'EKS-Anywhere': {
       id: 'EKS-Anywhere',
       category: 'Containers',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1340,6 +1511,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     RoboMaker: {
       id: 'RoboMaker',
       category: 'Robotics',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1350,6 +1522,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Thinkbox-Deadline': {
       id: 'Thinkbox-Deadline',
       category: 'Compute',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1358,6 +1531,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Elastic-Fabric-Adapter': {
       id: 'Elastic-Fabric-Adapter',
       category: 'Compute',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1366,6 +1540,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'NICE-DCV': {
       id: 'NICE-DCV',
       category: 'Compute',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1374,6 +1549,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Batch: {
       id: 'Batch',
       category: 'Compute',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1382,6 +1558,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'EC2-Image-Builder': {
       id: 'EC2-Image-Builder',
       category: 'Compute',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1390,6 +1567,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'EC2-Spot-Instance': {
       id: 'EC2-Spot-Instance',
       category: 'Compute',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1398,6 +1576,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Local-Zones': {
       id: 'Local-Zones',
       category: 'Compute',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1406,6 +1585,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'App-Runner': {
       id: 'App-Runner',
       category: 'Compute',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1414,6 +1594,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Outposts-rack': {
       id: 'Outposts-rack',
       category: 'Compute',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1422,6 +1603,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     ParallelCluster: {
       id: 'ParallelCluster',
       category: 'Compute',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1430,6 +1612,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Outposts-family': {
       id: 'Outposts-family',
       category: 'Compute',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1438,6 +1621,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Nitro-Enclaves': {
       id: 'Nitro-Enclaves',
       category: 'Compute',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1446,6 +1630,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Outposts-servers': {
       id: 'Outposts-servers',
       category: 'Compute',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1454,6 +1639,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Thinkbox-Frost': {
       id: 'Thinkbox-Frost',
       category: 'Compute',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1462,6 +1648,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Thinkbox-Krakatoa': {
       id: 'Thinkbox-Krakatoa',
       category: 'Compute',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1470,6 +1657,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Compute-Optimizer': {
       id: 'Compute-Optimizer',
       category: 'Compute',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1478,6 +1666,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Lambda: {
       id: 'Lambda',
       category: 'Compute',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1486,6 +1675,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'NICE-EnginFrame': {
       id: 'NICE-EnginFrame',
       category: 'Compute',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1494,6 +1684,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'EC2-Auto-Scaling': {
       id: 'EC2-Auto-Scaling',
       category: 'Compute',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1502,6 +1693,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Thinkbox-Stoke': {
       id: 'Thinkbox-Stoke',
       category: 'Compute',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1510,6 +1702,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Wavelength: {
       id: 'Wavelength',
       category: 'Compute',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1518,6 +1711,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Thinkbox-XMesh': {
       id: 'Thinkbox-XMesh',
       category: 'Compute',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1526,6 +1720,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'VMware-Cloud-on-AWS': {
       id: 'VMware-Cloud-on-AWS',
       category: 'Compute',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1534,6 +1729,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Bottlerocket: {
       id: 'Bottlerocket',
       category: 'Compute',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1542,6 +1738,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Thinkbox-Sequoia': {
       id: 'Thinkbox-Sequoia',
       category: 'Compute',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1550,6 +1747,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Genomics-CLI': {
       id: 'Genomics-CLI',
       category: 'Compute',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1558,6 +1756,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'SimSpace-Weaver': {
       id: 'SimSpace-Weaver',
       category: 'Compute',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1566,6 +1765,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Lightsail: {
       id: 'Lightsail',
       category: 'Compute',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1574,6 +1774,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     EC2: {
       id: 'EC2',
       category: 'Compute',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1582,6 +1783,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Fargate: {
       id: 'Fargate',
       category: 'Compute',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1590,6 +1792,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Elastic-Beanstalk': {
       id: 'Elastic-Beanstalk',
       category: 'Compute',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1598,6 +1801,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Serverless-Application-Repository': {
       id: 'Serverless-Application-Repository',
       category: 'Compute',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1606,6 +1810,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Application-Auto-Scaling': {
       id: 'Application-Auto-Scaling',
       category: 'Compute',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1616,6 +1821,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Budgets: {
       id: 'Budgets',
       category: 'Cloud-Financial-Management',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1624,6 +1830,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Billing-Conductor': {
       id: 'Billing-Conductor',
       category: 'Cloud-Financial-Management',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1632,6 +1839,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Cost-Explorer': {
       id: 'Cost-Explorer',
       category: 'Cloud-Financial-Management',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1640,6 +1848,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Reserved-Instance-Reporting': {
       id: 'Reserved-Instance-Reporting',
       category: 'Cloud-Financial-Management',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1648,6 +1857,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Savings-Plans': {
       id: 'Savings-Plans',
       category: 'Cloud-Financial-Management',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1656,6 +1866,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Application-Cost-Profiler': {
       id: 'Application-Cost-Profiler',
       category: 'Cloud-Financial-Management',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1664,6 +1875,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Cost-and-Usage-Report': {
       id: 'Cost-and-Usage-Report',
       category: 'Cloud-Financial-Management',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1674,6 +1886,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Ground-Station': {
       id: 'Ground-Station',
       category: 'Satellite',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1684,6 +1897,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Quantum-Ledger-Database': {
       id: 'Quantum-Ledger-Database',
       category: 'Blockchain',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1692,6 +1906,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Managed-Blockchain': {
       id: 'Managed-Blockchain',
       category: 'Blockchain',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1702,6 +1917,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Personal-Health-Dashboard': {
       id: 'Personal-Health-Dashboard',
       category: 'Management-Governance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1710,6 +1926,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Resilience-Hub': {
       id: 'Resilience-Hub',
       category: 'Management-Governance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1718,6 +1935,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     CloudWatch: {
       id: 'CloudWatch',
       category: 'Management-Governance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1726,6 +1944,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Resource-Explorer': {
       id: 'Resource-Explorer',
       category: 'Management-Governance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1734,6 +1953,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Proton: {
       id: 'Proton',
       category: 'Management-Governance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1742,6 +1962,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Well-Architected-Tool': {
       id: 'Well-Architected-Tool',
       category: 'Management-Governance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1750,6 +1971,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     AppConfig: {
       id: 'AppConfig',
       category: 'Management-Governance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1758,6 +1980,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'License-Manager': {
       id: 'License-Manager',
       category: 'Management-Governance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1766,6 +1989,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Systems-Manager': {
       id: 'Systems-Manager',
       category: 'Management-Governance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1774,6 +1998,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Fault-Injection-Simulator': {
       id: 'Fault-Injection-Simulator',
       category: 'Management-Governance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1782,6 +2007,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Managed-Grafana': {
       id: 'Managed-Grafana',
       category: 'Management-Governance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1790,6 +2016,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     CloudFormation: {
       id: 'CloudFormation',
       category: 'Management-Governance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1798,6 +2025,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Config: {
       id: 'Config',
       category: 'Management-Governance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1806,6 +2034,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Organizations: {
       id: 'Organizations',
       category: 'Management-Governance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1814,6 +2043,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Managed-Service-for-Prometheus': {
       id: 'Managed-Service-for-Prometheus',
       category: 'Management-Governance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1822,6 +2052,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Launch-Wizard': {
       id: 'Launch-Wizard',
       category: 'Management-Governance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1830,6 +2061,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Service-Management-Connector': {
       id: 'Service-Management-Connector',
       category: 'Management-Governance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1838,6 +2070,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     CloudTrail: {
       id: 'CloudTrail',
       category: 'Management-Governance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1846,6 +2079,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Service-Catalog': {
       id: 'Service-Catalog',
       category: 'Management-Governance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1854,6 +2088,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     OpsWorks: {
       id: 'OpsWorks',
       category: 'Management-Governance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1862,6 +2097,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Chatbot: {
       id: 'Chatbot',
       category: 'Management-Governance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1870,6 +2106,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Distro-for-OpenTelemetry': {
       id: 'Distro-for-OpenTelemetry',
       category: 'Management-Governance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1878,6 +2115,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Backint-Agent': {
       id: 'Backint-Agent',
       category: 'Management-Governance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1886,6 +2124,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Trusted-Advisor': {
       id: 'Trusted-Advisor',
       category: 'Management-Governance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1894,6 +2133,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Management-Console': {
       id: 'Management-Console',
       category: 'Management-Governance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1902,6 +2142,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Control-Tower': {
       id: 'Control-Tower',
       category: 'Management-Governance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1910,6 +2151,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Auto-Scaling': {
       id: 'Auto-Scaling',
       category: 'Management-Governance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1918,6 +2160,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Application-Auto-Scaling': {
       id: 'Application-Auto-Scaling',
       category: 'Management-Governance',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1928,6 +2171,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Elemental-MediaConnect': {
       id: 'Elemental-MediaConnect',
       category: 'Media-Services',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1936,6 +2180,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Elemental-MediaStore': {
       id: 'Elemental-MediaStore',
       category: 'Media-Services',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1944,6 +2189,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Elemental-Link': {
       id: 'Elemental-Link',
       category: 'Media-Services',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1952,6 +2198,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Elemental-Live': {
       id: 'Elemental-Live',
       category: 'Media-Services',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1960,6 +2207,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Elemental-MediaConvert': {
       id: 'Elemental-MediaConvert',
       category: 'Media-Services',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1968,6 +2216,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Elemental-Conductor': {
       id: 'Elemental-Conductor',
       category: 'Media-Services',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1976,6 +2225,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Elemental-MediaPackage': {
       id: 'Elemental-MediaPackage',
       category: 'Media-Services',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1984,6 +2234,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Kinesis-Video-Streams': {
       id: 'Kinesis-Video-Streams',
       category: 'Media-Services',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -1992,6 +2243,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Elemental-MediaTailor': {
       id: 'Elemental-MediaTailor',
       category: 'Media-Services',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2000,6 +2252,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Elastic-Transcoder': {
       id: 'Elastic-Transcoder',
       category: 'Media-Services',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2008,6 +2261,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Nimble-Studio': {
       id: 'Nimble-Studio',
       category: 'Media-Services',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2016,6 +2270,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Elemental-Server': {
       id: 'Elemental-Server',
       category: 'Media-Services',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2024,6 +2279,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Elemental-Appliances-&-Software': {
       id: 'Elemental-Appliances-&-Software',
       category: 'Media-Services',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2032,6 +2288,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Elemental-MediaLive': {
       id: 'Elemental-MediaLive',
       category: 'Media-Services',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2040,6 +2297,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Interactive-Video-Service': {
       id: 'Interactive-Video-Service',
       category: 'Media-Services',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2048,6 +2306,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Elemental-Delta': {
       id: 'Elemental-Delta',
       category: 'Media-Services',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2058,6 +2317,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Neuron: {
       id: 'Neuron',
       category: 'Machine-Learning',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2066,6 +2326,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Polly: {
       id: 'Polly',
       category: 'Machine-Learning',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2074,6 +2335,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Personalize: {
       id: 'Personalize',
       category: 'Machine-Learning',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2082,6 +2344,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Elastic-Inference': {
       id: 'Elastic-Inference',
       category: 'Machine-Learning',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2090,6 +2353,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     CodeWhisperer: {
       id: 'CodeWhisperer',
       category: 'Machine-Learning',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2098,6 +2362,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Rekognition: {
       id: 'Rekognition',
       category: 'Machine-Learning',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2106,6 +2371,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Monitron: {
       id: 'Monitron',
       category: 'Machine-Learning',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2114,6 +2380,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Lookout-for-Equipment': {
       id: 'Lookout-for-Equipment',
       category: 'Machine-Learning',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2122,6 +2389,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Panorama: {
       id: 'Panorama',
       category: 'Machine-Learning',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2130,6 +2398,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Transcribe: {
       id: 'Transcribe',
       category: 'Machine-Learning',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2138,6 +2407,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'SageMaker-Studio-Lab': {
       id: 'SageMaker-Studio-Lab',
       category: 'Machine-Learning',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2146,6 +2416,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     CodeGuru: {
       id: 'CodeGuru',
       category: 'Machine-Learning',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2154,6 +2425,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Lex: {
       id: 'Lex',
       category: 'Machine-Learning',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2162,6 +2434,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Translate: {
       id: 'Translate',
       category: 'Machine-Learning',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2170,6 +2443,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Forecast: {
       id: 'Forecast',
       category: 'Machine-Learning',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2178,6 +2452,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Textract: {
       id: 'Textract',
       category: 'Machine-Learning',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2186,6 +2461,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'SageMaker-Ground-Truth': {
       id: 'SageMaker-Ground-Truth',
       category: 'Machine-Learning',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2194,6 +2470,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Apache-MXNet-on-AWS': {
       id: 'Apache-MXNet-on-AWS',
       category: 'Machine-Learning',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2202,6 +2479,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Augmented-AI-A2I': {
       id: 'Augmented-AI-A2I',
       category: 'Machine-Learning',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2210,6 +2488,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     DeepRacer: {
       id: 'DeepRacer',
       category: 'Machine-Learning',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2218,6 +2497,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Comprehend-Medical': {
       id: 'Comprehend-Medical',
       category: 'Machine-Learning',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2226,6 +2506,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     SageMaker: {
       id: 'SageMaker',
       category: 'Machine-Learning',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2234,6 +2515,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Lookout-for-Vision': {
       id: 'Lookout-for-Vision',
       category: 'Machine-Learning',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2242,6 +2524,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'TensorFlow-on-AWS': {
       id: 'TensorFlow-on-AWS',
       category: 'Machine-Learning',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2250,6 +2533,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Deep-Learning-Containers': {
       id: 'Deep-Learning-Containers',
       category: 'Machine-Learning',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2258,6 +2542,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Lookout-for-Metrics': {
       id: 'Lookout-for-Metrics',
       category: 'Machine-Learning',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2266,6 +2551,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     HealthLake: {
       id: 'HealthLake',
       category: 'Machine-Learning',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2274,6 +2560,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Deep-Learning-AMIs': {
       id: 'Deep-Learning-AMIs',
       category: 'Machine-Learning',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2282,6 +2569,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Fraud-Detector': {
       id: 'Fraud-Detector',
       category: 'Machine-Learning',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2290,6 +2578,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Kendra: {
       id: 'Kendra',
       category: 'Machine-Learning',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2298,6 +2587,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Omics: {
       id: 'Omics',
       category: 'Machine-Learning',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2306,6 +2596,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     TorchServe: {
       id: 'TorchServe',
       category: 'Machine-Learning',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2314,6 +2605,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     DeepComposer: {
       id: 'DeepComposer',
       category: 'Machine-Learning',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2322,6 +2614,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     DeepLens: {
       id: 'DeepLens',
       category: 'Machine-Learning',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2330,6 +2623,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'DevOps-Guru': {
       id: 'DevOps-Guru',
       category: 'Machine-Learning',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2338,6 +2632,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Comprehend: {
       id: 'Comprehend',
       category: 'Machine-Learning',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2348,6 +2643,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Braket: {
       id: 'Braket',
       category: 'Quantum-Technologies',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2358,6 +2654,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Application-Discovery-Service': {
       id: 'Application-Discovery-Service',
       category: 'Migration-Transfer',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2366,6 +2663,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Server-Migration-Service': {
       id: 'Server-Migration-Service',
       category: 'Migration-Transfer',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2374,6 +2672,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Migration-Evaluator': {
       id: 'Migration-Evaluator',
       category: 'Migration-Transfer',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2382,6 +2681,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Transfer-Family': {
       id: 'Transfer-Family',
       category: 'Migration-Transfer',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2390,6 +2690,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Application-Migration-Service': {
       id: 'Application-Migration-Service',
       category: 'Migration-Transfer',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2398,6 +2699,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Migration-Hub': {
       id: 'Migration-Hub',
       category: 'Migration-Transfer',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2406,6 +2708,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     DataSync: {
       id: 'DataSync',
       category: 'Migration-Transfer',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2414,6 +2717,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Mainframe-Modernization': {
       id: 'Mainframe-Modernization',
       category: 'Migration-Transfer',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2424,6 +2728,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     AppFlow: {
       id: 'AppFlow',
       category: 'Application-Integration',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2432,6 +2737,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     MQ: {
       id: 'MQ',
       category: 'Application-Integration',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2440,6 +2746,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Console-Mobile-Application': {
       id: 'Console-Mobile-Application',
       category: 'Application-Integration',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2448,6 +2755,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Managed-Workflows-for-Apache-Airflow': {
       id: 'Managed-Workflows-for-Apache-Airflow',
       category: 'Application-Integration',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2456,6 +2764,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'API-Gateway': {
       id: 'API-Gateway',
       category: 'Application-Integration',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2464,6 +2773,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     AppSync: {
       id: 'AppSync',
       category: 'Application-Integration',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2472,6 +2782,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Step-Functions': {
       id: 'Step-Functions',
       category: 'Application-Integration',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2480,6 +2791,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Simple-Queue-Service': {
       id: 'Simple-Queue-Service',
       category: 'Application-Integration',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2488,6 +2800,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Simple-Notification-Service': {
       id: 'Simple-Notification-Service',
       category: 'Application-Integration',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2496,6 +2809,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     EventBridge: {
       id: 'EventBridge',
       category: 'Application-Integration',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2504,6 +2818,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Express-Workflows': {
       id: 'Express-Workflows',
       category: 'Application-Integration',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2514,6 +2829,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Device-Farm': {
       id: 'Device-Farm',
       category: 'Front-End-Web-Mobile',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2522,6 +2838,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Amplify: {
       id: 'Amplify',
       category: 'Front-End-Web-Mobile',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2530,6 +2847,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Location-Service': {
       id: 'Location-Service',
       category: 'Front-End-Web-Mobile',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2540,6 +2858,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Training-Certification': {
       id: 'Training-Certification',
       category: 'Customer-Enablement',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2548,6 +2867,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Managed-Services': {
       id: 'Managed-Services',
       category: 'Customer-Enablement',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2556,6 +2876,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Support: {
       id: 'Support',
       category: 'Customer-Enablement',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2564,6 +2885,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     IQ: {
       id: 'IQ',
       category: 'Customer-Enablement',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2572,6 +2894,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     'Professional-Services': {
       id: 'Professional-Services',
       category: 'Customer-Enablement',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2580,6 +2903,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     rePost: {
       id: 'rePost',
       category: 'Customer-Enablement',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2588,6 +2912,7 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
     Activate: {
       id: 'Activate',
       category: 'Customer-Enablement',
+      description: '',
       enabled: true,
       cost: {},
       config: {},
@@ -2596,4 +2921,4 @@ const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
   },
 };
 
-export default AWS_SCHEMA_TEMPLATES;
+export default AWS_SCHEMAS;

@@ -11,6 +11,7 @@ export interface ICategory {
 export interface IService {
   id: string;
   category: string;
+  description: string;
   deploy: {
     [key: string]: any;
   };
