@@ -46,7 +46,7 @@ function CollapseItem({ category, service }: ICollapseItemProps) {
 }
 
 function Accordian() {
-  const collapse_components = Object.keys(AWS_SCHEMA_TEMPLATES).map((category: string) => {
+  const collapse_components = Object.keys(AWS_SCHEMA_TEMPLATES).sort().map((category: string) => {
     return (
       <details key={category} className="collapse collapse-arrow bg-transparent"> 
         <summary className="collapse-title">
