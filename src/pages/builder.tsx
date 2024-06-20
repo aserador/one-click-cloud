@@ -5,7 +5,11 @@ import DescriptionBar from '@/components/DescriptionBar';
 import { AWS_TEMPLATES, IGraphBuilder } from '@/templates/aws';
 import { useRouter } from 'next/router';
 import { useAppDispatch } from '@/redux/hooks';
-import { addGraphEdge, addGraphNode, reset } from '@/redux/designer/slice/graphSlice';
+import {
+  addGraphEdge,
+  addGraphNode,
+  reset,
+} from '@/redux/designer/slice/graphSlice';
 import { IAddGraphNode } from '@/redux/designer/payload';
 import AWS_SCHEMAS from '@/schema/aws/schema';
 
@@ -31,7 +35,7 @@ function ArchitectureOption({
   const router = useRouter();
 
   function editTemplate() {
-    dispatch(reset())
+    dispatch(reset());
     for (const node of graphNodes) {
       dispatch(addGraphNode(node));
     }
@@ -82,7 +86,7 @@ function ArchitectureOption({
 const BuildPage = () => {
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [showRecommendations, setShowRecommendations] = useState(true);
+  const [showRecommendations, setShowRecommendations] = useState(false);
   const [userCount, setUserCount] = useState(0);
 
   const handleSend = async () => {
@@ -106,6 +110,7 @@ const BuildPage = () => {
         );
       }
     } finally {
+      setShowRecommendations(true);
       setIsLoading(false);
     }
   };
@@ -114,7 +119,7 @@ const BuildPage = () => {
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <div className="flex flex-col items-center justify-center min-w-full">
         {isLoading ? (
-          <div className="text-spurple"> loading </div>
+          <span className="loading loading-spinner loading-xs text-spurple" />
         ) : showRecommendations ? (
           <div className="fade-in">
             <h1 className="text-6xl font-custom m-5 text-center text-white">
