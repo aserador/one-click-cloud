@@ -1,3216 +1,2599 @@
-import { ISchemaTemplates } from "@/redux/designer/models";
+import { ISchemaTemplates } from '@/redux/designer/models';
 
 const AWS_SCHEMA_TEMPLATES: ISchemaTemplates = {
-  "Analytics": {
-    "Athena": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Athena"
+  'Security-Identity-Compliance': {
+    'Directory-Service': {
+      id: 'Directory-Service',
+      category: 'Security-Identity-Compliance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
     },
-    "Clean-Rooms": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Clean-Rooms"
+    'Identity-and-Access-Management': {
+      id: 'Identity-and-Access-Management',
+      category: 'Security-Identity-Compliance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
     },
-    "CloudSearch": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "CloudSearch"
+    CloudHSM: {
+      id: 'CloudHSM',
+      category: 'Security-Identity-Compliance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
     },
-    "Data-Exchange": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Data-Exchange"
+    'Verified-Permissions': {
+      id: 'Verified-Permissions',
+      category: 'Security-Identity-Compliance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
     },
-    "Data-Pipeline": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Data-Pipeline"
+    GuardDuty: {
+      id: 'GuardDuty',
+      category: 'Security-Identity-Compliance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
     },
-    "DataZone": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "DataZone"
+    Detective: {
+      id: 'Detective',
+      category: 'Security-Identity-Compliance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
     },
-    "EMR": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "EMR"
+    Inspector: {
+      id: 'Inspector',
+      category: 'Security-Identity-Compliance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
     },
-    "FinSpace": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "FinSpace"
+    'Cloud-Directory': {
+      id: 'Cloud-Directory',
+      category: 'Security-Identity-Compliance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
     },
-    "Glue": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Glue"
+    Signer: {
+      id: 'Signer',
+      category: 'Security-Identity-Compliance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
     },
-    "Glue-DataBrew": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Glue-DataBrew"
+    'Key-Management-Service': {
+      id: 'Key-Management-Service',
+      category: 'Security-Identity-Compliance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
     },
-    "Glue-Elastic-Views": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Glue-Elastic-Views"
+    'Firewall-Manager': {
+      id: 'Firewall-Manager',
+      category: 'Security-Identity-Compliance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
     },
-    "Kinesis": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Kinesis"
+    'Audit-Manager': {
+      id: 'Audit-Manager',
+      category: 'Security-Identity-Compliance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
     },
-    "Kinesis-Data-Analytics": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Kinesis-Data-Analytics"
+    'Network-Firewall': {
+      id: 'Network-Firewall',
+      category: 'Security-Identity-Compliance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
     },
-    "Kinesis-Data-Streams": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Kinesis-Data-Streams"
+    'Secrets-Manager': {
+      id: 'Secrets-Manager',
+      category: 'Security-Identity-Compliance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
     },
-    "Kinesis-Firehose": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Kinesis-Firehose"
+    Macie: {
+      id: 'Macie',
+      category: 'Security-Identity-Compliance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
     },
-    "Kinesis-Video-Streams": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Kinesis-Video-Streams"
+    Cognito: {
+      id: 'Cognito',
+      category: 'Security-Identity-Compliance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
     },
-    "Lake-Formation": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Lake-Formation"
+    Shield: {
+      id: 'Shield',
+      category: 'Security-Identity-Compliance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
     },
-    "Managed-Streaming-for-Apache-Kafka": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Managed-Streaming-for-Apache-Kafka"
+    'Security-Hub': {
+      id: 'Security-Hub',
+      category: 'Security-Identity-Compliance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
     },
-    "OpenSearch-Service": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "OpenSearch-Service"
+    WAF: {
+      id: 'WAF',
+      category: 'Security-Identity-Compliance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
     },
-    "QuickSight": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "QuickSight"
+    'Private-Certificate-Authority': {
+      id: 'Private-Certificate-Authority',
+      category: 'Security-Identity-Compliance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
     },
-    "Redshift": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Redshift"
-    }
+    'Security-Lake': {
+      id: 'Security-Lake',
+      category: 'Security-Identity-Compliance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    Artifact: {
+      id: 'Artifact',
+      category: 'Security-Identity-Compliance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Resource-Access-Manager': {
+      id: 'Resource-Access-Manager',
+      category: 'Security-Identity-Compliance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'IAM-Identity-Center': {
+      id: 'IAM-Identity-Center',
+      category: 'Security-Identity-Compliance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Certificate-Manager': {
+      id: 'Certificate-Manager',
+      category: 'Security-Identity-Compliance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
   },
-  "Application-Integration": {
-    "API-Gateway": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "API-Gateway"
+  'Business-Applications': {
+    Honeycode: {
+      id: 'Honeycode',
+      category: 'Business-Applications',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
     },
-    "AppFlow": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "AppFlow"
+    'Supply-Chain': {
+      id: 'Supply-Chain',
+      category: 'Business-Applications',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
     },
-    "AppSync": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "AppSync"
+    Wickr: {
+      id: 'Wickr',
+      category: 'Business-Applications',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
     },
-    "Console-Mobile-Application": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Console-Mobile-Application"
+    WorkDocs: {
+      id: 'WorkDocs',
+      category: 'Business-Applications',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
     },
-    "EventBridge": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "EventBridge"
+    'Chime-SDK': {
+      id: 'Chime-SDK',
+      category: 'Business-Applications',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
     },
-    "Express-Workflows": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Express-Workflows"
+    'WorkDocs-SDK': {
+      id: 'WorkDocs-SDK',
+      category: 'Business-Applications',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
     },
-    "Managed-Workflows-for-Apache-Airflow": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Managed-Workflows-for-Apache-Airflow"
+    Pinpoint: {
+      id: 'Pinpoint',
+      category: 'Business-Applications',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
     },
-    "MQ": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "MQ"
+    'Simple-Email-Service': {
+      id: 'Simple-Email-Service',
+      category: 'Business-Applications',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
     },
-    "Simple-Notification-Service": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Simple-Notification-Service"
+    'Alexa-For-Business': {
+      id: 'Alexa-For-Business',
+      category: 'Business-Applications',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
     },
-    "Simple-Queue-Service": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Simple-Queue-Service"
+    'Chime-Voice-Connector': {
+      id: 'Chime-Voice-Connector',
+      category: 'Business-Applications',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
     },
-    "Step-Functions": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Step-Functions"
-    }
+    Chime: {
+      id: 'Chime',
+      category: 'Business-Applications',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    WorkMail: {
+      id: 'WorkMail',
+      category: 'Business-Applications',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Pinpoint-APIs': {
+      id: 'Pinpoint-APIs',
+      category: 'Business-Applications',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    Connect: {
+      id: 'Connect',
+      category: 'Business-Applications',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
   },
-  "Blockchain": {
-    "Managed-Blockchain": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Managed-Blockchain"
+  Games: {
+    'Open-3D-Engine': {
+      id: 'Open-3D-Engine',
+      category: 'Games',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
     },
-    "Quantum-Ledger-Database": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Quantum-Ledger-Database"
-    }
+    Lumberyard: {
+      id: 'Lumberyard',
+      category: 'Games',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    GameSparks: {
+      id: 'GameSparks',
+      category: 'Games',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    GameLift: {
+      id: 'GameLift',
+      category: 'Games',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    GameKit: {
+      id: 'GameKit',
+      category: 'Games',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
   },
-  "Business-Applications": {
-    "Alexa-For-Business": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Alexa-For-Business"
+  'VR-AR': {
+    Sumerian: {
+      id: 'Sumerian',
+      category: 'VR-AR',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
     },
-    "Chime": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Chime"
-    },
-    "Chime-SDK": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Chime-SDK"
-    },
-    "Chime-Voice-Connector": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Chime-Voice-Connector"
-    },
-    "Connect": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Connect"
-    },
-    "Honeycode": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Honeycode"
-    },
-    "Pinpoint": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Pinpoint"
-    },
-    "Pinpoint-APIs": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Pinpoint-APIs"
-    },
-    "Simple-Email-Service": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Simple-Email-Service"
-    },
-    "Supply-Chain": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Supply-Chain"
-    },
-    "Wickr": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Wickr"
-    },
-    "WorkDocs": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "WorkDocs"
-    },
-    "WorkDocs-SDK": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "WorkDocs-SDK"
-    },
-    "WorkMail": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "WorkMail"
-    }
   },
-  "Cloud-Financial-Management": {
-    "Application-Cost-Profiler": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Application-Cost-Profiler"
+  'End-User-Computing': {
+    WorkLink: {
+      id: 'WorkLink',
+      category: 'End-User-Computing',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
     },
-    "Billing-Conductor": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Billing-Conductor"
+    'WorkSpaces-Family': {
+      id: 'WorkSpaces-Family',
+      category: 'End-User-Computing',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
     },
-    "Budgets": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Budgets"
+    AppStream: {
+      id: 'AppStream',
+      category: 'End-User-Computing',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
     },
-    "Cost-and-Usage-Report": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Cost-and-Usage-Report"
-    },
-    "Cost-Explorer": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Cost-Explorer"
-    },
-    "Reserved-Instance-Reporting": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Reserved-Instance-Reporting"
-    },
-    "Savings-Plans": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Savings-Plans"
-    }
   },
-  "Compute": {
-    "Application-Auto-Scaling": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Application-Auto-Scaling"
-    },
-    "App-Runner": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "App-Runner"
-    },
-    "Batch": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Batch"
-    },
-    "Bottlerocket": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Bottlerocket"
-    },
-    "Compute-Optimizer": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Compute-Optimizer"
-    },
-    "EC2": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "EC2"
-    },
-    "EC2-Auto-Scaling": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "EC2-Auto-Scaling"
-    },
-    "EC2-Image-Builder": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "EC2-Image-Builder"
-    },
-    "EC2-Spot-Instance": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "EC2-Spot-Instance"
-    },
-    "Elastic-Beanstalk": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Elastic-Beanstalk"
-    },
-    "Elastic-Fabric-Adapter": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Elastic-Fabric-Adapter"
-    },
-    "Fargate": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Fargate"
-    },
-    "Genomics-CLI": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Genomics-CLI"
-    },
-    "Lambda": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Lambda"
-    },
-    "Lightsail": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Lightsail"
-    },
-    "Local-Zones": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Local-Zones"
-    },
-    "NICE-DCV": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "NICE-DCV"
-    },
-    "NICE-EnginFrame": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "NICE-EnginFrame"
-    },
-    "Nitro-Enclaves": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Nitro-Enclaves"
-    },
-    "Outposts-family": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Outposts-family"
-    },
-    "Outposts-rack": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Outposts-rack"
-    },
-    "Outposts-servers": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Outposts-servers"
-    },
-    "ParallelCluster": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "ParallelCluster"
-    },
-    "Serverless-Application-Repository": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Serverless-Application-Repository"
-    },
-    "SimSpace-Weaver": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "SimSpace-Weaver"
-    },
-    "Thinkbox-Deadline": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Thinkbox-Deadline"
-    },
-    "Thinkbox-Frost": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Thinkbox-Frost"
-    },
-    "Thinkbox-Krakatoa": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Thinkbox-Krakatoa"
-    },
-    "Thinkbox-Sequoia": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Thinkbox-Sequoia"
-    },
-    "Thinkbox-Stoke": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Thinkbox-Stoke"
-    },
-    "Thinkbox-XMesh": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Thinkbox-XMesh"
-    },
-    "VMware-Cloud-on-AWS": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "VMware-Cloud-on-AWS"
-    },
-    "Wavelength": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Wavelength"
-    }
-  },
-  "Containers": {
-    "ECS-Anywhere": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "ECS-Anywhere"
-    },
-    "EKS-Anywhere": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "EKS-Anywhere"
-    },
-    "EKS-Cloud": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "EKS-Cloud"
-    },
-    "EKS-Distro": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "EKS-Distro"
-    },
-    "Elastic-Container-Registry": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Elastic-Container-Registry"
-    },
-    "Elastic-Container-Service": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Elastic-Container-Service"
-    },
-    "Elastic-Kubernetes-Service": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Elastic-Kubernetes-Service"
-    },
-    "Fargate": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Fargate"
-    },
-    "Red-Hat-OpenShift-Service-on-AWS": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Red-Hat-OpenShift-Service-on-AWS"
-    }
-  },
-  "Customer-Enablement": {
-    "Activate": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Activate"
-    },
-    "IQ": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "IQ"
-    },
-    "Managed-Services": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Managed-Services"
-    },
-    "Professional-Services": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Professional-Services"
-    },
-    "rePost": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "rePost"
-    },
-    "Support": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Support"
-    },
-    "Training-Certification": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Training-Certification"
-    }
-  },
-  "Database": {
-    "Aurora": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Aurora"
-    },
-    "Database-Migration-Service": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Database-Migration-Service"
-    },
-    "DocumentDB": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "DocumentDB"
-    },
-    "DynamoDB": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "DynamoDB"
-    },
-    "ElastiCache": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "ElastiCache"
-    },
-    "Keyspaces": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Keyspaces"
-    },
-    "MemoryDB-for-Redis": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "MemoryDB-for-Redis"
-    },
-    "Neptune": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Neptune"
-    },
-    "RDS": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "RDS"
-    },
-    "RDS-on-VMware": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "RDS-on-VMware"
-    },
-    "Timestream": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Timestream"
-    }
-  },
-  "Developer-Tools": {
-    "Application-Composer": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Application-Composer"
-    },
-    "Cloud9": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Cloud9"
-    },
-    "Cloud-Control-API": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Cloud-Control-API"
-    },
-    "Cloud-Development-Kit": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Cloud-Development-Kit"
-    },
-    "CloudShell": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "CloudShell"
-    },
-    "CodeArtifact": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "CodeArtifact"
-    },
-    "CodeBuild": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "CodeBuild"
-    },
-    "CodeCatalyst": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "CodeCatalyst"
-    },
-    "CodeCommit": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "CodeCommit"
-    },
-    "CodeDeploy": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "CodeDeploy"
-    },
-    "CodePipeline": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "CodePipeline"
-    },
-    "CodeStar": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "CodeStar"
-    },
-    "Command-Line-Interface": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Command-Line-Interface"
-    },
-    "Corretto": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Corretto"
-    },
-    "Tools-and-SDKs": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Tools-and-SDKs"
-    },
-    "X-Ray": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "X-Ray"
-    }
-  },
-  "End-User-Computing": {
-    "AppStream": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "AppStream"
-    },
-    "WorkLink": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "WorkLink"
-    },
-    "WorkSpaces-Family": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "WorkSpaces-Family"
-    }
-  },
-  "Front-End-Web-Mobile": {
-    "Amplify": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Amplify"
-    },
-    "Device-Farm": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Device-Farm"
-    },
-    "Location-Service": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Location-Service"
-    }
-  },
-  "Games": {
-    "GameKit": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "GameKit"
-    },
-    "GameLift": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "GameLift"
-    },
-    "GameSparks": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "GameSparks"
-    },
-    "Lumberyard": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Lumberyard"
-    },
-    "Open-3D-Engine": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Open-3D-Engine"
-    }
-  },
-  "Internet-of-Things": {
-    "FreeRTOS": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "FreeRTOS"
-    },
-    "IoT-1-Click": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "IoT-1-Click"
-    },
-    "IoT-Analytics": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "IoT-Analytics"
-    },
-    "IoT-Button": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "IoT-Button"
-    },
-    "IoT-Core": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "IoT-Core"
-    },
-    "IoT-Device-Defender": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "IoT-Device-Defender"
-    },
-    "IoT-Device-Management": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "IoT-Device-Management"
-    },
-    "IoT-EduKit": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "IoT-EduKit"
-    },
-    "IoT-Events": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "IoT-Events"
-    },
-    "IoT-ExpressLink": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "IoT-ExpressLink"
-    },
-    "IoT-FleetWise": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "IoT-FleetWise"
-    },
-    "IoT-Greengrass": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "IoT-Greengrass"
-    },
-    "IoT-RoboRunner": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "IoT-RoboRunner"
-    },
-    "IoT-SiteWise": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "IoT-SiteWise"
-    },
-    "IoT-Things-Graph": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "IoT-Things-Graph"
-    },
-    "IoT-TwinMaker": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "IoT-TwinMaker"
-    }
-  },
-  "Machine-Learning": {
-    "Apache-MXNet-on-AWS": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Apache-MXNet-on-AWS"
-    },
-    "Augmented-AI-A2I": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Augmented-AI-A2I"
-    },
-    "CodeGuru": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "CodeGuru"
-    },
-    "CodeWhisperer": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "CodeWhisperer"
-    },
-    "Comprehend": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Comprehend"
-    },
-    "Comprehend-Medical": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Comprehend-Medical"
-    },
-    "DeepComposer": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "DeepComposer"
-    },
-    "Deep-Learning-AMIs": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Deep-Learning-AMIs"
-    },
-    "Deep-Learning-Containers": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Deep-Learning-Containers"
-    },
-    "DeepLens": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "DeepLens"
-    },
-    "DeepRacer": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "DeepRacer"
-    },
-    "DevOps-Guru": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "DevOps-Guru"
-    },
-    "Elastic-Inference": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Elastic-Inference"
-    },
-    "Forecast": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Forecast"
-    },
-    "Fraud-Detector": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Fraud-Detector"
-    },
-    "HealthLake": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "HealthLake"
-    },
-    "Kendra": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Kendra"
-    },
-    "Lex": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Lex"
-    },
-    "Lookout-for-Equipment": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Lookout-for-Equipment"
-    },
-    "Lookout-for-Metrics": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Lookout-for-Metrics"
-    },
-    "Lookout-for-Vision": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Lookout-for-Vision"
-    },
-    "Monitron": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Monitron"
-    },
-    "Neuron": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Neuron"
-    },
-    "Omics": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Omics"
-    },
-    "Panorama": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Panorama"
-    },
-    "Personalize": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Personalize"
-    },
-    "Polly": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Polly"
-    },
-    "Rekognition": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Rekognition"
-    },
-    "SageMaker": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "SageMaker"
-    },
-    "SageMaker-Ground-Truth": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "SageMaker-Ground-Truth"
-    },
-    "SageMaker-Studio-Lab": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "SageMaker-Studio-Lab"
-    },
-    "TensorFlow-on-AWS": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "TensorFlow-on-AWS"
-    },
-    "Textract": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Textract"
-    },
-    "TorchServe": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "TorchServe"
-    },
-    "Transcribe": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Transcribe"
-    },
-    "Translate": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Translate"
-    }
-  },
-  "Management-Governance": {
-    "AppConfig": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "AppConfig"
-    },
-    "Application-Auto-Scaling": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Application-Auto-Scaling"
-    },
-    "Auto-Scaling": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Auto-Scaling"
-    },
-    "Backint-Agent": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Backint-Agent"
-    },
-    "Chatbot": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Chatbot"
-    },
-    "CloudFormation": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "CloudFormation"
-    },
-    "CloudTrail": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "CloudTrail"
-    },
-    "CloudWatch": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "CloudWatch"
-    },
-    "Config": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Config"
-    },
-    "Control-Tower": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Control-Tower"
-    },
-    "Distro-for-OpenTelemetry": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Distro-for-OpenTelemetry"
-    },
-    "Fault-Injection-Simulator": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Fault-Injection-Simulator"
-    },
-    "Launch-Wizard": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Launch-Wizard"
-    },
-    "License-Manager": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "License-Manager"
-    },
-    "Managed-Grafana": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Managed-Grafana"
-    },
-    "Managed-Service-for-Prometheus": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Managed-Service-for-Prometheus"
-    },
-    "Management-Console": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Management-Console"
-    },
-    "OpsWorks": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "OpsWorks"
-    },
-    "Organizations": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Organizations"
-    },
-    "Personal-Health-Dashboard": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Personal-Health-Dashboard"
-    },
-    "Proton": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Proton"
-    },
-    "Resilience-Hub": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Resilience-Hub"
-    },
-    "Resource-Explorer": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Resource-Explorer"
-    },
-    "Service-Catalog": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Service-Catalog"
-    },
-    "Service-Management-Connector": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Service-Management-Connector"
-    },
-    "Systems-Manager": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Systems-Manager"
-    },
-    "Trusted-Advisor": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Trusted-Advisor"
-    },
-    "Well-Architected-Tool": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Well-Architected-Tool"
-    }
-  },
-  "Media-Services": {
-    "Elastic-Transcoder": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Elastic-Transcoder"
-    },
-    "Elemental-Appliances-&-Software": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Elemental-Appliances-&-Software"
-    },
-    "Elemental-Conductor": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Elemental-Conductor"
-    },
-    "Elemental-Delta": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Elemental-Delta"
-    },
-    "Elemental-Link": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Elemental-Link"
-    },
-    "Elemental-Live": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Elemental-Live"
-    },
-    "Elemental-MediaConnect": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Elemental-MediaConnect"
-    },
-    "Elemental-MediaConvert": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Elemental-MediaConvert"
-    },
-    "Elemental-MediaLive": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Elemental-MediaLive"
-    },
-    "Elemental-MediaPackage": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Elemental-MediaPackage"
-    },
-    "Elemental-MediaStore": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Elemental-MediaStore"
-    },
-    "Elemental-MediaTailor": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Elemental-MediaTailor"
-    },
-    "Elemental-Server": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Elemental-Server"
-    },
-    "Interactive-Video-Service": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Interactive-Video-Service"
-    },
-    "Kinesis-Video-Streams": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Kinesis-Video-Streams"
-    },
-    "Nimble-Studio": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Nimble-Studio"
-    }
-  },
-  "Migration-Transfer": {
-    "Application-Discovery-Service": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Application-Discovery-Service"
-    },
-    "Application-Migration-Service": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Application-Migration-Service"
-    },
-    "DataSync": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "DataSync"
-    },
-    "Mainframe-Modernization": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Mainframe-Modernization"
-    },
-    "Migration-Evaluator": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Migration-Evaluator"
-    },
-    "Migration-Hub": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Migration-Hub"
-    },
-    "Server-Migration-Service": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Server-Migration-Service"
-    },
-    "Transfer-Family": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Transfer-Family"
-    }
-  },
-  "Networking-Content-Delivery": {
-    "App-Mesh": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "App-Mesh"
-    },
-    "Client-VPN": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Client-VPN"
-    },
-    "Cloud-Directory": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Cloud-Directory"
-    },
-    "CloudFront": {
-      "deploy": {},
-      "cost": {},
-      "enabled": true,
-      "config": {
-        "name": {
-          "title": "Name",
-          "hint": "Name for your CloudFront distribution",
-          "type": "string",
-          "value": "cloudfront",
-          "required": true
-        }
-      },
-      "id": "CloudFront"
-    },
-    "Cloud-Map": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Cloud-Map"
-    },
-    "Cloud-WAN": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Cloud-WAN"
-    },
-    "Direct-Connect": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Direct-Connect"
-    },
-    "Elastic-Load-Balancing": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Elastic-Load-Balancing"
-    },
-    "Global-Accelerator": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Global-Accelerator"
-    },
-    "private subnet": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "private subnet"
-    },
-    "Private-5G": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Private-5G"
-    },
-    "PrivateLink": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "PrivateLink"
-    },
-    "public subnet": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "public subnet"
-    },
-    "Route-53": {
-      "deploy": {},
-      "cost": {},
-      "enabled": true,
-      "config": {
-        "domain": {
-          "title": "Domain Name",
-          "hint": "Domain name for your Route 53 hosted zone (excluding http:// or www)",
-          "type": "string",
-          "value": "stratus.com",
-          "required": true
-        }
-      },
-      "id": "Route-53"
-    },
-    "Route-53 Route-Table": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Route-53 Route-Table"
-    },
-    "Site-to-Site-VPN": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Site-to-Site-VPN"
-    },
-    "Transit-Gateway": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Transit-Gateway"
-    },
-    "Verified-Access": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Verified-Access"
-    },
-    "Virtual-Private-Cloud": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Virtual-Private-Cloud"
-    },
-    "VPC-Lattice": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "VPC-Lattice"
-    }
-  },
-  "Quantum-Technologies": {
-    "Braket": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Braket"
-    }
-  },
-  "Robotics": {
-    "RoboMaker": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "RoboMaker"
-    }
-  },
-  "Satellite": {
-    "Ground-Station": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Ground-Station"
-    }
-  },
-  "Security-Identity-Compliance": {
-    "Artifact": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Artifact"
-    },
-    "Audit-Manager": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Audit-Manager"
-    },
-    "Certificate-Manager": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Certificate-Manager"
-    },
-    "Cloud-Directory": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Cloud-Directory"
-    },
-    "CloudHSM": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "CloudHSM"
-    },
-    "Cognito": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Cognito"
-    },
-    "Detective": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Detective"
-    },
-    "Directory-Service": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Directory-Service"
-    },
-    "Firewall-Manager": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Firewall-Manager"
-    },
-    "GuardDuty": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "GuardDuty"
-    },
-    "IAM-Identity-Center": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "IAM-Identity-Center"
-    },
-    "Identity-and-Access-Management": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Identity-and-Access-Management"
-    },
-    "Inspector": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Inspector"
-    },
-    "Key-Management-Service": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Key-Management-Service"
-    },
-    "Macie": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Macie"
-    },
-    "Network-Firewall": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Network-Firewall"
-    },
-    "Private-Certificate-Authority": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Private-Certificate-Authority"
-    },
-    "Resource-Access-Manager": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Resource-Access-Manager"
-    },
-    "Secrets-Manager": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Secrets-Manager"
-    },
-    "Security-Hub": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Security-Hub"
-    },
-    "Security-Lake": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Security-Lake"
-    },
-    "Shield": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Shield"
-    },
-    "Signer": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Signer"
-    },
-    "Verified-Permissions": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Verified-Permissions"
-    },
-    "WAF": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "WAF"
-    }
-  },
-  "Storage": {
-    "Backup": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Backup"
-    },
-    "EFS": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "EFS"
-    },
-    "Elastic-Block-Store": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Elastic-Block-Store"
-    },
-    "Elastic-Disaster-Recovery": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Elastic-Disaster-Recovery"
-    },
-    "File-Cache": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "File-Cache"
-    },
-    "FSx": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "FSx"
-    },
-    "FSx-for-Lustre": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "FSx-for-Lustre"
-    },
-    "FSx-for-NetApp-ONTAP": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "FSx-for-NetApp-ONTAP"
-    },
-    "FSx-for-OpenZFS": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "FSx-for-OpenZFS"
-    },
-    "FSx-for-WFS": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "FSx-for-WFS"
-    },
-    "S3-on-Outposts": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "S3-on-Outposts"
-    },
-    "Simple-Storage-Service": {
-      "deploy": {
-        "build_directory": {
-          "title": "Build Directory",
-          "hint": "Location of build files in your repository",
-          "type": "string",
-          "value": "/build",
-          "required": false
-        }
-      },
-      "cost": {},
-      "enabled": true,
-      "config": {
-        "versioning": {
-          "title": "Versioning",
-          "hint": "Enable versioning for your S3 bucket",
-          "type": "boolean",
-          "value": false,
-          "required": false
+  Storage: {
+    'FSx-for-WFS': {
+      id: 'FSx-for-WFS',
+      category: 'Storage',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Snowball-Edge': {
+      id: 'Snowball-Edge',
+      category: 'Storage',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'FSx-for-OpenZFS': {
+      id: 'FSx-for-OpenZFS',
+      category: 'Storage',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Simple-Storage-Service': {
+      id: 'Simple-Storage-Service',
+      category: 'Storage',
+      enabled: true,
+      cost: {},
+      config: {
+        versioning: {
+          title: 'Versioning',
+          hint: 'Enable versioning for your S3 bucket',
+          type: 'boolean',
+          value: false,
+          required: false,
         },
-        "bucket_name": {
-          "title": "Bucket Name",
-          "hint": "Name of your component",
-          "type": "string",
-          "value": "bucket1",
-          "required": false
-        }
+        bucket_name: {
+          title: 'Bucket Name',
+          hint: 'Name of your component',
+          type: 'string',
+          value: 'bucket1',
+          required: false,
+        },
       },
-      "id": "Simple-Storage-Service"
+      deploy: {
+        build_directory: {
+          title: 'Build Directory',
+          hint: 'Location of build files in your repository',
+          type: 'string',
+          value: '/build',
+          required: false,
+        },
+      },
     },
-    "Simple-Storage-Service-Glacier": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Simple-Storage-Service-Glacier"
+    'File-Cache': {
+      id: 'File-Cache',
+      category: 'Storage',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
     },
-    "Snowball": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Snowball"
+    Backup: {
+      id: 'Backup',
+      category: 'Storage',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
     },
-    "Snowball-Edge": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Snowball-Edge"
+    'FSx-for-NetApp-ONTAP': {
+      id: 'FSx-for-NetApp-ONTAP',
+      category: 'Storage',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
     },
-    "Snowcone": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Snowcone"
+    Snowmobile: {
+      id: 'Snowmobile',
+      category: 'Storage',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
     },
-    "Snowmobile": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Snowmobile"
+    'Elastic-Disaster-Recovery': {
+      id: 'Elastic-Disaster-Recovery',
+      category: 'Storage',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
     },
-    "Storage-Gateway": {
-      "config": {
-      },
-      "cost": {
-      },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Storage-Gateway"
-    }
+    Snowcone: {
+      id: 'Snowcone',
+      category: 'Storage',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    FSx: {
+      id: 'FSx',
+      category: 'Storage',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    Snowball: {
+      id: 'Snowball',
+      category: 'Storage',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'FSx-for-Lustre': {
+      id: 'FSx-for-Lustre',
+      category: 'Storage',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    EFS: {
+      id: 'EFS',
+      category: 'Storage',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Storage-Gateway': {
+      id: 'Storage-Gateway',
+      category: 'Storage',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Simple-Storage-Service-Glacier': {
+      id: 'Simple-Storage-Service-Glacier',
+      category: 'Storage',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Elastic-Block-Store': {
+      id: 'Elastic-Block-Store',
+      category: 'Storage',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'S3-on-Outposts': {
+      id: 'S3-on-Outposts',
+      category: 'Storage',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
   },
-  "VR-AR": {
-    "Sumerian": {
-      "config": {
+  'Networking-Content-Delivery': {
+    'Client-VPN': {
+      id: 'Client-VPN',
+      category: 'Networking-Content-Delivery',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Private-5G': {
+      id: 'Private-5G',
+      category: 'Networking-Content-Delivery',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Cloud-WAN': {
+      id: 'Cloud-WAN',
+      category: 'Networking-Content-Delivery',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    CloudFront: {
+      id: 'CloudFront',
+      category: 'Networking-Content-Delivery',
+      enabled: true,
+      cost: {},
+      config: {
+        name: {
+          title: 'Name',
+          hint: 'Name for your CloudFront distribution',
+          type: 'string',
+          value: 'cloudfront',
+          required: true,
+        },
       },
-      "cost": {
+      deploy: {},
+    },
+    'private subnet': {
+      id: 'private subnet',
+      category: 'Networking-Content-Delivery',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'public subnet': {
+      id: 'public subnet',
+      category: 'Networking-Content-Delivery',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Route-53': {
+      id: 'Route-53',
+      category: 'Networking-Content-Delivery',
+      enabled: true,
+      cost: {},
+      config: {
+        domain: {
+          title: 'Domain Name',
+          hint: 'Domain name for your Route 53 hosted zone (excluding http:// or www)',
+          type: 'string',
+          value: 'stratus.com',
+          required: true,
+        },
       },
-      "deploy": {
-      },
-      "enabled": true,
-      "id": "Sumerian"
-    }
-  }
-}
+      deploy: {},
+    },
+    'Route-53 Route-Table': {
+      id: 'Route-53 Route-Table',
+      category: 'Networking-Content-Delivery',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Virtual-Private-Cloud': {
+      id: 'Virtual-Private-Cloud',
+      category: 'Networking-Content-Delivery',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Cloud-Directory': {
+      id: 'Cloud-Directory',
+      category: 'Networking-Content-Delivery',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'VPC-Lattice': {
+      id: 'VPC-Lattice',
+      category: 'Networking-Content-Delivery',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Direct-Connect': {
+      id: 'Direct-Connect',
+      category: 'Networking-Content-Delivery',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Verified-Access': {
+      id: 'Verified-Access',
+      category: 'Networking-Content-Delivery',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'App-Mesh': {
+      id: 'App-Mesh',
+      category: 'Networking-Content-Delivery',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Site-to-Site-VPN': {
+      id: 'Site-to-Site-VPN',
+      category: 'Networking-Content-Delivery',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    PrivateLink: {
+      id: 'PrivateLink',
+      category: 'Networking-Content-Delivery',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Cloud-Map': {
+      id: 'Cloud-Map',
+      category: 'Networking-Content-Delivery',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Transit-Gateway': {
+      id: 'Transit-Gateway',
+      category: 'Networking-Content-Delivery',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Elastic-Load-Balancing': {
+      id: 'Elastic-Load-Balancing',
+      category: 'Networking-Content-Delivery',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Global-Accelerator': {
+      id: 'Global-Accelerator',
+      category: 'Networking-Content-Delivery',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+  },
+  Analytics: {
+    'Kinesis-Data-Streams': {
+      id: 'Kinesis-Data-Streams',
+      category: 'Analytics',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Data-Pipeline': {
+      id: 'Data-Pipeline',
+      category: 'Analytics',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Data-Exchange': {
+      id: 'Data-Exchange',
+      category: 'Analytics',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    Redshift: {
+      id: 'Redshift',
+      category: 'Analytics',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    Kinesis: {
+      id: 'Kinesis',
+      category: 'Analytics',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Kinesis-Video-Streams': {
+      id: 'Kinesis-Video-Streams',
+      category: 'Analytics',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Managed-Streaming-for-Apache-Kafka': {
+      id: 'Managed-Streaming-for-Apache-Kafka',
+      category: 'Analytics',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    Athena: {
+      id: 'Athena',
+      category: 'Analytics',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Glue-Elastic-Views': {
+      id: 'Glue-Elastic-Views',
+      category: 'Analytics',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    CloudSearch: {
+      id: 'CloudSearch',
+      category: 'Analytics',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Kinesis-Data-Analytics': {
+      id: 'Kinesis-Data-Analytics',
+      category: 'Analytics',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Lake-Formation': {
+      id: 'Lake-Formation',
+      category: 'Analytics',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    QuickSight: {
+      id: 'QuickSight',
+      category: 'Analytics',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Kinesis-Firehose': {
+      id: 'Kinesis-Firehose',
+      category: 'Analytics',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    DataZone: {
+      id: 'DataZone',
+      category: 'Analytics',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Clean-Rooms': {
+      id: 'Clean-Rooms',
+      category: 'Analytics',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    Glue: {
+      id: 'Glue',
+      category: 'Analytics',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'OpenSearch-Service': {
+      id: 'OpenSearch-Service',
+      category: 'Analytics',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    EMR: {
+      id: 'EMR',
+      category: 'Analytics',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Glue-DataBrew': {
+      id: 'Glue-DataBrew',
+      category: 'Analytics',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    FinSpace: {
+      id: 'FinSpace',
+      category: 'Analytics',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+  },
+  Database: {
+    'RDS-on-VMware': {
+      id: 'RDS-on-VMware',
+      category: 'Database',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    Keyspaces: {
+      id: 'Keyspaces',
+      category: 'Database',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'MemoryDB-for-Redis': {
+      id: 'MemoryDB-for-Redis',
+      category: 'Database',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    Timestream: {
+      id: 'Timestream',
+      category: 'Database',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    Neptune: {
+      id: 'Neptune',
+      category: 'Database',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    RDS: {
+      id: 'RDS',
+      category: 'Database',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    DynamoDB: {
+      id: 'DynamoDB',
+      category: 'Database',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    DocumentDB: {
+      id: 'DocumentDB',
+      category: 'Database',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    Aurora: {
+      id: 'Aurora',
+      category: 'Database',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    ElastiCache: {
+      id: 'ElastiCache',
+      category: 'Database',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Database-Migration-Service': {
+      id: 'Database-Migration-Service',
+      category: 'Database',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+  },
+  'Developer-Tools': {
+    CodeCommit: {
+      id: 'CodeCommit',
+      category: 'Developer-Tools',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Cloud-Development-Kit': {
+      id: 'Cloud-Development-Kit',
+      category: 'Developer-Tools',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Application-Composer': {
+      id: 'Application-Composer',
+      category: 'Developer-Tools',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    Corretto: {
+      id: 'Corretto',
+      category: 'Developer-Tools',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    CodeArtifact: {
+      id: 'CodeArtifact',
+      category: 'Developer-Tools',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Command-Line-Interface': {
+      id: 'Command-Line-Interface',
+      category: 'Developer-Tools',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Cloud-Control-API': {
+      id: 'Cloud-Control-API',
+      category: 'Developer-Tools',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    CodeDeploy: {
+      id: 'CodeDeploy',
+      category: 'Developer-Tools',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'X-Ray': {
+      id: 'X-Ray',
+      category: 'Developer-Tools',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    CodePipeline: {
+      id: 'CodePipeline',
+      category: 'Developer-Tools',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    CodeStar: {
+      id: 'CodeStar',
+      category: 'Developer-Tools',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    CodeCatalyst: {
+      id: 'CodeCatalyst',
+      category: 'Developer-Tools',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    CodeBuild: {
+      id: 'CodeBuild',
+      category: 'Developer-Tools',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    Cloud9: {
+      id: 'Cloud9',
+      category: 'Developer-Tools',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Tools-and-SDKs': {
+      id: 'Tools-and-SDKs',
+      category: 'Developer-Tools',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    CloudShell: {
+      id: 'CloudShell',
+      category: 'Developer-Tools',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+  },
+  'Internet-of-Things': {
+    'IoT-ExpressLink': {
+      id: 'IoT-ExpressLink',
+      category: 'Internet-of-Things',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'IoT-TwinMaker': {
+      id: 'IoT-TwinMaker',
+      category: 'Internet-of-Things',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'IoT-Analytics': {
+      id: 'IoT-Analytics',
+      category: 'Internet-of-Things',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'IoT-Core': {
+      id: 'IoT-Core',
+      category: 'Internet-of-Things',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'IoT-Device-Management': {
+      id: 'IoT-Device-Management',
+      category: 'Internet-of-Things',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'IoT-FleetWise': {
+      id: 'IoT-FleetWise',
+      category: 'Internet-of-Things',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'IoT-Device-Defender': {
+      id: 'IoT-Device-Defender',
+      category: 'Internet-of-Things',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'IoT-Greengrass': {
+      id: 'IoT-Greengrass',
+      category: 'Internet-of-Things',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'IoT-EduKit': {
+      id: 'IoT-EduKit',
+      category: 'Internet-of-Things',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'IoT-RoboRunner': {
+      id: 'IoT-RoboRunner',
+      category: 'Internet-of-Things',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'IoT-Events': {
+      id: 'IoT-Events',
+      category: 'Internet-of-Things',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'IoT-1-Click': {
+      id: 'IoT-1-Click',
+      category: 'Internet-of-Things',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    FreeRTOS: {
+      id: 'FreeRTOS',
+      category: 'Internet-of-Things',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'IoT-Button': {
+      id: 'IoT-Button',
+      category: 'Internet-of-Things',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'IoT-Things-Graph': {
+      id: 'IoT-Things-Graph',
+      category: 'Internet-of-Things',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'IoT-SiteWise': {
+      id: 'IoT-SiteWise',
+      category: 'Internet-of-Things',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+  },
+  Containers: {
+    'ECS-Anywhere': {
+      id: 'ECS-Anywhere',
+      category: 'Containers',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Red-Hat-OpenShift-Service-on-AWS': {
+      id: 'Red-Hat-OpenShift-Service-on-AWS',
+      category: 'Containers',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Elastic-Container-Service': {
+      id: 'Elastic-Container-Service',
+      category: 'Containers',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'EKS-Cloud': {
+      id: 'EKS-Cloud',
+      category: 'Containers',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Elastic-Kubernetes-Service': {
+      id: 'Elastic-Kubernetes-Service',
+      category: 'Containers',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'EKS-Distro': {
+      id: 'EKS-Distro',
+      category: 'Containers',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Elastic-Container-Registry': {
+      id: 'Elastic-Container-Registry',
+      category: 'Containers',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    Fargate: {
+      id: 'Fargate',
+      category: 'Containers',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'EKS-Anywhere': {
+      id: 'EKS-Anywhere',
+      category: 'Containers',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+  },
+  Robotics: {
+    RoboMaker: {
+      id: 'RoboMaker',
+      category: 'Robotics',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+  },
+  Compute: {
+    'Thinkbox-Deadline': {
+      id: 'Thinkbox-Deadline',
+      category: 'Compute',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Elastic-Fabric-Adapter': {
+      id: 'Elastic-Fabric-Adapter',
+      category: 'Compute',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'NICE-DCV': {
+      id: 'NICE-DCV',
+      category: 'Compute',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    Batch: {
+      id: 'Batch',
+      category: 'Compute',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'EC2-Image-Builder': {
+      id: 'EC2-Image-Builder',
+      category: 'Compute',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'EC2-Spot-Instance': {
+      id: 'EC2-Spot-Instance',
+      category: 'Compute',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Local-Zones': {
+      id: 'Local-Zones',
+      category: 'Compute',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'App-Runner': {
+      id: 'App-Runner',
+      category: 'Compute',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Outposts-rack': {
+      id: 'Outposts-rack',
+      category: 'Compute',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    ParallelCluster: {
+      id: 'ParallelCluster',
+      category: 'Compute',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Outposts-family': {
+      id: 'Outposts-family',
+      category: 'Compute',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Nitro-Enclaves': {
+      id: 'Nitro-Enclaves',
+      category: 'Compute',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Outposts-servers': {
+      id: 'Outposts-servers',
+      category: 'Compute',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Thinkbox-Frost': {
+      id: 'Thinkbox-Frost',
+      category: 'Compute',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Thinkbox-Krakatoa': {
+      id: 'Thinkbox-Krakatoa',
+      category: 'Compute',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Compute-Optimizer': {
+      id: 'Compute-Optimizer',
+      category: 'Compute',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    Lambda: {
+      id: 'Lambda',
+      category: 'Compute',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'NICE-EnginFrame': {
+      id: 'NICE-EnginFrame',
+      category: 'Compute',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'EC2-Auto-Scaling': {
+      id: 'EC2-Auto-Scaling',
+      category: 'Compute',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Thinkbox-Stoke': {
+      id: 'Thinkbox-Stoke',
+      category: 'Compute',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    Wavelength: {
+      id: 'Wavelength',
+      category: 'Compute',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Thinkbox-XMesh': {
+      id: 'Thinkbox-XMesh',
+      category: 'Compute',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'VMware-Cloud-on-AWS': {
+      id: 'VMware-Cloud-on-AWS',
+      category: 'Compute',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    Bottlerocket: {
+      id: 'Bottlerocket',
+      category: 'Compute',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Thinkbox-Sequoia': {
+      id: 'Thinkbox-Sequoia',
+      category: 'Compute',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Genomics-CLI': {
+      id: 'Genomics-CLI',
+      category: 'Compute',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'SimSpace-Weaver': {
+      id: 'SimSpace-Weaver',
+      category: 'Compute',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    Lightsail: {
+      id: 'Lightsail',
+      category: 'Compute',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    EC2: {
+      id: 'EC2',
+      category: 'Compute',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    Fargate: {
+      id: 'Fargate',
+      category: 'Compute',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Elastic-Beanstalk': {
+      id: 'Elastic-Beanstalk',
+      category: 'Compute',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Serverless-Application-Repository': {
+      id: 'Serverless-Application-Repository',
+      category: 'Compute',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Application-Auto-Scaling': {
+      id: 'Application-Auto-Scaling',
+      category: 'Compute',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+  },
+  'Cloud-Financial-Management': {
+    Budgets: {
+      id: 'Budgets',
+      category: 'Cloud-Financial-Management',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Billing-Conductor': {
+      id: 'Billing-Conductor',
+      category: 'Cloud-Financial-Management',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Cost-Explorer': {
+      id: 'Cost-Explorer',
+      category: 'Cloud-Financial-Management',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Reserved-Instance-Reporting': {
+      id: 'Reserved-Instance-Reporting',
+      category: 'Cloud-Financial-Management',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Savings-Plans': {
+      id: 'Savings-Plans',
+      category: 'Cloud-Financial-Management',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Application-Cost-Profiler': {
+      id: 'Application-Cost-Profiler',
+      category: 'Cloud-Financial-Management',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Cost-and-Usage-Report': {
+      id: 'Cost-and-Usage-Report',
+      category: 'Cloud-Financial-Management',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+  },
+  Satellite: {
+    'Ground-Station': {
+      id: 'Ground-Station',
+      category: 'Satellite',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+  },
+  Blockchain: {
+    'Quantum-Ledger-Database': {
+      id: 'Quantum-Ledger-Database',
+      category: 'Blockchain',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Managed-Blockchain': {
+      id: 'Managed-Blockchain',
+      category: 'Blockchain',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+  },
+  'Management-Governance': {
+    'Personal-Health-Dashboard': {
+      id: 'Personal-Health-Dashboard',
+      category: 'Management-Governance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Resilience-Hub': {
+      id: 'Resilience-Hub',
+      category: 'Management-Governance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    CloudWatch: {
+      id: 'CloudWatch',
+      category: 'Management-Governance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Resource-Explorer': {
+      id: 'Resource-Explorer',
+      category: 'Management-Governance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    Proton: {
+      id: 'Proton',
+      category: 'Management-Governance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Well-Architected-Tool': {
+      id: 'Well-Architected-Tool',
+      category: 'Management-Governance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    AppConfig: {
+      id: 'AppConfig',
+      category: 'Management-Governance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'License-Manager': {
+      id: 'License-Manager',
+      category: 'Management-Governance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Systems-Manager': {
+      id: 'Systems-Manager',
+      category: 'Management-Governance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Fault-Injection-Simulator': {
+      id: 'Fault-Injection-Simulator',
+      category: 'Management-Governance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Managed-Grafana': {
+      id: 'Managed-Grafana',
+      category: 'Management-Governance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    CloudFormation: {
+      id: 'CloudFormation',
+      category: 'Management-Governance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    Config: {
+      id: 'Config',
+      category: 'Management-Governance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    Organizations: {
+      id: 'Organizations',
+      category: 'Management-Governance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Managed-Service-for-Prometheus': {
+      id: 'Managed-Service-for-Prometheus',
+      category: 'Management-Governance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Launch-Wizard': {
+      id: 'Launch-Wizard',
+      category: 'Management-Governance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Service-Management-Connector': {
+      id: 'Service-Management-Connector',
+      category: 'Management-Governance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    CloudTrail: {
+      id: 'CloudTrail',
+      category: 'Management-Governance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Service-Catalog': {
+      id: 'Service-Catalog',
+      category: 'Management-Governance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    OpsWorks: {
+      id: 'OpsWorks',
+      category: 'Management-Governance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    Chatbot: {
+      id: 'Chatbot',
+      category: 'Management-Governance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Distro-for-OpenTelemetry': {
+      id: 'Distro-for-OpenTelemetry',
+      category: 'Management-Governance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Backint-Agent': {
+      id: 'Backint-Agent',
+      category: 'Management-Governance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Trusted-Advisor': {
+      id: 'Trusted-Advisor',
+      category: 'Management-Governance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Management-Console': {
+      id: 'Management-Console',
+      category: 'Management-Governance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Control-Tower': {
+      id: 'Control-Tower',
+      category: 'Management-Governance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Auto-Scaling': {
+      id: 'Auto-Scaling',
+      category: 'Management-Governance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Application-Auto-Scaling': {
+      id: 'Application-Auto-Scaling',
+      category: 'Management-Governance',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+  },
+  'Media-Services': {
+    'Elemental-MediaConnect': {
+      id: 'Elemental-MediaConnect',
+      category: 'Media-Services',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Elemental-MediaStore': {
+      id: 'Elemental-MediaStore',
+      category: 'Media-Services',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Elemental-Link': {
+      id: 'Elemental-Link',
+      category: 'Media-Services',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Elemental-Live': {
+      id: 'Elemental-Live',
+      category: 'Media-Services',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Elemental-MediaConvert': {
+      id: 'Elemental-MediaConvert',
+      category: 'Media-Services',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Elemental-Conductor': {
+      id: 'Elemental-Conductor',
+      category: 'Media-Services',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Elemental-MediaPackage': {
+      id: 'Elemental-MediaPackage',
+      category: 'Media-Services',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Kinesis-Video-Streams': {
+      id: 'Kinesis-Video-Streams',
+      category: 'Media-Services',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Elemental-MediaTailor': {
+      id: 'Elemental-MediaTailor',
+      category: 'Media-Services',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Elastic-Transcoder': {
+      id: 'Elastic-Transcoder',
+      category: 'Media-Services',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Nimble-Studio': {
+      id: 'Nimble-Studio',
+      category: 'Media-Services',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Elemental-Server': {
+      id: 'Elemental-Server',
+      category: 'Media-Services',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Elemental-Appliances-&-Software': {
+      id: 'Elemental-Appliances-&-Software',
+      category: 'Media-Services',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Elemental-MediaLive': {
+      id: 'Elemental-MediaLive',
+      category: 'Media-Services',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Interactive-Video-Service': {
+      id: 'Interactive-Video-Service',
+      category: 'Media-Services',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Elemental-Delta': {
+      id: 'Elemental-Delta',
+      category: 'Media-Services',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+  },
+  'Machine-Learning': {
+    Neuron: {
+      id: 'Neuron',
+      category: 'Machine-Learning',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    Polly: {
+      id: 'Polly',
+      category: 'Machine-Learning',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    Personalize: {
+      id: 'Personalize',
+      category: 'Machine-Learning',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Elastic-Inference': {
+      id: 'Elastic-Inference',
+      category: 'Machine-Learning',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    CodeWhisperer: {
+      id: 'CodeWhisperer',
+      category: 'Machine-Learning',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    Rekognition: {
+      id: 'Rekognition',
+      category: 'Machine-Learning',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    Monitron: {
+      id: 'Monitron',
+      category: 'Machine-Learning',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Lookout-for-Equipment': {
+      id: 'Lookout-for-Equipment',
+      category: 'Machine-Learning',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    Panorama: {
+      id: 'Panorama',
+      category: 'Machine-Learning',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    Transcribe: {
+      id: 'Transcribe',
+      category: 'Machine-Learning',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'SageMaker-Studio-Lab': {
+      id: 'SageMaker-Studio-Lab',
+      category: 'Machine-Learning',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    CodeGuru: {
+      id: 'CodeGuru',
+      category: 'Machine-Learning',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    Lex: {
+      id: 'Lex',
+      category: 'Machine-Learning',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    Translate: {
+      id: 'Translate',
+      category: 'Machine-Learning',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    Forecast: {
+      id: 'Forecast',
+      category: 'Machine-Learning',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    Textract: {
+      id: 'Textract',
+      category: 'Machine-Learning',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'SageMaker-Ground-Truth': {
+      id: 'SageMaker-Ground-Truth',
+      category: 'Machine-Learning',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Apache-MXNet-on-AWS': {
+      id: 'Apache-MXNet-on-AWS',
+      category: 'Machine-Learning',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Augmented-AI-A2I': {
+      id: 'Augmented-AI-A2I',
+      category: 'Machine-Learning',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    DeepRacer: {
+      id: 'DeepRacer',
+      category: 'Machine-Learning',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Comprehend-Medical': {
+      id: 'Comprehend-Medical',
+      category: 'Machine-Learning',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    SageMaker: {
+      id: 'SageMaker',
+      category: 'Machine-Learning',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Lookout-for-Vision': {
+      id: 'Lookout-for-Vision',
+      category: 'Machine-Learning',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'TensorFlow-on-AWS': {
+      id: 'TensorFlow-on-AWS',
+      category: 'Machine-Learning',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Deep-Learning-Containers': {
+      id: 'Deep-Learning-Containers',
+      category: 'Machine-Learning',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Lookout-for-Metrics': {
+      id: 'Lookout-for-Metrics',
+      category: 'Machine-Learning',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    HealthLake: {
+      id: 'HealthLake',
+      category: 'Machine-Learning',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Deep-Learning-AMIs': {
+      id: 'Deep-Learning-AMIs',
+      category: 'Machine-Learning',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Fraud-Detector': {
+      id: 'Fraud-Detector',
+      category: 'Machine-Learning',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    Kendra: {
+      id: 'Kendra',
+      category: 'Machine-Learning',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    Omics: {
+      id: 'Omics',
+      category: 'Machine-Learning',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    TorchServe: {
+      id: 'TorchServe',
+      category: 'Machine-Learning',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    DeepComposer: {
+      id: 'DeepComposer',
+      category: 'Machine-Learning',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    DeepLens: {
+      id: 'DeepLens',
+      category: 'Machine-Learning',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'DevOps-Guru': {
+      id: 'DevOps-Guru',
+      category: 'Machine-Learning',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    Comprehend: {
+      id: 'Comprehend',
+      category: 'Machine-Learning',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+  },
+  'Quantum-Technologies': {
+    Braket: {
+      id: 'Braket',
+      category: 'Quantum-Technologies',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+  },
+  'Migration-Transfer': {
+    'Application-Discovery-Service': {
+      id: 'Application-Discovery-Service',
+      category: 'Migration-Transfer',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Server-Migration-Service': {
+      id: 'Server-Migration-Service',
+      category: 'Migration-Transfer',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Migration-Evaluator': {
+      id: 'Migration-Evaluator',
+      category: 'Migration-Transfer',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Transfer-Family': {
+      id: 'Transfer-Family',
+      category: 'Migration-Transfer',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Application-Migration-Service': {
+      id: 'Application-Migration-Service',
+      category: 'Migration-Transfer',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Migration-Hub': {
+      id: 'Migration-Hub',
+      category: 'Migration-Transfer',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    DataSync: {
+      id: 'DataSync',
+      category: 'Migration-Transfer',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Mainframe-Modernization': {
+      id: 'Mainframe-Modernization',
+      category: 'Migration-Transfer',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+  },
+  'Application-Integration': {
+    AppFlow: {
+      id: 'AppFlow',
+      category: 'Application-Integration',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    MQ: {
+      id: 'MQ',
+      category: 'Application-Integration',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Console-Mobile-Application': {
+      id: 'Console-Mobile-Application',
+      category: 'Application-Integration',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Managed-Workflows-for-Apache-Airflow': {
+      id: 'Managed-Workflows-for-Apache-Airflow',
+      category: 'Application-Integration',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'API-Gateway': {
+      id: 'API-Gateway',
+      category: 'Application-Integration',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    AppSync: {
+      id: 'AppSync',
+      category: 'Application-Integration',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Step-Functions': {
+      id: 'Step-Functions',
+      category: 'Application-Integration',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Simple-Queue-Service': {
+      id: 'Simple-Queue-Service',
+      category: 'Application-Integration',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Simple-Notification-Service': {
+      id: 'Simple-Notification-Service',
+      category: 'Application-Integration',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    EventBridge: {
+      id: 'EventBridge',
+      category: 'Application-Integration',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Express-Workflows': {
+      id: 'Express-Workflows',
+      category: 'Application-Integration',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+  },
+  'Front-End-Web-Mobile': {
+    'Device-Farm': {
+      id: 'Device-Farm',
+      category: 'Front-End-Web-Mobile',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    Amplify: {
+      id: 'Amplify',
+      category: 'Front-End-Web-Mobile',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Location-Service': {
+      id: 'Location-Service',
+      category: 'Front-End-Web-Mobile',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+  },
+  'Customer-Enablement': {
+    'Training-Certification': {
+      id: 'Training-Certification',
+      category: 'Customer-Enablement',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Managed-Services': {
+      id: 'Managed-Services',
+      category: 'Customer-Enablement',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    Support: {
+      id: 'Support',
+      category: 'Customer-Enablement',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    IQ: {
+      id: 'IQ',
+      category: 'Customer-Enablement',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    'Professional-Services': {
+      id: 'Professional-Services',
+      category: 'Customer-Enablement',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    rePost: {
+      id: 'rePost',
+      category: 'Customer-Enablement',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+    Activate: {
+      id: 'Activate',
+      category: 'Customer-Enablement',
+      enabled: true,
+      cost: {},
+      config: {},
+      deploy: {},
+    },
+  },
+};
 
 export default AWS_SCHEMA_TEMPLATES;

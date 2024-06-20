@@ -35,8 +35,6 @@ function CollapseItem({ category, service }: ICollapseItemProps) {
     <div className="collapse-item w-full h-full flex flex-row justify-start items-center">
       <div className="w-4"/>
       <Image
-        priority
-        loading="eager"
         src={`svg/aws/${category}/${service}.svg`}
         alt={`${service} icon`}
         width={24}
@@ -48,7 +46,7 @@ function CollapseItem({ category, service }: ICollapseItemProps) {
 }
 
 function Accordian() {
-  const collapse_components = Object.keys(AWS_SCHEMA_TEMPLATES).map((category: string) => {
+  const collapse_components = Object.keys(AWS_SCHEMA_TEMPLATES).sort().map((category: string) => {
     return (
       <details key={category} className="collapse collapse-arrow bg-transparent"> 
         <summary className="collapse-title">
