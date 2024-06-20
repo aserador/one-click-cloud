@@ -2,12 +2,20 @@ import { v4 } from 'uuid';
 import { IAddGraphNode } from '@/redux/designer/payload';
 import { IGraphEdge } from '@/redux/designer/models';
 
+export interface ITemplate {
+  name: string;
+  description: string;
+  pros: string[];
+  cons: string[];
+  graphBuilder: () => IGraphBuilder;
+}
+
 export interface IGraphBuilder {
   graphNodes: Array<IAddGraphNode>;
   graphEdges: Array<IGraphEdge>;
 }
 
-export const AWS_TEMPLATES = {
+export const AWS_TEMPLATES: { [key: string]: ITemplate } = {
   S3: {
     name: 'S3',
     description:
