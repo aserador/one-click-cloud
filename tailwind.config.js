@@ -19,6 +19,7 @@ module.exports = {
         'spurple': '#BA76FF',
         'blockgrey': '#2A2A2A',
         'bordergrey': '#434343',
+        'figmaBlack': '1e1e1e',
         'figmaGrey': '#2C2C2C',
         'figmaBorder': '#444444',
         'textWhite': 'rgba(255, 255, 255, 0.8)',

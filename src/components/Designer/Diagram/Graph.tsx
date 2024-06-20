@@ -18,13 +18,13 @@ import 'reactflow/dist/style.css';
 
 
 interface IGraphProps {
-  initialServices: any;
+  initialNodes: Array<IGraphNode>;
   initialEdges: any;
 }
 
-function Graph(props: IGraphProps) {
-  const [nodes, setNodes, onNodesChange] = useNodesState([]);
-  const [edges, setEdges, onEdgesChange] = useEdgesState([]);
+function Graph({initialNodes, initialEdges}: IGraphProps) {
+  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
+  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
   // Reactflow hooks
   const reactFlowWrapper = useRef(null);
@@ -33,30 +33,6 @@ function Graph(props: IGraphProps) {
   // Redux hooks
   const dispatch = useAppDispatch();
   const focusedNodeId = useAppSelector(getFocusedNodeId);
-
-  const { initialEdges, initialServices } = props;
-
-  useEffect(() => {
-    if (initialServices !== undefined && initialServices !== null) {
-      setNodes(
-        initialServices.map((s: any, index: any) => {
-          // Hack offset to make the graph look better, in case position is not provided
-          const offsetX = 120 * (index + 1);
-          const offsetY = 80 * (index + 1);
-
-          return {
-            id: String(s.id),
-            position: s?.position ?? { x: offsetX, y: offsetY },
-            data: { label: s.name, ...s },
-          };
-        })
-      );
-    }
-
-    if (initialEdges !== undefined && initialEdges !== null) {
-      setEdges(initialEdges);
-    }
-  }, [initialServices]);
 
   //
   // DOM Event Handlers
@@ -177,7 +153,7 @@ function Graph(props: IGraphProps) {
             onNodesDelete={onNodesDelete}
             onEdgesDelete={onEdgesDelete}
             nodeTypes={nodeTypes}
-            defaultEdgeOptions={{type: 'step', animated: true}}
+            defaultEdgeOptions={{type: 'step'}}
             connectionMode={ConnectionMode.Loose}
             fitView
             panOnScroll
