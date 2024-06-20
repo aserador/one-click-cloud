@@ -18,7 +18,6 @@ function Test() {
     dispatch(
       addGraphNode({ nodeId: S3_ID, category: 'Storage', service: 'Simple-Storage-Service' })
     );
-    router.push("/designer");
   };
 
   const test_S3_CloudFront = () => {
@@ -32,7 +31,6 @@ function Test() {
     dispatch(
       addGraphEdge({ source: S3_ID, target: CLOUDFRONT_ID })
     );
-    router.push("/designer");
   };
 
   const test_S3_CloudFront_Route53 = () => {
@@ -52,7 +50,6 @@ function Test() {
     dispatch(
       addGraphEdge({ source: CLOUDFRONT_ID, target: S3_ID })
     );
-    router.push("/designer");
   };
 
   return (
@@ -60,6 +57,7 @@ function Test() {
       <button className="btn btn-info m-8" onClick={test_S3}> S3 </button>
       <button className="btn btn-warning m-8" onClick={test_S3_CloudFront}> S3 + CloudFront </button>
       <button className="btn btn-error m-8" onClick={test_S3_CloudFront_Route53}> S3 + CloudFront + Route53 </button>
+      <button className="btn btn-secondart m-8" onClick={() => router.push("/designer")}> Go to designer </button>
     </div>
   );
 }

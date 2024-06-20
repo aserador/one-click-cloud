@@ -1,8 +1,9 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useMemo, useRef, useState } from 'react';
 import ReactFlow, {
   Connection,
   ConnectionMode,
   Edge,
+  ReactFlowInstance,
   SelectionMode,
   addEdge,
   useEdgesState,
@@ -28,7 +29,7 @@ function Graph({initialNodes, initialEdges}: IGraphProps) {
 
   // Reactflow hooks
   const reactFlowWrapper = useRef(null);
-  const [reactFlowInstance, setReactFlowInstance] = useState<any>(null);
+  const [reactFlowInstance, setReactFlowInstance] = useState<ReactFlowInstance | null>(null);
 
   // Redux hooks
   const dispatch = useAppDispatch();
@@ -66,6 +67,10 @@ function Graph({initialNodes, initialEdges}: IGraphProps) {
       x: event.clientX,
       y: event.clientY,
     });
+
+    if (!position) {
+      return;
+    }
 
     const newNode: IGraphNode = {
       id: uuidv4(),
@@ -136,7 +141,7 @@ function Graph({initialNodes, initialEdges}: IGraphProps) {
   }
 
   const nodeTypes = useMemo(() => ({ iconNode: IconNode }), []);
-  
+
   return (
     <div className='dndflow flex flex-row h-full w-full'>
         <div

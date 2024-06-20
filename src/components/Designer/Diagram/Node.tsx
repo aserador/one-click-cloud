@@ -18,8 +18,6 @@ export function IconNode({ id, data }: NodeProps<IGraphNodeData>) {
       />
       <div>
         <Image
-          priority
-          loading="eager"
           src={`svg/aws/${data.category}/${data.service}.svg`}
           alt={`${data.service} icon`}
           width={24}

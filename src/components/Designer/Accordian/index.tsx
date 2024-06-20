@@ -35,8 +35,6 @@ function CollapseItem({ category, service }: ICollapseItemProps) {
     <div className="collapse-item w-full h-full flex flex-row justify-start items-center">
       <div className="w-4"/>
       <Image
-        priority
-        loading="eager"
         src={`svg/aws/${category}/${service}.svg`}
         alt={`${service} icon`}
         width={24}
