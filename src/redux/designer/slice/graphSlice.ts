@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../store';
 import { IGraphEdge, IService } from '../models';
 import { IAddGraphNode, IUpdateGraphNode } from '../payload';
-import AWS_SCHEMA_TEMPLATES from '@/schema/aws/schema';
+import AWS_SCHEMAS from '@/schema/aws/schema';
 import _ from 'lodash';
 
 export type GraphState = {
@@ -31,7 +31,7 @@ export const graphSlice = createSlice({
     },
     addGraphNode: (state: GraphState, action: PayloadAction<IAddGraphNode>) => {
       const template =
-        AWS_SCHEMA_TEMPLATES?.[action.payload.category]?.[
+      AWS_SCHEMAS?.[action.payload.category]?.[
           action.payload.service
         ];
       if (!template) {
