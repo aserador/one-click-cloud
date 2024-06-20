@@ -68,7 +68,6 @@ const ArchitectureOption: React.FC<ArchitectureOptionProps> = ({
 
 const BuildPage = () => {
   const [input, setInput] = useState("");
-  const [output, setOutput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [showRecommendations, setShowRecommendations] = useState(false);
   const [options, setOptions] = useState<Option[]>([]);
@@ -165,7 +164,7 @@ const BuildPage = () => {
                 handleSend={handleSend}
               />
             </div>
-            <div className="mt-4 text-white">{output}</div>
+            <div className="mt-4" />
           </>
         )}
       </div>
