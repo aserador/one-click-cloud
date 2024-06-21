@@ -45,7 +45,7 @@ export function IconNode({ id, data }: NodeProps<IGraphNodeData>) {
       onMouseEnter={() => setHideHandles(false)}
       onMouseLeave={() => setHideHandles(true)}
     >
-      <div>
+      <div className='p-1'>
         <Image
           src={`svg/aws/${data.category}/${data.service}.svg`}
           alt={`${data.service} icon`}
