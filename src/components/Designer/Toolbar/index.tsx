@@ -124,7 +124,7 @@ function Toolbar({
         >
           <ZoomOut />
         </ToolbarButton>
-        <div className="h-full w-16 flex flex-col justify-center items-center px-2">
+        <div className="h-full min-w-12 max-w-12 flex flex-col justify-center items-center">
           {Math.round(zoomLevel * 100)}%
         </div>
         <ToolbarButton
