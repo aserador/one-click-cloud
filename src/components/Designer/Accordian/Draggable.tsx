@@ -19,12 +19,14 @@ function Draggable({ children, data }: IDraggableProps) {
   };
 
   return (
-    <div
-      className="dndnode"
-      onDragStart={(event) => onDragStart(event)}
-      draggable
-    >
-      {children}
+    <div className="w-full h-full tooltip"  data-tip="Drag Me">
+      <div
+        className="dndnode"
+        onDragStart={(event) => onDragStart(event)}
+        draggable
+      >
+        {children}
+      </div>
     </div>
   );
 }

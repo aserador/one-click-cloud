@@ -95,8 +95,10 @@
   --stratus-purple: oklch(74.8% 0.26 342.55);
   --stratus-border-grey: #444444;
   --stratus-background-grey: #2c2c2c;
+  --stratus-background-black: #1e1e1e;
   --stratus-text-white: #ffffff;
   --stratus-text-grey: #b2b2b2;
+  --tailwind-font-size-xs: 0.75rem;
 }
 
 /* Left Drawer */
@@ -286,4 +288,28 @@
 
 .tab:is(input[type="radio"]) {
   width: 56px;
+}
+
+.tooltip:before {
+  max-width: 20rem;
+  border-radius: 0.25rem;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  padding-top: 0.125rem;
+  padding-bottom: 0.125rem;
+  font-size: var(--tailwind-font-size-xs);
+  border: 1px solid var(--stratus-border-grey);
+  background-color: var(--stratus-background-black);
+  color: var(--stratus-text-white);
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.tooltip:after, .tooltip-top:after {
+  transform: translate(-50%, -50%);
+  border-color: var(--stratus-background-black) transparent transparent transparent;
+  top: auto;
+  left: 50%;
+  right: auto;
+  bottom: var(--tooltip-tail-offset);
 }

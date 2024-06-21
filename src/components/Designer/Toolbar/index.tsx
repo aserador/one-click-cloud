@@ -10,7 +10,10 @@ import {
   FitView,
 } from '../icons';
 import { Viewport, useOnViewportChange, useReactFlow } from 'reactflow';
-import { getZoomLevel, setZoomLevel } from '@/redux/designer/slice/viewportSlice';
+import {
+  getZoomLevel,
+  setZoomLevel,
+} from '@/redux/designer/slice/viewportSlice';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 
 function setButtonStyle(activeButtonId: string, isActive: boolean) {
@@ -33,17 +36,25 @@ interface ToolbarButtonProps {
 }
 
 function ToolbarButton({
-  buttonName, width = 'w-10', onButtonClick, children = null,
+  buttonName,
+  width = 'w-10',
+  onButtonClick,
+  children = null,
 }: ToolbarButtonProps) {
   return (
-    <button
+    <div
       id={buttonName}
-      type="button"
-      className={`${width} h-full flex flex-col justify-center items-center bg-transparent hover:bg-black`}
-      onClick={() => onButtonClick(buttonName)}
+      className="w-full h-full flex flex-col justify-center items-center tooltip tooltip-bottom bg-transparent hover:bg-black"
+      data-tip={buttonName}
     >
-      {children}
-    </button>
+      <button
+        type="button"
+        className={`${width} h-full flex flex-col justify-center items-center`}
+        onClick={() => onButtonClick(buttonName)}
+      >
+        {children}
+      </button>
+    </div>
   );
 }
 
@@ -53,9 +64,13 @@ interface ToolbarProps {
   onSubmit: () => void;
 }
 
-function Toolbar({ projectFolder = '[Project Folder]', projectName = '[Project Name]', onSubmit }: ToolbarProps) {
+function Toolbar({
+  projectFolder = '[Project Folder]',
+  projectName = '[Project Name]',
+  onSubmit,
+}: ToolbarProps) {
   const [activeButtonId, setActiveButtonId] = useState<string>('');
-  
+
   const dispatch = useAppDispatch();
   const zoomLevel = useAppSelector(getZoomLevel);
   const { zoomIn, zoomOut, fitView } = useReactFlow();
@@ -63,20 +78,28 @@ function Toolbar({ projectFolder = '[Project Folder]', projectName = '[Project N
     onChange: (viewport: Viewport) => dispatch(setZoomLevel(viewport.zoom)),
   });
 
-  const updateActiveButton = useCallback((newActiveButtonId: string) => {
-    setButtonStyle(activeButtonId, false);
-    setButtonStyle(newActiveButtonId, true);
-    setActiveButtonId(newActiveButtonId);
-  }, [activeButtonId]);
-  
+  const updateActiveButton = useCallback(
+    (newActiveButtonId: string) => {
+      setButtonStyle(activeButtonId, false);
+      setButtonStyle(newActiveButtonId, true);
+      setActiveButtonId(newActiveButtonId);
+    },
+    [activeButtonId]
+  );
+
   return (
-    <div id="toolbar" className="w-full h-12 flex flex-row justify-center items-center bg-figmaGrey">
+    <div
+      id="toolbar"
+      className="w-full h-12 flex flex-row justify-center items-center bg-figmaGrey"
+    >
       {/* <a href="/" className="text-2xl font-logo text-stratusPurple p-1.5">stratus</a> */}
       <div className="inline-block h-full flex flex-row">
         <ToolbarButton
-          buttonName="home"
+          buttonName="Home"
           width="w-12"
-          onButtonClick={(newActiveButtonId: string) => updateActiveButton(newActiveButtonId)}
+          onButtonClick={(newActiveButtonId: string) =>
+            updateActiveButton(newActiveButtonId)
+          }
         >
           <div className="w-full h-full flex flex-row justify-center items-center">
             <HomeIcon />
@@ -84,41 +107,43 @@ function Toolbar({ projectFolder = '[Project Folder]', projectName = '[Project N
           </div>
         </ToolbarButton>
         <ToolbarButton
-          buttonName="fit_view"
+          buttonName="Fit view"
           onButtonClick={(newActiveButtonId: string) => {
             updateActiveButton(newActiveButtonId);
-            fitView()
+            fitView();
           }}
         >
           <FitView />
         </ToolbarButton>
         <ToolbarButton
-          buttonName="zoom_out"
+          buttonName="Zoom out"
           onButtonClick={(newActiveButtonId: string) => {
             updateActiveButton(newActiveButtonId);
-            zoomOut()
+            zoomOut();
           }}
         >
           <ZoomOut />
         </ToolbarButton>
-        <div className="h-full w-16 flex flex-col justify-center items-center">
+        <div className="h-full w-16 flex flex-col justify-center items-center px-2">
           {Math.round(zoomLevel * 100)}%
         </div>
         <ToolbarButton
-          buttonName="zoom_in"
+          buttonName="Zoom in"
           onButtonClick={(newActiveButtonId: string) => {
             updateActiveButton(newActiveButtonId);
-            zoomIn()
+            zoomIn();
           }}
         >
           <ZoomIn />
         </ToolbarButton>
-        <ToolbarButton
+        {/* <ToolbarButton
           buttonName="text_box"
-          onButtonClick={(newActiveButtonId: string) => updateActiveButton(newActiveButtonId)}
+          onButtonClick={(newActiveButtonId: string) =>
+            updateActiveButton(newActiveButtonId)
+          }
         >
           <TextBoxIcon />
-        </ToolbarButton>
+        </ToolbarButton> */}
       </div>
       <div className="flex-1" />
       {/* <div className="inline-block h-full flex flex-row justify-center items-center">
@@ -128,24 +153,28 @@ function Toolbar({ projectFolder = '[Project Folder]', projectName = '[Project N
       </div> */}
       <div className="flex-1" />
       <div className="inline-block h-full flex flex-row justify-center items-center mr-2">
-        <ToolbarButton
+        {/* <ToolbarButton
           buttonName="debug"
-          onButtonClick={(newActiveButtonId: string) => updateActiveButton(newActiveButtonId)}
+          onButtonClick={(newActiveButtonId: string) =>
+            updateActiveButton(newActiveButtonId)
+          }
         >
           <ClockIcon />
-        </ToolbarButton>
-        <ToolbarButton
+        </ToolbarButton> */}
+        {/* <ToolbarButton
           buttonName="history"
-          onButtonClick={(newActiveButtonId: string) => updateActiveButton(newActiveButtonId)}
+          onButtonClick={(newActiveButtonId: string) =>
+            updateActiveButton(newActiveButtonId)
+          }
         >
           <DebugIcon />
-        </ToolbarButton>
-        <button 
-          type="button" 
+        </ToolbarButton> */}
+        <button
+          type="button"
           className="btn btn-sm bg-stratusPurple text-textWhite hover:bg-stratusPurpleActive mx-4"
           onClick={onSubmit}
         >
-          Publish
+          Compile
         </button>
       </div>
     </div>
