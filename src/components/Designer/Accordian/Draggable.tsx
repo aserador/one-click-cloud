@@ -7,19 +7,15 @@ interface IDraggableProps {
 }
 
 function Draggable({ children, data }: IDraggableProps) {
-
   const onDragStart = (event: any) => {
     // Attach service data to drag event
-    event.dataTransfer.setData(
-      "application/reactflow",
-      JSON.stringify(data)
-    );
+    event.dataTransfer.setData('application/reactflow', JSON.stringify(data));
     // Mystery requirement required for by reactflow for drag and drop to work
-    event.dataTransfer.effectAllowed = "move";
+    event.dataTransfer.effectAllowed = 'move';
   };
 
   return (
-    <div className="w-full h-full tooltip"  data-tip="Drag Me">
+    <div className={`w-full h-full tooltip`} data-tip="Drag Me">
       <div
         className="dndnode"
         onDragStart={(event) => onDragStart(event)}
