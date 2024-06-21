@@ -54,7 +54,7 @@ function Accordian() {
         </summary>
         <div className="collapse-content w-full flex flex-col justify-start pr-0"> 
           {
-            Object.keys(AWS_SCHEMAS[category]).map((service: string) => {
+            Object.keys(AWS_SCHEMAS[category]).sort().map((service: string) => {
               const dragData: IGraphDragData = { type: NodeType.ICON, category, service };
               return (
                 <Draggable key={service} data={dragData}>
