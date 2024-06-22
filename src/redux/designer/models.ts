@@ -22,6 +22,15 @@ export interface IService {
   config: {
     [key: string]: any;
   };
+  neighbors: Array<string>;
+  onConnect?: (mySchema: IService, targetSchema: IService) => IServicePair;
+  onDisconnect?: (mySchema: IService, targetSchema: IService) => IServicePair;
+  onChange?: (mySchema: IService, connectedSchema: IService) => IServicePair;
+}
+
+export interface IServicePair {
+  source?: IService;
+  target?: IService;
 }
 
 export enum NodeType {

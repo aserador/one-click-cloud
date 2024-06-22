@@ -1,4 +1,9 @@
-import { ISchemaTemplates } from '@/redux/designer/models';
+import {
+  ISchemaTemplates,
+  IService,
+  IServicePair,
+} from '@/redux/designer/models';
+import _ from 'lodash';
 
 const AWS_SCHEMAS: ISchemaTemplates = {
   'Security-Identity-Compliance': {
@@ -10,6 +15,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Identity-and-Access-Management': {
       id: 'Identity-and-Access-Management',
@@ -19,6 +25,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     CloudHSM: {
       id: 'CloudHSM',
@@ -28,6 +35,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Verified-Permissions': {
       id: 'Verified-Permissions',
@@ -37,6 +45,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     GuardDuty: {
       id: 'GuardDuty',
@@ -46,6 +55,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Detective: {
       id: 'Detective',
@@ -55,6 +65,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Inspector: {
       id: 'Inspector',
@@ -64,6 +75,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Cloud-Directory': {
       id: 'Cloud-Directory',
@@ -73,6 +85,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Signer: {
       id: 'Signer',
@@ -82,6 +95,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Key-Management-Service': {
       id: 'Key-Management-Service',
@@ -91,6 +105,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Firewall-Manager': {
       id: 'Firewall-Manager',
@@ -100,6 +115,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Audit-Manager': {
       id: 'Audit-Manager',
@@ -109,6 +125,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Network-Firewall': {
       id: 'Network-Firewall',
@@ -118,6 +135,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Secrets-Manager': {
       id: 'Secrets-Manager',
@@ -127,6 +145,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Macie: {
       id: 'Macie',
@@ -136,6 +155,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Cognito: {
       id: 'Cognito',
@@ -145,6 +165,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Shield: {
       id: 'Shield',
@@ -154,6 +175,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Security-Hub': {
       id: 'Security-Hub',
@@ -163,6 +185,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     WAF: {
       id: 'WAF',
@@ -172,6 +195,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Private-Certificate-Authority': {
       id: 'Private-Certificate-Authority',
@@ -181,6 +205,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Security-Lake': {
       id: 'Security-Lake',
@@ -190,6 +215,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Artifact: {
       id: 'Artifact',
@@ -199,6 +225,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Resource-Access-Manager': {
       id: 'Resource-Access-Manager',
@@ -208,6 +235,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'IAM-Identity-Center': {
       id: 'IAM-Identity-Center',
@@ -217,6 +245,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Certificate-Manager': {
       id: 'Certificate-Manager',
@@ -226,6 +255,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
   },
   'Business-Applications': {
@@ -237,6 +267,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Supply-Chain': {
       id: 'Supply-Chain',
@@ -246,6 +277,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Wickr: {
       id: 'Wickr',
@@ -255,6 +287,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     WorkDocs: {
       id: 'WorkDocs',
@@ -264,6 +297,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Chime-SDK': {
       id: 'Chime-SDK',
@@ -273,6 +307,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'WorkDocs-SDK': {
       id: 'WorkDocs-SDK',
@@ -282,6 +317,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Pinpoint: {
       id: 'Pinpoint',
@@ -291,6 +327,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Simple-Email-Service': {
       id: 'Simple-Email-Service',
@@ -300,6 +337,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Alexa-For-Business': {
       id: 'Alexa-For-Business',
@@ -309,6 +347,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Chime-Voice-Connector': {
       id: 'Chime-Voice-Connector',
@@ -318,6 +357,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Chime: {
       id: 'Chime',
@@ -327,6 +367,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     WorkMail: {
       id: 'WorkMail',
@@ -336,6 +377,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Pinpoint-APIs': {
       id: 'Pinpoint-APIs',
@@ -345,6 +387,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Connect: {
       id: 'Connect',
@@ -354,6 +397,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
   },
   Games: {
@@ -365,6 +409,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Lumberyard: {
       id: 'Lumberyard',
@@ -374,6 +419,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     GameSparks: {
       id: 'GameSparks',
@@ -383,6 +429,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     GameLift: {
       id: 'GameLift',
@@ -392,6 +439,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     GameKit: {
       id: 'GameKit',
@@ -401,6 +449,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
   },
   'VR-AR': {
@@ -412,6 +461,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
   },
   'End-User-Computing': {
@@ -423,6 +473,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'WorkSpaces-Family': {
       id: 'WorkSpaces-Family',
@@ -432,6 +483,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     AppStream: {
       id: 'AppStream',
@@ -441,6 +493,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
   },
   Storage: {
@@ -452,6 +505,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Snowball-Edge': {
       id: 'Snowball-Edge',
@@ -461,6 +515,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'FSx-for-OpenZFS': {
       id: 'FSx-for-OpenZFS',
@@ -470,6 +525,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Simple-Storage-Service': {
       id: 'Simple-Storage-Service',
@@ -506,6 +562,39 @@ const AWS_SCHEMAS: ISchemaTemplates = {
           required: false,
         },
       },
+      neighbors: [],
+      onConnect: (mySchema: IService, targetSchema: IService) => {
+        const result: IServicePair = {};
+
+        if (targetSchema.id === 'CloudFront') {
+          targetSchema.config.bucket_name.value =
+            mySchema.config.bucket_name.value;
+          result.target = targetSchema;
+        }
+
+        return result;
+      },
+      onDisconnect: (mySchema: IService, targetSchema: IService) => {
+        const result: IServicePair = {};
+
+        if (targetSchema.id === 'CloudFront') {
+          targetSchema.config.bucket_name.value = '';
+          result.target = targetSchema;
+        }
+
+        return result;
+      },
+      onChange: (mySchema: IService, connectedSchema: IService) => {
+        const result: IServicePair = {};
+
+        if (connectedSchema.id === 'CloudFront') {
+          connectedSchema.config.bucket_name.value =
+            mySchema.config.bucket_name.value;
+          result.target = connectedSchema;
+        }
+
+        return result;
+      },
     },
     'File-Cache': {
       id: 'File-Cache',
@@ -515,6 +604,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Backup: {
       id: 'Backup',
@@ -524,6 +614,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'FSx-for-NetApp-ONTAP': {
       id: 'FSx-for-NetApp-ONTAP',
@@ -533,6 +624,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Snowmobile: {
       id: 'Snowmobile',
@@ -542,6 +634,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Elastic-Disaster-Recovery': {
       id: 'Elastic-Disaster-Recovery',
@@ -551,6 +644,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Snowcone: {
       id: 'Snowcone',
@@ -560,6 +654,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     FSx: {
       id: 'FSx',
@@ -569,6 +664,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Snowball: {
       id: 'Snowball',
@@ -578,6 +674,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'FSx-for-Lustre': {
       id: 'FSx-for-Lustre',
@@ -587,6 +684,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     EFS: {
       id: 'EFS',
@@ -596,6 +694,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Storage-Gateway': {
       id: 'Storage-Gateway',
@@ -605,6 +704,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Simple-Storage-Service-Glacier': {
       id: 'Simple-Storage-Service-Glacier',
@@ -614,6 +714,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Elastic-Block-Store': {
       id: 'Elastic-Block-Store',
@@ -623,6 +724,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'S3-on-Outposts': {
       id: 'S3-on-Outposts',
@@ -632,6 +734,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
   },
   'Networking-Content-Delivery': {
@@ -643,6 +746,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Private-5G': {
       id: 'Private-5G',
@@ -652,6 +756,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Cloud-WAN': {
       id: 'Cloud-WAN',
@@ -661,6 +766,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     CloudFront: {
       id: 'CloudFront',
@@ -680,8 +786,17 @@ const AWS_SCHEMAS: ISchemaTemplates = {
           value: 'cloudfront',
           required: true,
         },
+        bucket_name: {
+          title: 'S3 Origin',
+          hint: 'Origin for your CloudFront distribution',
+          type: 'string',
+          value: 'bucket1',
+          required: true,
+          hidden: true,
+        },
       },
       deploy: {},
+      neighbors: [],
     },
     'private subnet': {
       id: 'private subnet',
@@ -691,6 +806,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'public subnet': {
       id: 'public subnet',
@@ -700,6 +816,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Route-53': {
       id: 'Route-53',
@@ -721,6 +838,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
         },
       },
       deploy: {},
+      neighbors: [],
     },
     'Route-53 Route-Table': {
       id: 'Route-53 Route-Table',
@@ -730,6 +848,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Virtual-Private-Cloud': {
       id: 'Virtual-Private-Cloud',
@@ -739,6 +858,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Cloud-Directory': {
       id: 'Cloud-Directory',
@@ -748,6 +868,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'VPC-Lattice': {
       id: 'VPC-Lattice',
@@ -757,6 +878,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Direct-Connect': {
       id: 'Direct-Connect',
@@ -766,6 +888,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Verified-Access': {
       id: 'Verified-Access',
@@ -775,6 +898,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'App-Mesh': {
       id: 'App-Mesh',
@@ -784,6 +908,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Site-to-Site-VPN': {
       id: 'Site-to-Site-VPN',
@@ -793,6 +918,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     PrivateLink: {
       id: 'PrivateLink',
@@ -802,6 +928,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Cloud-Map': {
       id: 'Cloud-Map',
@@ -811,6 +938,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Transit-Gateway': {
       id: 'Transit-Gateway',
@@ -820,6 +948,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Elastic-Load-Balancing': {
       id: 'Elastic-Load-Balancing',
@@ -829,6 +958,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Global-Accelerator': {
       id: 'Global-Accelerator',
@@ -838,6 +968,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
   },
   Analytics: {
@@ -849,6 +980,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Data-Pipeline': {
       id: 'Data-Pipeline',
@@ -858,6 +990,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Data-Exchange': {
       id: 'Data-Exchange',
@@ -867,6 +1000,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Redshift: {
       id: 'Redshift',
@@ -876,6 +1010,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Kinesis: {
       id: 'Kinesis',
@@ -885,6 +1020,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Kinesis-Video-Streams': {
       id: 'Kinesis-Video-Streams',
@@ -894,6 +1030,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Managed-Streaming-for-Apache-Kafka': {
       id: 'Managed-Streaming-for-Apache-Kafka',
@@ -903,6 +1040,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Athena: {
       id: 'Athena',
@@ -912,6 +1050,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Glue-Elastic-Views': {
       id: 'Glue-Elastic-Views',
@@ -921,6 +1060,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     CloudSearch: {
       id: 'CloudSearch',
@@ -930,6 +1070,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Kinesis-Data-Analytics': {
       id: 'Kinesis-Data-Analytics',
@@ -939,6 +1080,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Lake-Formation': {
       id: 'Lake-Formation',
@@ -948,6 +1090,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     QuickSight: {
       id: 'QuickSight',
@@ -957,6 +1100,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Kinesis-Firehose': {
       id: 'Kinesis-Firehose',
@@ -966,6 +1110,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     DataZone: {
       id: 'DataZone',
@@ -975,6 +1120,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Clean-Rooms': {
       id: 'Clean-Rooms',
@@ -984,6 +1130,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Glue: {
       id: 'Glue',
@@ -993,6 +1140,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'OpenSearch-Service': {
       id: 'OpenSearch-Service',
@@ -1002,6 +1150,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     EMR: {
       id: 'EMR',
@@ -1011,6 +1160,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Glue-DataBrew': {
       id: 'Glue-DataBrew',
@@ -1020,6 +1170,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     FinSpace: {
       id: 'FinSpace',
@@ -1029,6 +1180,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
   },
   Database: {
@@ -1040,6 +1192,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Keyspaces: {
       id: 'Keyspaces',
@@ -1049,6 +1202,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'MemoryDB-for-Redis': {
       id: 'MemoryDB-for-Redis',
@@ -1058,6 +1212,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Timestream: {
       id: 'Timestream',
@@ -1067,6 +1222,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Neptune: {
       id: 'Neptune',
@@ -1076,6 +1232,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     RDS: {
       id: 'RDS',
@@ -1085,6 +1242,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     DynamoDB: {
       id: 'DynamoDB',
@@ -1094,6 +1252,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     DocumentDB: {
       id: 'DocumentDB',
@@ -1103,6 +1262,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Aurora: {
       id: 'Aurora',
@@ -1112,6 +1272,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     ElastiCache: {
       id: 'ElastiCache',
@@ -1121,6 +1282,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Database-Migration-Service': {
       id: 'Database-Migration-Service',
@@ -1130,6 +1292,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
   },
   'Developer-Tools': {
@@ -1141,6 +1304,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Cloud-Development-Kit': {
       id: 'Cloud-Development-Kit',
@@ -1150,6 +1314,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Application-Composer': {
       id: 'Application-Composer',
@@ -1159,6 +1324,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Corretto: {
       id: 'Corretto',
@@ -1168,6 +1334,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     CodeArtifact: {
       id: 'CodeArtifact',
@@ -1177,6 +1344,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Command-Line-Interface': {
       id: 'Command-Line-Interface',
@@ -1186,6 +1354,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Cloud-Control-API': {
       id: 'Cloud-Control-API',
@@ -1195,6 +1364,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     CodeDeploy: {
       id: 'CodeDeploy',
@@ -1204,6 +1374,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'X-Ray': {
       id: 'X-Ray',
@@ -1213,6 +1384,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     CodePipeline: {
       id: 'CodePipeline',
@@ -1222,6 +1394,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     CodeStar: {
       id: 'CodeStar',
@@ -1231,6 +1404,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     CodeCatalyst: {
       id: 'CodeCatalyst',
@@ -1240,6 +1414,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     CodeBuild: {
       id: 'CodeBuild',
@@ -1249,6 +1424,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Cloud9: {
       id: 'Cloud9',
@@ -1258,6 +1434,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Tools-and-SDKs': {
       id: 'Tools-and-SDKs',
@@ -1267,6 +1444,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     CloudShell: {
       id: 'CloudShell',
@@ -1276,6 +1454,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
   },
   'Internet-of-Things': {
@@ -1287,6 +1466,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'IoT-TwinMaker': {
       id: 'IoT-TwinMaker',
@@ -1296,6 +1476,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'IoT-Analytics': {
       id: 'IoT-Analytics',
@@ -1305,6 +1486,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'IoT-Core': {
       id: 'IoT-Core',
@@ -1314,6 +1496,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'IoT-Device-Management': {
       id: 'IoT-Device-Management',
@@ -1323,6 +1506,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'IoT-FleetWise': {
       id: 'IoT-FleetWise',
@@ -1332,6 +1516,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'IoT-Device-Defender': {
       id: 'IoT-Device-Defender',
@@ -1341,6 +1526,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'IoT-Greengrass': {
       id: 'IoT-Greengrass',
@@ -1350,6 +1536,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'IoT-EduKit': {
       id: 'IoT-EduKit',
@@ -1359,6 +1546,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'IoT-RoboRunner': {
       id: 'IoT-RoboRunner',
@@ -1368,6 +1556,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'IoT-Events': {
       id: 'IoT-Events',
@@ -1377,6 +1566,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'IoT-1-Click': {
       id: 'IoT-1-Click',
@@ -1386,6 +1576,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     FreeRTOS: {
       id: 'FreeRTOS',
@@ -1395,6 +1586,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'IoT-Button': {
       id: 'IoT-Button',
@@ -1404,6 +1596,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'IoT-Things-Graph': {
       id: 'IoT-Things-Graph',
@@ -1413,6 +1606,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'IoT-SiteWise': {
       id: 'IoT-SiteWise',
@@ -1422,6 +1616,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
   },
   Containers: {
@@ -1433,6 +1628,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Red-Hat-OpenShift-Service-on-AWS': {
       id: 'Red-Hat-OpenShift-Service-on-AWS',
@@ -1442,6 +1638,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Elastic-Container-Service': {
       id: 'Elastic-Container-Service',
@@ -1451,6 +1648,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'EKS-Cloud': {
       id: 'EKS-Cloud',
@@ -1460,6 +1658,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Elastic-Kubernetes-Service': {
       id: 'Elastic-Kubernetes-Service',
@@ -1469,6 +1668,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'EKS-Distro': {
       id: 'EKS-Distro',
@@ -1478,6 +1678,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Elastic-Container-Registry': {
       id: 'Elastic-Container-Registry',
@@ -1487,6 +1688,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Fargate: {
       id: 'Fargate',
@@ -1496,6 +1698,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'EKS-Anywhere': {
       id: 'EKS-Anywhere',
@@ -1505,6 +1708,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
   },
   Robotics: {
@@ -1516,6 +1720,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
   },
   Compute: {
@@ -1527,6 +1732,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Elastic-Fabric-Adapter': {
       id: 'Elastic-Fabric-Adapter',
@@ -1536,6 +1742,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'NICE-DCV': {
       id: 'NICE-DCV',
@@ -1545,6 +1752,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Batch: {
       id: 'Batch',
@@ -1554,6 +1762,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'EC2-Image-Builder': {
       id: 'EC2-Image-Builder',
@@ -1563,6 +1772,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'EC2-Spot-Instance': {
       id: 'EC2-Spot-Instance',
@@ -1572,6 +1782,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Local-Zones': {
       id: 'Local-Zones',
@@ -1581,6 +1792,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'App-Runner': {
       id: 'App-Runner',
@@ -1590,6 +1802,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Outposts-rack': {
       id: 'Outposts-rack',
@@ -1599,6 +1812,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     ParallelCluster: {
       id: 'ParallelCluster',
@@ -1608,6 +1822,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Outposts-family': {
       id: 'Outposts-family',
@@ -1617,6 +1832,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Nitro-Enclaves': {
       id: 'Nitro-Enclaves',
@@ -1626,6 +1842,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Outposts-servers': {
       id: 'Outposts-servers',
@@ -1635,6 +1852,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Thinkbox-Frost': {
       id: 'Thinkbox-Frost',
@@ -1644,6 +1862,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Thinkbox-Krakatoa': {
       id: 'Thinkbox-Krakatoa',
@@ -1653,6 +1872,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Compute-Optimizer': {
       id: 'Compute-Optimizer',
@@ -1662,6 +1882,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Lambda: {
       id: 'Lambda',
@@ -1671,6 +1892,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'NICE-EnginFrame': {
       id: 'NICE-EnginFrame',
@@ -1680,6 +1902,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'EC2-Auto-Scaling': {
       id: 'EC2-Auto-Scaling',
@@ -1689,6 +1912,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Thinkbox-Stoke': {
       id: 'Thinkbox-Stoke',
@@ -1698,6 +1922,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Wavelength: {
       id: 'Wavelength',
@@ -1707,6 +1932,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Thinkbox-XMesh': {
       id: 'Thinkbox-XMesh',
@@ -1716,6 +1942,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'VMware-Cloud-on-AWS': {
       id: 'VMware-Cloud-on-AWS',
@@ -1725,6 +1952,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Bottlerocket: {
       id: 'Bottlerocket',
@@ -1734,6 +1962,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Thinkbox-Sequoia': {
       id: 'Thinkbox-Sequoia',
@@ -1743,6 +1972,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Genomics-CLI': {
       id: 'Genomics-CLI',
@@ -1752,6 +1982,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'SimSpace-Weaver': {
       id: 'SimSpace-Weaver',
@@ -1761,6 +1992,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Lightsail: {
       id: 'Lightsail',
@@ -1770,6 +2002,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     EC2: {
       id: 'EC2',
@@ -1779,6 +2012,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Fargate: {
       id: 'Fargate',
@@ -1788,6 +2022,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Elastic-Beanstalk': {
       id: 'Elastic-Beanstalk',
@@ -1797,6 +2032,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Serverless-Application-Repository': {
       id: 'Serverless-Application-Repository',
@@ -1806,6 +2042,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Application-Auto-Scaling': {
       id: 'Application-Auto-Scaling',
@@ -1815,6 +2052,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
   },
   'Cloud-Financial-Management': {
@@ -1826,6 +2064,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Billing-Conductor': {
       id: 'Billing-Conductor',
@@ -1835,6 +2074,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Cost-Explorer': {
       id: 'Cost-Explorer',
@@ -1844,6 +2084,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Reserved-Instance-Reporting': {
       id: 'Reserved-Instance-Reporting',
@@ -1853,6 +2094,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Savings-Plans': {
       id: 'Savings-Plans',
@@ -1862,6 +2104,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Application-Cost-Profiler': {
       id: 'Application-Cost-Profiler',
@@ -1871,6 +2114,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Cost-and-Usage-Report': {
       id: 'Cost-and-Usage-Report',
@@ -1880,6 +2124,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
   },
   Satellite: {
@@ -1891,6 +2136,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
   },
   Blockchain: {
@@ -1902,6 +2148,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Managed-Blockchain': {
       id: 'Managed-Blockchain',
@@ -1911,6 +2158,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
   },
   'Management-Governance': {
@@ -1922,6 +2170,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Resilience-Hub': {
       id: 'Resilience-Hub',
@@ -1931,6 +2180,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     CloudWatch: {
       id: 'CloudWatch',
@@ -1940,6 +2190,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Resource-Explorer': {
       id: 'Resource-Explorer',
@@ -1949,6 +2200,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Proton: {
       id: 'Proton',
@@ -1958,6 +2210,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Well-Architected-Tool': {
       id: 'Well-Architected-Tool',
@@ -1967,6 +2220,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     AppConfig: {
       id: 'AppConfig',
@@ -1976,6 +2230,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'License-Manager': {
       id: 'License-Manager',
@@ -1985,6 +2240,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Systems-Manager': {
       id: 'Systems-Manager',
@@ -1994,6 +2250,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Fault-Injection-Simulator': {
       id: 'Fault-Injection-Simulator',
@@ -2003,6 +2260,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Managed-Grafana': {
       id: 'Managed-Grafana',
@@ -2012,6 +2270,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     CloudFormation: {
       id: 'CloudFormation',
@@ -2021,6 +2280,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Config: {
       id: 'Config',
@@ -2030,6 +2290,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Organizations: {
       id: 'Organizations',
@@ -2039,6 +2300,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Managed-Service-for-Prometheus': {
       id: 'Managed-Service-for-Prometheus',
@@ -2048,6 +2310,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Launch-Wizard': {
       id: 'Launch-Wizard',
@@ -2057,6 +2320,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Service-Management-Connector': {
       id: 'Service-Management-Connector',
@@ -2066,6 +2330,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     CloudTrail: {
       id: 'CloudTrail',
@@ -2075,6 +2340,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Service-Catalog': {
       id: 'Service-Catalog',
@@ -2084,6 +2350,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     OpsWorks: {
       id: 'OpsWorks',
@@ -2093,6 +2360,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Chatbot: {
       id: 'Chatbot',
@@ -2102,6 +2370,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Distro-for-OpenTelemetry': {
       id: 'Distro-for-OpenTelemetry',
@@ -2111,6 +2380,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Backint-Agent': {
       id: 'Backint-Agent',
@@ -2120,6 +2390,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Trusted-Advisor': {
       id: 'Trusted-Advisor',
@@ -2129,6 +2400,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Management-Console': {
       id: 'Management-Console',
@@ -2138,6 +2410,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Control-Tower': {
       id: 'Control-Tower',
@@ -2147,6 +2420,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Auto-Scaling': {
       id: 'Auto-Scaling',
@@ -2156,6 +2430,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Application-Auto-Scaling': {
       id: 'Application-Auto-Scaling',
@@ -2165,6 +2440,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
   },
   'Media-Services': {
@@ -2176,6 +2452,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Elemental-MediaStore': {
       id: 'Elemental-MediaStore',
@@ -2185,6 +2462,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Elemental-Link': {
       id: 'Elemental-Link',
@@ -2194,6 +2472,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Elemental-Live': {
       id: 'Elemental-Live',
@@ -2203,6 +2482,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Elemental-MediaConvert': {
       id: 'Elemental-MediaConvert',
@@ -2212,6 +2492,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Elemental-Conductor': {
       id: 'Elemental-Conductor',
@@ -2221,6 +2502,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Elemental-MediaPackage': {
       id: 'Elemental-MediaPackage',
@@ -2230,6 +2512,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Kinesis-Video-Streams': {
       id: 'Kinesis-Video-Streams',
@@ -2239,6 +2522,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Elemental-MediaTailor': {
       id: 'Elemental-MediaTailor',
@@ -2248,6 +2532,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Elastic-Transcoder': {
       id: 'Elastic-Transcoder',
@@ -2257,6 +2542,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Nimble-Studio': {
       id: 'Nimble-Studio',
@@ -2266,6 +2552,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Elemental-Server': {
       id: 'Elemental-Server',
@@ -2275,6 +2562,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Elemental-Appliances-&-Software': {
       id: 'Elemental-Appliances-&-Software',
@@ -2284,6 +2572,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Elemental-MediaLive': {
       id: 'Elemental-MediaLive',
@@ -2293,6 +2582,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Interactive-Video-Service': {
       id: 'Interactive-Video-Service',
@@ -2302,6 +2592,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Elemental-Delta': {
       id: 'Elemental-Delta',
@@ -2311,6 +2602,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
   },
   'Machine-Learning': {
@@ -2322,6 +2614,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Polly: {
       id: 'Polly',
@@ -2331,6 +2624,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Personalize: {
       id: 'Personalize',
@@ -2340,6 +2634,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Elastic-Inference': {
       id: 'Elastic-Inference',
@@ -2349,6 +2644,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     CodeWhisperer: {
       id: 'CodeWhisperer',
@@ -2358,6 +2654,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Rekognition: {
       id: 'Rekognition',
@@ -2367,6 +2664,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Monitron: {
       id: 'Monitron',
@@ -2376,6 +2674,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Lookout-for-Equipment': {
       id: 'Lookout-for-Equipment',
@@ -2385,6 +2684,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Panorama: {
       id: 'Panorama',
@@ -2394,6 +2694,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Transcribe: {
       id: 'Transcribe',
@@ -2403,6 +2704,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'SageMaker-Studio-Lab': {
       id: 'SageMaker-Studio-Lab',
@@ -2412,6 +2714,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     CodeGuru: {
       id: 'CodeGuru',
@@ -2421,6 +2724,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Lex: {
       id: 'Lex',
@@ -2430,6 +2734,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Translate: {
       id: 'Translate',
@@ -2439,6 +2744,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Forecast: {
       id: 'Forecast',
@@ -2448,6 +2754,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Textract: {
       id: 'Textract',
@@ -2457,6 +2764,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'SageMaker-Ground-Truth': {
       id: 'SageMaker-Ground-Truth',
@@ -2466,6 +2774,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Apache-MXNet-on-AWS': {
       id: 'Apache-MXNet-on-AWS',
@@ -2475,6 +2784,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Augmented-AI-A2I': {
       id: 'Augmented-AI-A2I',
@@ -2484,6 +2794,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     DeepRacer: {
       id: 'DeepRacer',
@@ -2493,6 +2804,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Comprehend-Medical': {
       id: 'Comprehend-Medical',
@@ -2502,6 +2814,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     SageMaker: {
       id: 'SageMaker',
@@ -2511,6 +2824,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Lookout-for-Vision': {
       id: 'Lookout-for-Vision',
@@ -2520,6 +2834,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'TensorFlow-on-AWS': {
       id: 'TensorFlow-on-AWS',
@@ -2529,6 +2844,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Deep-Learning-Containers': {
       id: 'Deep-Learning-Containers',
@@ -2538,6 +2854,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Lookout-for-Metrics': {
       id: 'Lookout-for-Metrics',
@@ -2547,6 +2864,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     HealthLake: {
       id: 'HealthLake',
@@ -2556,6 +2874,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Deep-Learning-AMIs': {
       id: 'Deep-Learning-AMIs',
@@ -2565,6 +2884,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Fraud-Detector': {
       id: 'Fraud-Detector',
@@ -2574,6 +2894,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Kendra: {
       id: 'Kendra',
@@ -2583,6 +2904,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Omics: {
       id: 'Omics',
@@ -2592,6 +2914,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     TorchServe: {
       id: 'TorchServe',
@@ -2601,6 +2924,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     DeepComposer: {
       id: 'DeepComposer',
@@ -2610,6 +2934,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     DeepLens: {
       id: 'DeepLens',
@@ -2619,6 +2944,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'DevOps-Guru': {
       id: 'DevOps-Guru',
@@ -2628,6 +2954,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Comprehend: {
       id: 'Comprehend',
@@ -2637,6 +2964,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
   },
   'Quantum-Technologies': {
@@ -2648,6 +2976,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
   },
   'Migration-Transfer': {
@@ -2659,6 +2988,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Server-Migration-Service': {
       id: 'Server-Migration-Service',
@@ -2668,6 +2998,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Migration-Evaluator': {
       id: 'Migration-Evaluator',
@@ -2677,6 +3008,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Transfer-Family': {
       id: 'Transfer-Family',
@@ -2686,6 +3018,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Application-Migration-Service': {
       id: 'Application-Migration-Service',
@@ -2695,6 +3028,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Migration-Hub': {
       id: 'Migration-Hub',
@@ -2704,6 +3038,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     DataSync: {
       id: 'DataSync',
@@ -2713,6 +3048,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Mainframe-Modernization': {
       id: 'Mainframe-Modernization',
@@ -2722,6 +3058,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
   },
   'Application-Integration': {
@@ -2733,6 +3070,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     MQ: {
       id: 'MQ',
@@ -2742,6 +3080,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Console-Mobile-Application': {
       id: 'Console-Mobile-Application',
@@ -2751,6 +3090,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Managed-Workflows-for-Apache-Airflow': {
       id: 'Managed-Workflows-for-Apache-Airflow',
@@ -2760,6 +3100,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'API-Gateway': {
       id: 'API-Gateway',
@@ -2769,6 +3110,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     AppSync: {
       id: 'AppSync',
@@ -2778,6 +3120,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Step-Functions': {
       id: 'Step-Functions',
@@ -2787,6 +3130,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Simple-Queue-Service': {
       id: 'Simple-Queue-Service',
@@ -2796,6 +3140,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Simple-Notification-Service': {
       id: 'Simple-Notification-Service',
@@ -2805,6 +3150,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     EventBridge: {
       id: 'EventBridge',
@@ -2814,6 +3160,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Express-Workflows': {
       id: 'Express-Workflows',
@@ -2823,6 +3170,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
   },
   'Front-End-Web-Mobile': {
@@ -2834,6 +3182,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Amplify: {
       id: 'Amplify',
@@ -2843,6 +3192,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Location-Service': {
       id: 'Location-Service',
@@ -2852,6 +3202,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
   },
   'Customer-Enablement': {
@@ -2863,6 +3214,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Managed-Services': {
       id: 'Managed-Services',
@@ -2872,6 +3224,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Support: {
       id: 'Support',
@@ -2881,6 +3234,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     IQ: {
       id: 'IQ',
@@ -2890,6 +3244,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     'Professional-Services': {
       id: 'Professional-Services',
@@ -2899,6 +3254,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     rePost: {
       id: 'rePost',
@@ -2908,6 +3264,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
     Activate: {
       id: 'Activate',
@@ -2917,6 +3274,7 @@ const AWS_SCHEMAS: ISchemaTemplates = {
       cost: {},
       config: {},
       deploy: {},
+      neighbors: [],
     },
   },
 };

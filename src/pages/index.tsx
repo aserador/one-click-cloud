@@ -76,6 +76,7 @@ function ArchitectureOption({
 }
 
 const BuildPage = () => {
+  // TODO: Replace input state with useRef
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [showRecommendations, setShowRecommendations] = useState(false);
