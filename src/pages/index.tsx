@@ -102,7 +102,6 @@ const BuildPage = () => {
         );
       }
     } finally {
-      setShowRecommendations(true);
       setIsLoading(false);
     }
   };
