@@ -59,7 +59,7 @@ export const AWS_TEMPLATES: { [key: string]: ITemplate } = {
         },
       ];
       const graphEdges: Array<IGraphEdge> = [
-        { source: CLOUDFRONT_ID, target: S3_ID },
+        { source: S3_ID, target: CLOUDFRONT_ID },
       ];
       return { graphNodes, graphEdges } as IGraphBuilder;
     },
@@ -97,8 +97,8 @@ export const AWS_TEMPLATES: { [key: string]: ITemplate } = {
         },
       ];
       const graphEdges: Array<IGraphEdge> = [
-        { source: ROUTE53_ID, target: CLOUDFRONT_ID },
-        { source: CLOUDFRONT_ID, target: S3_ID },
+        { source: CLOUDFRONT_ID, target: ROUTE53_ID },
+        { source: S3_ID, target: CLOUDFRONT_ID },
       ];
       return { graphNodes, graphEdges } as IGraphBuilder;
     },

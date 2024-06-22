@@ -64,7 +64,6 @@ export const graphSlice = createSlice({
             _.cloneDeep(state.graphNodes[neighborId])
           ) ?? ({} as IServicePair);
         
-          console.log(result)
         if (result.source) {
           state.graphNodes[sourceId] = result.source;
         }
