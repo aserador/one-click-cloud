@@ -1,4 +1,3 @@
-Killroy was here
 <p align="center">
   <img src="https://github.com/AudricSerador/one-click-cloud/assets/108915409/80129b58-c016-44d8-aeab-1933d6f40c95" alt="Cloud Image" />
 </p>
