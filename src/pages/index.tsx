@@ -94,7 +94,6 @@ const BuildPage = () => {
       });
 
       const data = await response.json();
-      console.log(data);
       if (data.using_react && !data.using_backend) {
         setShowRecommendations(true);
       } else {

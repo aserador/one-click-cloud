@@ -3,6 +3,7 @@ import ReactFlow, {
   Connection,
   ConnectionMode,
   Edge,
+  MarkerType,
   ReactFlowInstance,
   SelectionMode,
   addEdge,
@@ -168,7 +169,13 @@ function Graph({ initialNodes, initialEdges }: IGraphProps) {
           onNodesDelete={onNodesDelete}
           onEdgesDelete={onEdgesDelete}
           nodeTypes={nodeTypes}
-          defaultEdgeOptions={{ type: 'step', animated: true }}
+          defaultEdgeOptions={{
+            type: 'step',
+            animated: true,
+            markerEnd: {
+              type: MarkerType.ArrowClosed,
+            },
+          }}
           connectionMode={ConnectionMode.Loose}
           fitView
           panOnScroll
